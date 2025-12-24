@@ -1,0 +1,51 @@
+# Elsakr - robots.txt
+# https://elsakr.company
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin and private paths
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow important assets
+Allow: /assets/
+Allow: /seo.jpg
+Allow: /Sakr-logo.webp
+Allow: /*.js$
+Allow: /*.css$
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Googlebot specific (no crawl delay needed)
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bingbot specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Sitemap location
+Sitemap: https://elsakr.company/sitemap.xml

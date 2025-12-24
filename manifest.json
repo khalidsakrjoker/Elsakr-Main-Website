@@ -1,0 +1,20 @@
+{
+  "short_name": "ELSAKR",
+  "name": "Elsakr Software Studio",
+  "icons": [
+    {
+      "src": "/Sakr-logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/Sakr-logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#020617",
+  "background_color": "#020617"
+}
