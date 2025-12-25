@@ -392,6 +392,93 @@ export const content = {
   },
   freeToolsDesktop: [
     {
+      id: "sqlite-browser",
+      title: "Elsakr SQLite Browser",
+      description: "A professional desktop tool to explore, query, and manage SQLite databases with a premium dark UI.",
+      longDescription: "Manage your local databases with the elegance and power they deserve. Elsakr SQLite Browser redefines the database management experience with a stunning Premium Dark UI, designed to reduce eye strain during long coding sessions. It offers a lightweight yet robust environment to browse tables, execute complex SQL queries, and inspect database structures without the overhead of heavy IDEs. Whether you are a developer, data analyst, or student, this tool gives you complete control over your SQLite files with features like one-click export to Excel/CSV, safe row deletion, and instant schema viewing. Open source, privacy-focused, and built for performance.",
+      features: [
+        "Premium Dark Theme UI",
+        "Browse & Edit Data (1000 row pagination)",
+        "Execute Custom SQL Queries",
+        "Safe Row Deletion (ROWID Based)",
+        "View Table Structure & Schema",
+        "Export to CSV & Excel",
+        "Create & Open Database Files"
+      ],
+      useCases: [
+        "Debugging mobile app databases",
+        "Analyzing local datasets",
+        "Quick SQL query testing",
+        "Converting SQLite data to Excel"
+      ],
+      howToUse: [
+        "Open an existing .db file or create a new one",
+        "Select a table from the sidebar to browse data",
+        "Use the 'Execute SQL' tab to run custom queries",
+        "Export your results to CSV or Excel instantly"
+      ],
+      benefits: [
+        "Lightweight & Fast",
+        "No Setup Required (Portable)",
+        "Visual Complexity Reduction",
+        "100% Free & Open Source"
+      ],
+      keywords: ["sqlite browser", "sqlite editor", "database manager", "sql viewer", "dark mode sqlite"],
+      category: "development",
+      version: "1.0.0",
+      releaseDate: "2024-12-25",
+      image: "/assets/Free_Tools/Elsakr_SQLite_Browser/Elsakr_SQLite_Browser.webp",
+      links: {
+        exe: "https://github.com/khalidsakrjoker/Elsakr-SQLite-Browser/releases/download/v1.0.0/Elsakr_SQLite_Browser_EXE.zip",
+        source: "https://github.com/khalidsakrjoker/Elsakr-SQLite-Browser/releases/download/v1.0.0/Elsakr_SQLite_Browser_Source.zip",
+        github: "https://github.com/khalidsakrjoker/Elsakr-SQLite-Browser"
+      },
+      tags: ["Python", "SQLite", "Database"]
+    },
+    {
+      id: "csv-splitter",
+      title: "Elsakr CSV Splitter & Merger",
+      description: "Split large CSVs into smaller files or merge multiple CSVs into one. Premium dark UI with progress tracking.",
+      longDescription: "Working with massive CSV files or scattered datasets? Elsakr CSV Splitter & Merger is your data manipulation companion. Split a 100,000-row CSV into manageable chunks of 1,000 rows each, or combine dozens of CSVs into a single unified file. The tool features a premium dark UI, real-time progress tracking, and instant output summaries. Built for developers, data analysts, and anyone dealing with CSV data. 100% offline—your data never leaves your machine.",
+      features: [
+        "Split CSV by Row Count",
+        "Merge Multiple CSVs",
+        "Real-time Progress Bar",
+        "Output Summary Display",
+        "Premium Dark Theme",
+        "100% Offline Processing"
+      ],
+      useCases: [
+        "Breaking large datasets for processing",
+        "Combining monthly reports",
+        "Preparing data for uploads",
+        "Splitting exports for email"
+      ],
+      howToUse: [
+        "Select Split or Merge tab",
+        "Choose input file(s)",
+        "Set rows per file (Split) or output path (Merge)",
+        "Click action button and monitor progress"
+      ],
+      benefits: [
+        "Fast Processing",
+        "No Row Limits",
+        "Preserves Headers",
+        "Zero Data Upload"
+      ],
+      keywords: ["csv splitter", "csv merger", "split csv", "combine csv", "data tools"],
+      category: "data",
+      version: "1.0.0",
+      releaseDate: "2024-12-25",
+      image: "/assets/Free_Tools/Elsakr_CSV_Splitter/Elsakr_CSV_Splitter.webp",
+      links: {
+        exe: "https://github.com/khalidsakrjoker/Elsakr-CSV-Splitter/releases/download/v1.0.0/Elsakr_CSV_Splitter_EXE.zip",
+        source: "https://github.com/khalidsakrjoker/Elsakr-CSV-Splitter/releases/download/v1.0.0/Elsakr_CSV_Splitter_Source.zip",
+        github: "https://github.com/khalidsakrjoker/Elsakr-CSV-Splitter"
+      },
+      tags: ["Python", "CSV", "Data Tools"]
+    },
+    {
       id: "qr-code-generator-desktop",
       title: "Elsakr QR Code Generator",
       description: "Generate high-quality QR codes offline. Custom colors, logos, and batch processing.",

@@ -392,6 +392,93 @@ export const content = {
   },
   freeToolsDesktop: [
     {
+      id: "sqlite-browser",
+      title: "Elsakr SQLite Browser",
+      description: "أداة ديسك توب احترافية لاستعراض، استعلام، وإدارة قواعد بيانات SQLite بواجهة داكنة فاخرة.",
+      longDescription: "تحكم في قواعد بياناتك المحلية بالأناقة والقوة اللي يستحقوها. Elsakr SQLite Browser بيعيد تعريف تجربة إدارة قواعد البيانات بواجهة Premium Dark UI مذهلة، مصممة لتقليل إجهاد العين أثناء جلسات البرمجة الطويلة. الأداة بتقدم بيئة خفيفة وقوية لاستعراض الجداول، تنفيذ استعلامات SQL معقدة، وفحص هيكل قاعدة البيانات من غير تعقيد الـ IDEs التقيلة. سواء كنت مبرمج، محلل بيانات، أو طالب، الأداة دي بتديك تحكم كامل في ملفات SQLite بمميزات زي التصدير لـ Excel/CSV بضغطة واحدة، حذف الصفوف بأمان، وعرض فوري للـ Schema. مفتوحة المصدر، بتحترم الخصوصية، ومبنية للأداء العالي.",
+      features: [
+        "واجهة داكنة احترافية (Premium UI)",
+        "تصفح وتعديل البيانات (1000 صف)",
+        "تنفيذ استعلامات SQL مخصصة",
+        "حذف صفوف آمن (بواسطة ROWID)",
+        "عرض هيكل الجدول والـ Schema",
+        "تصدير لملفات CSV و Excel",
+        "إنشاء وفتح ملفات قواعد البيانات"
+      ],
+      useCases: [
+        "Debug قواعد بيانات تطبيقات الموبايل",
+        "تحليل البيانات المحلية",
+        "تجارب استعلامات SQL السريعة",
+        "تحويل بيانات SQLite لـ Excel"
+      ],
+      howToUse: [
+        "افتح ملف .db موجود أو أنشئ جديد",
+        "اختر جدول من القائمة الجانبية للتصفح",
+        "استخدم تاب 'Execute SQL' للاستعلامات",
+        "صدر النتائج لـ CSV أو Excel فوراً"
+      ],
+      benefits: [
+        "خفيف وسريع جداً",
+        "مش محتاج تسطيب (Portable)",
+        "بيقلل التعقيد البصري",
+        "100% مجاني ومفتوح المصدر"
+      ],
+      keywords: ["تصفح sqlite", "محرر sql", "إدارة قواعد البيانات", "عرض sql", "sqlite دارك مود"],
+      category: "development",
+      version: "1.0.0",
+      releaseDate: "2024-12-25",
+      image: "/assets/Free_Tools/Elsakr_SQLite_Browser/Elsakr_SQLite_Browser.webp",
+      links: {
+        exe: "https://github.com/khalidsakrjoker/Elsakr-SQLite-Browser/releases/download/v1.0.0/Elsakr_SQLite_Browser_EXE.zip",
+        source: "https://github.com/khalidsakrjoker/Elsakr-SQLite-Browser/releases/download/v1.0.0/Elsakr_SQLite_Browser_Source.zip",
+        github: "https://github.com/khalidsakrjoker/Elsakr-SQLite-Browser"
+      },
+      tags: ["Python", "SQLite", "Database"]
+    },
+    {
+      id: "csv-splitter",
+      title: "Elsakr CSV Splitter & Merger",
+      description: "قَسِّم ملفات CSV الكبيرة أو ادمج عدة ملفات في واحد. واجهة داكنة احترافية مع شريط تقدم.",
+      longDescription: "بتتعامل مع ملفات CSV ضخمة أو بيانات متفرقة؟ أداة تقسيم ودمج CSV من الصقر هي رفيقك في معالجة البيانات. قَسِّم ملف 100,000 صف لأجزاء 1,000 صف، أو ادمج عشرات الملفات في ملف واحد موحد. الأداة بتقدم واجهة داكنة احترافية، شريط تقدم لحظي، وملخص فوري للملفات الناتجة. مبنية للمطورين، محللي البيانات، وأي حد بيتعامل مع CSV. 100% أوفلاين — بياناتك متسيبش جهازك أبداً.",
+      features: [
+        "تقسيم CSV بعدد الصفوف",
+        "دمج ملفات CSV متعددة",
+        "شريط تقدم لحظي",
+        "عرض ملخص الملفات الناتجة",
+        "واجهة داكنة احترافية",
+        "معالجة أوفلاين 100%"
+      ],
+      useCases: [
+        "تقسيم بيانات ضخمة للمعالجة",
+        "دمج تقارير شهرية",
+        "تحضير بيانات للرفع",
+        "تقسيم ملفات للإيميل"
+      ],
+      howToUse: [
+        "اختر تاب Split أو Merge",
+        "اختر الملف/الملفات",
+        "حدد عدد الصفوف أو مسار الحفظ",
+        "اضغط الزر وتابع التقدم"
+      ],
+      benefits: [
+        "معالجة سريعة",
+        "بدون حد للصفوف",
+        "بيحافظ على الـ Headers",
+        "صفر رفع بيانات"
+      ],
+      keywords: ["تقسيم csv", "دمج csv", "أدوات بيانات", "split csv"],
+      category: "data",
+      version: "1.0.0",
+      releaseDate: "2024-12-25",
+      image: "/assets/Free_Tools/Elsakr_CSV_Splitter/Elsakr_CSV_Splitter.webp",
+      links: {
+        exe: "https://github.com/khalidsakrjoker/Elsakr-CSV-Splitter/releases/download/v1.0.0/Elsakr_CSV_Splitter_EXE.zip",
+        source: "https://github.com/khalidsakrjoker/Elsakr-CSV-Splitter/releases/download/v1.0.0/Elsakr_CSV_Splitter_Source.zip",
+        github: "https://github.com/khalidsakrjoker/Elsakr-CSV-Splitter"
+      },
+      tags: ["Python", "CSV", "Data Tools"]
+    },
+    {
       id: "qr-code-generator-desktop",
       title: "Elsakr QR Code Generator",
       description: "أنشئ رموز QR عالية الجودة أوفلاين. صمم ألوانك، ضيف لوجو، وولّد كميات كبيرة بضغطة واحدة.",
