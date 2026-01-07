@@ -481,10 +481,12 @@ export const content = {
     {
       id: "qr-code-generator-desktop",
       title: "Elsakr QR Code Generator",
-      description: "Generate high-quality QR codes offline. Custom colors, logos, and batch processing.",
-      longDescription: "The definitive desktop QR code solution. Generate codes for URLs, WiFi, Email, and SMS with total privacy. Features bulk processing from CSV/TXT, custom branding with logo overlays, and dark mode UI. Works 100% offline.",
+      description: "Generate high-quality QR codes offline. Custom colors, logos, frame mode, and batch processing.",
+      longDescription: "The definitive desktop QR code solution. Generate codes for URLs, WiFi, Email, and SMS with total privacy. Features bulk processing from CSV/TXT, custom branding with logo overlays, and the new Frame Mode with logo on top, QR in middle, and customizable text at bottom. Customize logo background, text color, and text background. Works 100% offline with dark mode UI.",
       features: [
         "5 QR Types (URL, WiFi, ...)",
+        "Frame Mode: Logo on Top + Custom Text",
+        "Frame Color Options (Logo BG, Text, Text BG)",
         "Batch Processing (CSV/TXT)",
         "Custom Colors & Logos",
         "Offline Privacy",
@@ -500,7 +502,7 @@ export const content = {
       howToUse: [
         "Select QR Type",
         "Enter Data",
-        "Customize Colors & Logo",
+        "Enable Frame & Customize Colors",
         "Generate & Save"
       ],
       benefits: [
@@ -509,14 +511,14 @@ export const content = {
         "High Resolution Output",
         "Privacy First"
       ],
-      keywords: ["qr generator", "offline qr", "desktop qr tool", "batch qr code"],
+      keywords: ["qr generator", "offline qr", "desktop qr tool", "batch qr code", "qr frame"],
       category: "productivity",
-      version: "1.0.0",
-      releaseDate: "2024-12-24",
+      version: "1.1.0",
+      releaseDate: "2025-01-07",
       image: "/assets/Free_Tools/Elsakr_QR_Code_Generator/Elsakr_QR_Code_Generator.webp",
       links: {
-        exe: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Desktop/releases/download/v1.0.0/Elsakr_QR_Code_Generator_EXE.zip",
-        source: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Desktop/releases/download/v1.0.0/Elsakr_QR_Code_Generator_Source.zip",
+        exe: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Desktop/releases/download/v1.1.0/Elsakr_QR_Code_Generator_EXE_V1.1.0.zip",
+        source: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Desktop/releases/download/v1.1.0/Elsakr_QR_Code_Generator_Source_V1.1.0.zip",
         github: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Desktop"
       },
       tags: ["Python", "Tkinter", "Offline"]
@@ -927,11 +929,13 @@ export const content = {
     {
       id: "qr-code-generator-web",
       title: "QR Code Generator",
-      description: "Create custom QR codes instantly in your browser. No uploads, no tracking. 5 types supported.",
-      longDescription: "Generate stunning QR codes directly in your browser without ever sending data to a server. This privacy-first tool supports URL, Text, WiFi, Email, and SMS formats. Customize foreground and background colors, embed your brand logo, and download as high-quality PNG or SVG files. It's the secure, fast, and free way to create professional QR codes on the fly.",
+      description: "Create custom QR codes instantly in your browser. Frame mode with logo on top, customizable text, and color options. No uploads, no tracking.",
+      longDescription: "Generate stunning QR codes directly in your browser without ever sending data to a server. This privacy-first tool supports URL, Text, WiFi, Email, and SMS formats. Features the new Frame Mode: place your logo ABOVE the QR code, add custom text (like 'SCAN ME') at the bottom, and customize colors for logo background, text, and text background. Download as high-quality PNG or SVG files. It's the secure, fast, and free way to create professional QR codes on the fly.",
       features: [
         "Client-side Generation (Zero Data Upload)",
         "5 QR Types: URL, Text, WiFi, Email, SMS",
+        "Frame Mode: Logo on Top + Custom Text",
+        "Frame Color Options (Logo BG, Text, Text BG)",
         "Custom Foreground & Background Colors",
         "Logo Integration Support",
         "SVG & PNG Export",
@@ -946,7 +950,7 @@ export const content = {
       howToUse: [
         "Choose QR Type from tabs",
         "Input Content (URL, Text, etc.)",
-        "Customize Colors & Add Logo",
+        "Enable Frame & Customize Colors",
         "Download as PNG or SVG"
       ],
       benefits: [
@@ -955,14 +959,14 @@ export const content = {
         "Free Forever",
         "Works Offline"
       ],
-      keywords: ["web qr generator", "online qr code", "free qr tool", "privacy qr", "no data collection"],
+      keywords: ["web qr generator", "online qr code", "free qr tool", "privacy qr", "no data collection", "qr frame"],
       category: "productivity",
-      version: "1.0.0",
-      releaseDate: "2024-12-24",
+      version: "1.1.0",
+      releaseDate: "2025-01-07",
       image: "/assets/Free_Tools/Elsakr_QR_Code_Generator/Elsakr_QR_Code_Generator_Web.webp",
       links: {
         live: "https://khalidsakrjoker.github.io/Elsakr-QR-Code-Generator-Web/",
-        source: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Web/releases/download/v1.0.0/Elsakr_QR_Code_Generator_Web.zip",
+        source: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Web/releases/download/v1.1.0/Elsakr_QR_Code_Generator_Web_V1.1.0.zip",
         github: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Web"
       },
       tags: ["JavaScript", "Canvas", "Privacy"]

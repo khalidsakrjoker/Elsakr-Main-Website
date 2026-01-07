@@ -481,10 +481,12 @@ export const content = {
     {
       id: "qr-code-generator-desktop",
       title: "Elsakr QR Code Generator",
-      description: "أنشئ رموز QR عالية الجودة أوفلاين. صمم ألوانك، ضيف لوجو، وولّد كميات كبيرة بضغطة واحدة.",
-      longDescription: "الحل النهائي لرموز QR على الديسك توب. أنشئ أكواد للروابط، الواي فاي، الإيميل، والرسائل القصيرة بخصوصية تامة. بيتميز بالمعالجة الجماعية من ملفات CSV/TXT، وتخصيص العلامة التجارية بإضافة اللوجو، وواجهة داكنة مريحة للعين. بيشتغل 100% أوفلاين من غير إنترنت.",
+      description: "أنشئ رموز QR عالية الجودة أوفلاين. فريم مع اللوجو فوق، نص مخصص، وألوان متعددة.",
+      longDescription: "الحل النهائي لرموز QR على الديسك توب. أنشئ أكواد للروابط، الواي فاي، الإيميل، والرسائل القصيرة بخصوصية تامة. الميزة الجديدة: وضع الفريم مع اللوجو فوق، والكيو آر في النص، ونص مخصص تحت (زي 'SCAN ME'). كمان تقدر تخصص لون خلفية اللوجو، ولون النص، ولون خلفية النص. بيشتغل 100% أوفلاين مع واجهة دارك مود.",
       features: [
         "5 أنواع QR (رابط، واي فاي، ...)",
+        "وضع الفريم: اللوجو فوق + نص مخصص",
+        "ألوان الفريم (خلفية اللوجو، النص، خلفية النص)",
         "معالجة جماعية (CSV/TXT)",
         "ألوان ولوجو مخصص",
         "خصوصية تامة (أوفلاين)",
@@ -500,7 +502,7 @@ export const content = {
       howToUse: [
         "اختر نوع الـ QR",
         "دخل البيانات",
-        "خصص الألوان واللوجو",
+        "فعّل الفريم وخصص الألوان",
         "اضغط توليد واحفظ"
       ],
       benefits: [
@@ -509,14 +511,14 @@ export const content = {
         "جودة طباعة عالية",
         "خصوصية بياناتك"
       ],
-      keywords: ["توليد qr", "qr أوفلاين", "برنامج qr ديسك توب", "qr codes بالجملة"],
+      keywords: ["توليد qr", "qr أوفلاين", "برنامج qr ديسك توب", "qr codes بالجملة", "qr فريم"],
       category: "productivity",
-      version: "1.0.0",
-      releaseDate: "2024-12-24",
+      version: "1.1.0",
+      releaseDate: "2025-01-07",
       image: "/assets/Free_Tools/Elsakr_QR_Code_Generator/Elsakr_QR_Code_Generator.webp",
       links: {
-        exe: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Desktop/releases/download/v1.0.0/Elsakr_QR_Code_Generator_EXE.zip",
-        source: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Desktop/releases/download/v1.0.0/Elsakr_QR_Code_Generator_Source.zip",
+        exe: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Desktop/releases/download/v1.1.0/Elsakr_QR_Code_Generator_EXE_V1.1.0.zip",
+        source: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Desktop/releases/download/v1.1.0/Elsakr_QR_Code_Generator_Source_V1.1.0.zip",
         github: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Desktop"
       },
       tags: ["Python", "Tkinter", "Offline"]
@@ -927,13 +929,15 @@ export const content = {
     {
       id: "qr-code-generator-web",
       title: "QR Code Generator (Web)",
-      description: "أنشئ رموز QR مخصصة فوراً من المتصفح. بدون رفع ملفات، بدون تتبع. يدعم 5 أنواع.",
-      longDescription: "ولّد رموز QR رائعة مباشرة من متصفحك من غير ما ترفع أي بيانات للسيرفر. الأداة دي بتحافظ على خصوصيتك وبتدعم الروابط، النصوص، الواي فاي، الإيميل، وكمان الرسائل. خصص ألوان الـ QR وضيف اللوجو بتاعك ونزل النتيجة بجودة عالية جدًا (SVG و PNG). أسرع وأأمن طريقة لعمل QR Code احترافي ومجاني.",
+      description: "أنشئ رموز QR مخصصة فوراً من المتصفح. فريم مع اللوجو فوق، نص مخصص، وألوان متعددة. بدون رفع ملفات.",
+      longDescription: "ولّد رموز QR رائعة مباشرة من متصفحك من غير ما ترفع أي بيانات للسيرفر. الميزة الجديدة: وضع الفريم اللي بيحط اللوجو فوق الكيو آر، ونص مخصص تحت (زي 'SCAN ME')، مع خيارات تخصيص ألوان خلفية اللوجو ولون النص وخلفية النص. نزل النتيجة بجودة عالية جدًا (SVG و PNG). أسرع وأأمن طريقة لعمل QR Code احترافي ومجاني.",
       features: [
         "توليد فوري على المتصفح (بدون رفع داتا)",
         "5 أنواع: رابط، نص، واي فاي، إيميل، رسائل",
+        "وضع الفريم: اللوجو فوق + نص مخصص",
+        "ألوان الفريم (خلفية اللوجو، النص، خلفية النص)",
         "تخصيص ألوان الخلفية والمقدمة",
-        "إدراج اللوجو في المنتصف",
+        "إدراج اللوجو",
         "تصدير بصيغتي PNG و SVG",
         "بدون تتبع أو كوكيز"
       ],
@@ -946,7 +950,7 @@ export const content = {
       howToUse: [
         "اختر نوع الـ QR من التبويبات",
         "أدخل المحتوى (رابط، نص، إلخ)",
-        "خصص الألوان وأضف اللوجو",
+        "فعّل الفريم وخصص الألوان",
         "حمّل الـ QR بصيغة PNG أو SVG"
       ],
       benefits: [
@@ -955,14 +959,14 @@ export const content = {
         "مجاني مدى الحياة",
         "يعمل أوفلاين"
       ],
-      keywords: ["توليد qr أونلاين", "qr code مجاني", "عمل باركود", "qr واي فاي", "qr بدون تتبع"],
+      keywords: ["توليد qr أونلاين", "qr code مجاني", "عمل باركود", "qr واي فاي", "qr بدون تتبع", "qr فريم"],
       category: "productivity",
-      version: "1.0.0",
-      releaseDate: "2024-12-24",
+      version: "1.1.0",
+      releaseDate: "2025-01-07",
       image: "/assets/Free_Tools/Elsakr_QR_Code_Generator/Elsakr_QR_Code_Generator_Web.webp",
       links: {
         live: "https://khalidsakrjoker.github.io/Elsakr-QR-Code-Generator-Web/",
-        source: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Web/releases/download/v1.0.0/Elsakr_QR_Code_Generator_Web.zip",
+        source: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Web/releases/download/v1.1.0/Elsakr_QR_Code_Generator_Web_V1.1.0.zip",
         github: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Web"
       },
       tags: ["JavaScript", "Canvas", "Privacy"]
