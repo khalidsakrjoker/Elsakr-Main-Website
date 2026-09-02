@@ -108,6 +108,12 @@ npm run typecheck
 From a fresh clone, the following should all succeed:
 
 ```bash
+npm ci && npm run verify
+```
+
+Or step by step:
+
+```bash
 npm ci && npm run lint && npm run typecheck && npm test && npm run build
 ```
 

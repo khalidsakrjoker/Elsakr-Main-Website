@@ -76,4 +76,7 @@ coverage/
 .env.*
 !.env.example
 
+# Local scratch
+*.bak
+joker_ultimate.ico
 
