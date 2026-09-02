@@ -3,7 +3,8 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { useContent } from '../lib/useContent';
 import { Layout } from '../components/ui/Layout';
 import { SEO } from '../components/seo/SEO';
-import { Search, Filter, Download, ExternalLink, Github, ArrowLeft, ArrowRight, X } from 'lucide-react';
+import { Search, Filter, ArrowLeft, ArrowRight, X } from 'lucide-react';
+import { combineTools, extractTags, filterTools } from '../lib/toolsFilter';
 
 export default function ToolsBrowse() {
   const { content, language } = useContent();
@@ -22,42 +23,14 @@ export default function ToolsBrowse() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
-  // Combine tools with category marker
-  const allTools = useMemo(() => {
-    const desktop = desktopTools.map((t: any) => ({ ...t, category: 'desktop' }));
-    const web = webTools.map((t: any) => ({ ...t, category: 'web' }));
-    return [...desktop, ...web];
-  }, [desktopTools, webTools]);
+  const allTools = useMemo(() => combineTools(desktopTools, webTools), [desktopTools, webTools]);
 
-  // Get all unique tags
-  const allTags = useMemo(() => {
-    const tags = new Set<string>();
-    allTools.forEach((tool: any) => {
-      tool.tags?.forEach((tag: string) => tags.add(tag));
-    });
-    return Array.from(tags).sort();
-  }, [allTools]);
+  const allTags = useMemo(() => extractTags(allTools), [allTools]);
 
-  // Filter tools
-  const filteredTools = useMemo(() => {
-    return allTools.filter((tool: any) => {
-      // Category filter
-      if (category !== 'all' && tool.category !== category) return false;
-      
-      // Search filter
-      if (searchQuery) {
-        const query = searchQuery.toLowerCase();
-        const matchTitle = tool.title.toLowerCase().includes(query);
-        const matchDesc = tool.description.toLowerCase().includes(query);
-        if (!matchTitle && !matchDesc) return false;
-      }
-      
-      // Tag filter
-      if (selectedTag && !tool.tags?.includes(selectedTag)) return false;
-      
-      return true;
-    });
-  }, [allTools, category, searchQuery, selectedTag]);
+  const filteredTools = useMemo(
+    () => filterTools(allTools, { category, searchQuery, selectedTag }),
+    [allTools, category, searchQuery, selectedTag]
+  );
 
   return (
     <Layout>
@@ -158,7 +131,7 @@ export default function ToolsBrowse() {
 
           {/* Tools Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredTools.map((tool: any) => (
+            {filteredTools.map((tool) => (
               <Link
                 key={tool.id}
                 to={`/tools/${tool.id}`}
@@ -184,7 +157,7 @@ export default function ToolsBrowse() {
                   
                   {/* Tags */}
                   <div className="absolute bottom-3 left-3 flex gap-2">
-                    {tool.tags?.slice(0, 2).map((tag: string) => (
+                    {tool.tags?.slice(0, 2).map((tag) => (
                       <span key={tag} className="px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-[10px] uppercase rounded-full">
                         {tag}
                       </span>

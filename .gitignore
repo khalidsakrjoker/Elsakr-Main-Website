@@ -1,29 +1,79 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+﻿# -------------------------------------------------------------------------
+# UNIVERSAL GITIGNORE - Optimized for Sakr (Code, DB, Assets)
+# Covers: Flutter, Android, iOS, web, Python, PHP, Node, etc.
+# -------------------------------------------------------------------------
 
-node_modules
-dist
-dist-ssr
-*.local
+# --- EXCLUSIONS (Dependencies & Junk) ---
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Global / OS
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db
+desktop.ini
+.BIN/
+*.tmp
+*.temp
+*.swp
+*.swo
 
-# Compressed files
-*.rar
-*.zip
-*.7z
+# IDEs
+.vscode/
+.idea/
+*.iws
+*.iml
+*.ipr
+.project
+.classpath
+.settings/
+.factorypath
+.nbproject/
+.buildpath
+
+# Dependencies
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.venv/
+.flutter-plugins
+.flutter-plugins-dependencies
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+
+# Mobile (Android/iOS)
+build/
+bin/
+obj/
+*.apk
+*.aab
+*.ipa
+*.app
+.gradle/
+local.properties
+gen/
+Generated\ Files/
+Captures/
+*.out
+*.exe
+*.dll
+*.so
+
+# Web
+dist/
+.cache/
+.next/
+.nuxt/
+.sass-cache/
+connect.lock
+coverage/
+
+# Environment / Secrets
+.env
+.env.*
+!.env.example
+
+

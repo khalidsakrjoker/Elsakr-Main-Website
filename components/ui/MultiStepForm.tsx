@@ -30,6 +30,9 @@ export const MultiStepForm: React.FC = () => {
   const WHATSAPP_NUMBER = "201016495229"; 
 
   const handleNext = () => {
+    if (step === 0 && (!formData.name.trim() || !formData.email.trim())) {
+      return;
+    }
     if (step < steps.length - 1) setStep(step + 1);
   };
 
