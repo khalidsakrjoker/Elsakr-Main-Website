@@ -65,6 +65,45 @@ npm run dev
 npm run build
 ```
 
+### Environment Variables
+
+Copy `.env.example` to `.env` and fill in any values you need:
+
+```bash
+cp .env.example .env
+```
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `GEMINI_API_KEY` | No | Optional API key injected at build time via `vite.config.ts` for GEMINI integrations |
+
+### Testing
+
+```bash
+# Run the test suite once
+npm test
+
+# Watch mode during development
+npm run test:watch
+```
+
+### Linting & Formatting
+
+```bash
+# Check code style and quality
+npm run lint
+
+# Auto-format with Prettier
+npm run format
+```
+
+### Typecheck
+
+```bash
+# Verify TypeScript types without emitting files
+npx tsc --noEmit
+```
+
 ## 📂 Project Structure
 
 ```
