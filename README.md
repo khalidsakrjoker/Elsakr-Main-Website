@@ -100,8 +100,15 @@ npm run format
 ### Typecheck
 
 ```bash
-# Verify TypeScript types without emitting files
-npx tsc --noEmit
+npm run typecheck
+```
+
+### Verify (full pipeline)
+
+From a fresh clone, the following should all succeed:
+
+```bash
+npm ci && npm run lint && npm run typecheck && npm test && npm run build
 ```
 
 ## 📂 Project Structure
