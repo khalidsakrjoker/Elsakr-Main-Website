@@ -3,7 +3,6 @@ import React from 'react';
 import { Layout } from '../components/ui/Layout';
 import { GlassCard } from '../components/ui/GlassCard';
 import { Timeline } from '../components/ui/Timeline';
-import { Team } from '../components/ui/Team';
 import { useContent } from '../lib/useContent';
 import { Button } from '../components/ui/Button';
 import { Link } from 'react-router-dom';

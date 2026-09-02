@@ -1,5 +1,5 @@
 
-import { Code, Cpu, Globe, Rocket, Shield, Zap, CheckCircle, Smartphone, Server, Database, Layers, Eye, Lock, Users, Briefcase, Clock, Award, PenTool, BarChart, Cloud, Target, Search, Wifi, Layout, Box, Fingerprint, BarChart3, Terminal, Facebook } from 'lucide-react';
+import { Code, Cpu, Globe, Shield, Zap, CheckCircle, Smartphone, Server, Database, Layers, Eye, Users, Briefcase, Clock, Award, PenTool, BarChart, Cloud, Target, Search, Wifi, Layout, Box, Fingerprint, BarChart3, Facebook } from 'lucide-react';
 
 export const content = {
   brand: {

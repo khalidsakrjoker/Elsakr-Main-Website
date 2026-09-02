@@ -3,26 +3,16 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { useContent } from '../lib/useContent';
 import { Layout } from '../components/ui/Layout';
 import { SEO } from '../components/seo/SEO';
-import { Download, ExternalLink, Github, ArrowLeft, ArrowRight, Tag, Monitor, Globe, CheckCircle, Lightbulb, BookOpen, Sparkles, Heart, Code2 } from 'lucide-react';
+import { Download, ExternalLink, Github, Tag, Monitor, Globe, CheckCircle, Lightbulb, BookOpen, Sparkles, Heart, Code2 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { combineTools } from '../lib/toolsFilter';
 
 export default function ToolDetail() {
   const { id } = useParams<{ id: string }>();
   const { content, language } = useContent();
-  const ArrowIcon = language === 'ar' ? ArrowLeft : ArrowRight;
-  
-  // @ts-ignore
-  const desktopTools = content.freeToolsDesktop || [];
-  // @ts-ignore
-  const webTools = content.freeToolsWeb || [];
-  
-  // Find tool in both arrays
-  const allTools = [
-    ...desktopTools.map((t: any) => ({ ...t, category: 'desktop' })),
-    ...webTools.map((t: any) => ({ ...t, category: 'web' }))
-  ];
-  
-  const tool = allTools.find((t: any) => t.id === id);
+
+  const allTools = combineTools(content.freeToolsDesktop ?? [], content.freeToolsWeb ?? []);
+  const tool = allTools.find((t) => t.id === id);
   
   // Redirect if not found
   if (!tool) {
@@ -31,7 +21,7 @@ export default function ToolDetail() {
 
   // Related tools (same category, different tool)
   const relatedTools = allTools
-    .filter((t: any) => t.category === tool.category && t.id !== tool.id)
+    .filter((t) => t.category === tool.category && t.id !== tool.id)
     .slice(0, 3);
 
   // Schema.org SoftwareApplication JSON-LD
@@ -352,7 +342,7 @@ export default function ToolDetail() {
                 {language === 'ar' ? 'أدوات مشابهة قد تعجبك' : 'Related Tools You Might Like'}
               </h2>
               <div className="grid md:grid-cols-3 gap-6">
-                {relatedTools.map((relTool: any) => (
+                {relatedTools.map((relTool) => (
                   <Link
                     key={relTool.id}
                     to={`/tools/${relTool.id}`}

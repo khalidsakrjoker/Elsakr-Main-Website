@@ -2,8 +2,9 @@ import React from "react";
 import { useLightMarquee } from "../../lib/useLightMarquee";
 import { useContent } from "../../lib/useContent";
 import { ExternalLink } from "lucide-react";
+import type { Project } from "../../lib/types";
 
-const PlatformCard = ({ project }: { project: any }) => {
+const PlatformCard = ({ project }: { project: Project }) => {
   return (
     <a 
       href={project.link} 
@@ -44,8 +45,7 @@ const PlatformCard = ({ project }: { project: any }) => {
 
 export const PlatformsMarquee: React.FC = () => {
   const { content, language } = useContent();
-  // @ts-ignore
-  const projects = content.projects || [];
+  const projects = content.projects ?? [];
   
   const { containerRef, trackRef, isDragging } = useLightMarquee({
     speed: 35,
@@ -79,7 +79,7 @@ export const PlatformsMarquee: React.FC = () => {
           {/* 4 copies for seamless loop */}
           {[...Array(4)].map((_, i) => (
             <div key={i} className="flex gap-6 flex-shrink-0">
-              {projects.map((project: any) => (
+              {projects.map((project) => (
                 <PlatformCard key={`${i}-${project.id}`} project={project} />
               ))}
             </div>

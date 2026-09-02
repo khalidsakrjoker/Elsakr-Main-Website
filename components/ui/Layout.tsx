@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
-import { Menu, X, Hexagon, ChevronDown, ChevronRight, Globe, Shield, Smartphone, Cloud, PenTool, Cpu, Wrench, Monitor } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight, Globe, Monitor } from 'lucide-react';
 import { useContent } from '../../lib/useContent';
 import { Button } from './Button';
 import { ThemeToggle } from './ThemeToggle';
@@ -18,9 +18,10 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   
   const location = useLocation();
   const { content, language } = useContent();
-  const isRTL = language === 'ar';
 
+  // Reset navigation UI when route changes
   React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional menu reset on navigation
     setIsMenuOpen(false);
     setIsMobileServicesOpen(false);
     setIsMobileToolsOpen(false);

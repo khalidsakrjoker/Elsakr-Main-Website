@@ -10,20 +10,17 @@ import { TechTicker } from '../components/ui/TechTicker';
 import { CyberGrid } from '../components/ui/CyberGrid';
 import { VelocityText } from '../components/ui/VelocityText';
 import { FreeTools } from '../components/ui/FreeTools';
-import { ProjectDeck } from '../components/ui/ProjectDeck';
 import { Testimonials } from '../components/ui/Testimonials';
 import { Accordion } from '../components/ui/Accordion';
 import { PartnersMarquee } from '../components/ui/PartnersMarquee';
 import { PlatformsMarquee } from '../components/ui/PlatformsMarquee';
 import { Link } from 'react-router-dom';
+import type { LucideIcon } from 'lucide-react';
 
 import { SEO } from '../components/seo/SEO';
 
-import { useTheme } from '../lib/ThemeContext';
-
 export default function Home() {
   const { content, language } = useContent();
-  const { theme } = useTheme();
   const ArrowIcon = language === 'ar' ? ArrowLeft : ArrowRight;
 
   return (
@@ -150,7 +147,7 @@ export default function Home() {
               {language === 'ar' ? "نماذج التعاون" : "Engagement Models"}
             </h3>
             <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto">
-              {content.services.models.map((model: any, i: number) => (
+              {content.services.models.map((model: { icon: LucideIcon; title: string; price: string }, i: number) => (
                 <div key={i} className="text-center p-4 bg-white dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10">
                   <model.icon className="w-6 h-6 mx-auto mb-2 text-slate-700 dark:text-slate-300" />
                   <h4 className="font-bold text-slate-900 dark:text-white text-sm">{model.title}</h4>
@@ -201,7 +198,7 @@ export default function Home() {
               {language === 'ar' ? "طريقة الشغل" : "How We Work"}
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-              {content.process.steps.map((step: any, idx: number) => (
+              {content.process.steps.map((step: { title: string; desc: string }, idx: number) => (
                 <div key={idx} className="text-center p-4 bg-white dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/10">
                   <div className="w-8 h-8 mx-auto mb-2 rounded-full bg-slate-900 dark:bg-white text-white dark:text-black flex items-center justify-center text-sm font-bold">
                     {idx + 1}

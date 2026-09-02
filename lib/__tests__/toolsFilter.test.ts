@@ -7,12 +7,14 @@ const mockDesktopTools: Tool[] = [
     title: 'Elsakr SQLite Browser',
     description: 'A professional desktop tool to explore SQLite databases.',
     tags: ['Python', 'SQLite', 'Database'],
+    links: { github: 'https://github.com/example/sqlite' },
   },
   {
     id: 'csv-splitter',
     title: 'Elsakr CSV Splitter',
     description: 'Split large CSVs into smaller files.',
     tags: ['Python', 'CSV'],
+    links: { github: 'https://github.com/example/csv' },
   },
 ];
 
@@ -22,6 +24,7 @@ const mockWebTools: Tool[] = [
     title: 'QR Code Generator',
     description: 'Create custom QR codes in your browser.',
     tags: ['JavaScript', 'Web'],
+    links: { live: 'https://example.com/qr' },
   },
 ];
 

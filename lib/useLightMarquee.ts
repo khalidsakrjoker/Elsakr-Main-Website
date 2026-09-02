@@ -31,7 +31,7 @@ export function useLightMarquee({
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   
-  const [offset, setOffset] = useState(0);
+  const [offset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   
   // Animation state refs (to avoid re-renders)

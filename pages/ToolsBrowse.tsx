@@ -11,11 +11,7 @@ export default function ToolsBrowse() {
   const [searchParams] = useSearchParams();
   const ArrowIcon = language === 'ar' ? ArrowLeft : ArrowRight;
   
-  // @ts-ignore
-  const desktopTools = content.freeToolsDesktop || [];
-  // @ts-ignore
-  const webTools = content.freeToolsWeb || [];
-  
+
   const typeParam = searchParams.get('type');
   const initialCategory = typeParam === 'desktop' ? 'desktop' : typeParam === 'web' ? 'web' : 'all';
   
@@ -23,7 +19,10 @@ export default function ToolsBrowse() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
-  const allTools = useMemo(() => combineTools(desktopTools, webTools), [desktopTools, webTools]);
+  const allTools = useMemo(
+    () => combineTools(content.freeToolsDesktop ?? [], content.freeToolsWeb ?? []),
+    [content.freeToolsDesktop, content.freeToolsWeb]
+  );
 
   const allTags = useMemo(() => extractTags(allTools), [allTools]);
 

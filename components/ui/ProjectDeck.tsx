@@ -42,7 +42,7 @@ export const ProjectDeck: React.FC = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block w-full h-full"
-                onClick={(e) => {
+                onClick={(_e) => {
                   // Prevent click if user was dragging (simple heuristic: if moved more than 5px)
                   // In a real draggable carousel, we usually check separate drag state. 
                   // For now, rely on standard click since drag="x" might consume click events differently.

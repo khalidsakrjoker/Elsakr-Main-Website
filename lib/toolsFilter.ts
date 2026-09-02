@@ -1,11 +1,6 @@
-export interface Tool {
-  id: string;
-  title: string;
-  description: string;
-  tags?: string[];
-  image?: string;
-  [key: string]: unknown;
-}
+import type { Tool } from './types';
+
+export type { Tool } from './types';
 
 export type ToolCategory = 'desktop' | 'web';
 

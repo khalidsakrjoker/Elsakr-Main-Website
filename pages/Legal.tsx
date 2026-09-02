@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout } from '../components/ui/Layout';
-import { Shield, Lock, Eye, Database, Mail, Globe, Clock, FileText } from 'lucide-react';
+import { Shield, FileText } from 'lucide-react';
 import { useContent } from '../lib/useContent';
 import { Link } from 'react-router-dom';
 

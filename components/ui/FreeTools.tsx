@@ -4,8 +4,9 @@ import { useLightMarquee } from "../../lib/useLightMarquee";
 import { useContent } from "../../lib/useContent";
 import { Download, Github, Code2, ExternalLink, ArrowRight, ArrowLeft } from "lucide-react";
 import { Button } from "./Button";
+import type { Tool } from "../../lib/types";
 
-const ToolCard = ({ tool }: { tool: any }) => {
+const ToolCard = ({ tool }: { tool: Tool }) => {
   const hasLiveLink = !!tool.links.live;
   
   return (
@@ -91,7 +92,7 @@ const ToolCard = ({ tool }: { tool: any }) => {
 }
 
 // Marquee component for reusability
-const ToolsMarquee = ({ tools, direction = -1 }: { tools: any[], direction?: 1 | -1 }) => {
+const ToolsMarquee = ({ tools, direction = -1 }: { tools: Tool[]; direction?: 1 | -1 }) => {
   const { containerRef, trackRef, isDragging } = useLightMarquee({
     speed: 30,
     direction,
@@ -115,7 +116,7 @@ const ToolsMarquee = ({ tools, direction = -1 }: { tools: any[], direction?: 1 |
         {/* 4 copies for seamless loop */}
         {[...Array(4)].map((_, i) => (
           <div key={i} className="flex gap-8 flex-shrink-0">
-            {tools.map((tool: any) => (
+            {tools.map((tool) => (
               <ToolCard key={`${i}-${tool.id}`} tool={tool} />
             ))}
           </div>
@@ -128,10 +129,8 @@ const ToolsMarquee = ({ tools, direction = -1 }: { tools: any[], direction?: 1 |
 export const FreeTools: React.FC = () => {
     const { content, language } = useContent();
     const ArrowIcon = language === 'ar' ? ArrowLeft : ArrowRight;
-    // @ts-ignore
-    const desktopTools = content.freeToolsDesktop || [];
-    // @ts-ignore
-    const webTools = content.freeToolsWeb || [];
+    const desktopTools = content.freeToolsDesktop ?? [];
+    const webTools = content.freeToolsWeb ?? [];
 
     if (desktopTools.length === 0 && webTools.length === 0) return null;
 

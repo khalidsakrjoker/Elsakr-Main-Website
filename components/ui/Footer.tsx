@@ -7,7 +7,7 @@ import { Button } from './Button';
 
 export const Footer: React.FC = () => {
   const { content, language } = useContent();
-  const { footer, brand } = content;
+  const { brand } = content;
   const [message, setMessage] = useState('');
 
   const WHATSAPP_NUMBER = "201016495229";

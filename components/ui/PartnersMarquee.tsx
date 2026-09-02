@@ -2,8 +2,9 @@ import React from "react";
 import { useLightMarquee } from "../../lib/useLightMarquee";
 import { useContent } from "../../lib/useContent";
 import { useTheme } from "../../lib/ThemeContext";
+import type { Client } from "../../lib/types";
 
-const PartnerCard = ({ client }: { client: any }) => {
+const PartnerCard = ({ client }: { client: Client }) => {
   const { theme } = useTheme();
   
   const logoSrc = (theme === 'dark' && client.logoDark) 
@@ -61,7 +62,7 @@ export const PartnersMarquee: React.FC = () => {
           {/* 4 copies for seamless loop */}
           {[...Array(4)].map((_, i) => (
             <div key={i} className="flex gap-8 flex-shrink-0">
-              {content.clients.map((client: any, j: number) => (
+              {content.clients.map((client, j: number) => (
                 <PartnerCard key={`${i}-${j}`} client={client} />
               ))}
             </div>

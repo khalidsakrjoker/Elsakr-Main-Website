@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useContent } from '../../lib/useContent';
 import { Button } from './Button';
-import { CheckCircle, ChevronLeft, ChevronRight, Send, Smartphone } from 'lucide-react';
+import { CheckCircle, ChevronLeft, ChevronRight, Smartphone } from 'lucide-react';
 import { GlassCard } from './GlassCard';
 
 export const MultiStepForm: React.FC = () => {
