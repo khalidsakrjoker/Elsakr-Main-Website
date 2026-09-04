@@ -76,6 +76,7 @@ cp .env.example .env
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `GEMINI_API_KEY` | No | Optional API key injected at build time via `vite.config.ts` for GEMINI integrations |
+| `API_KEY` | No | Alias of `GEMINI_API_KEY` (also exposed as `process.env.API_KEY` in the Vite build) |
 
 ### Testing
 
@@ -85,6 +86,9 @@ npm test
 
 # Watch mode during development
 npm run test:watch
+
+# Coverage report + thresholds
+npm run test:coverage
 ```
 
 ### Linting & Formatting
@@ -103,6 +107,16 @@ npm run format
 npm run typecheck
 ```
 
+### Docker (one-command sandbox)
+
+Build and serve the production site in an isolated container:
+
+```bash
+docker compose up --build
+```
+
+Then open http://localhost:3000
+
 ### Verify (full pipeline)
 
 From a fresh clone, the following should all succeed:
@@ -114,7 +128,7 @@ npm ci && npm run verify
 Or step by step:
 
 ```bash
-npm ci && npm run lint && npm run typecheck && npm test && npm run build
+npm ci && npm run lint && npm run typecheck && npm run test:coverage && npm run build
 ```
 
 ## 📂 Project Structure
