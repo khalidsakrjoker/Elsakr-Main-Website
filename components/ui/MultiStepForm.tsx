@@ -1,10 +1,15 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { z } from 'zod';
 import { useContent } from '../../lib/useContent';
 import { Button } from './Button';
 import { CheckCircle, ChevronLeft, ChevronRight, Smartphone } from 'lucide-react';
 import { GlassCard } from './GlassCard';
+
+const contactStepSchema = z.object({
+  name: z.string().trim().min(1, 'Name is required'),
+  email: z.string().trim().email('Enter a valid email address'),
+});
 
 export const MultiStepForm: React.FC = () => {
   const [step, setStep] = useState(0);
@@ -18,6 +23,7 @@ export const MultiStepForm: React.FC = () => {
     details: '',
     timeline: ''
   });
+  const [validationError, setValidationError] = useState<string | null>(null);
   
   const { content, language } = useContent();
   const NextIcon = language === 'ar' ? ChevronLeft : ChevronRight;
@@ -30,8 +36,16 @@ export const MultiStepForm: React.FC = () => {
   const WHATSAPP_NUMBER = "201016495229"; 
 
   const handleNext = () => {
-    if (step === 0 && (!formData.name.trim() || !formData.email.trim())) {
-      return;
+    if (step === 0) {
+      const result = contactStepSchema.safeParse({
+        name: formData.name,
+        email: formData.email,
+      });
+      if (!result.success) {
+        setValidationError(result.error.issues[0]?.message ?? 'Invalid contact details');
+        return;
+      }
+      setValidationError(null);
     }
     if (step < steps.length - 1) setStep(step + 1);
   };
@@ -42,6 +56,7 @@ export const MultiStepForm: React.FC = () => {
 
   const updateField = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    if (validationError) setValidationError(null);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -105,6 +120,11 @@ ${formData.details}
                 placeholder="Acme Corp"
               />
             </div>
+            {validationError && (
+              <p role="alert" className="text-sm text-red-400 font-mono">
+                {validationError}
+              </p>
+            )}
           </div>
         );
       case 1: // Scope & Budget

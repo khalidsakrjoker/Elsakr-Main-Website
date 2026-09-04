@@ -118,5 +118,19 @@ describe('MultiStepForm', () => {
 
     expect(screen.getByPlaceholderText('John Doe')).toBeInTheDocument();
     expect(screen.queryByText('Category')).not.toBeInTheDocument();
+    expect(screen.getByRole('alert')).toBeInTheDocument();
+  });
+
+  it('does not advance when email format is invalid', async () => {
+    const user = userEvent.setup();
+    renderForm();
+
+    await user.type(screen.getByPlaceholderText('John Doe'), 'Jane Doe');
+    await user.type(screen.getByPlaceholderText('john@company.com'), 'not-an-email');
+    await user.click(screen.getByRole('button', { name: /next step/i }));
+
+    expect(screen.getByPlaceholderText('John Doe')).toBeInTheDocument();
+    expect(screen.queryByText('Category')).not.toBeInTheDocument();
+    expect(screen.getByRole('alert')).toHaveTextContent(/valid email/i);
   });
 });
