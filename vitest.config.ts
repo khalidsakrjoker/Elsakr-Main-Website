@@ -17,6 +17,8 @@ export default defineConfig({
         'lib/useContent.ts',
         'lib/ThemeContext.tsx',
         'lib/types.ts',
+        'lib/useNavigation.ts',
+        'lib/logger.ts',
         'components/ui/MultiStepForm.tsx',
         'pages/Home.tsx',
         'pages/ToolDetail.tsx',

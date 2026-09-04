@@ -1,8 +1,9 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
 import { Menu, X, ChevronDown, ChevronRight, Globe, Monitor } from 'lucide-react';
 import { useContent } from '../../lib/useContent';
+import { useNavigation } from '../../lib/useNavigation';
 import { Button } from './Button';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSwitcher } from './LanguageSwitcher';
@@ -10,33 +11,21 @@ import { Footer } from './Footer';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesHovered, setIsServicesHovered] = useState(false);
-  const [isToolsHovered, setIsToolsHovered] = useState(false);
-  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  const [isMobileToolsOpen, setIsMobileToolsOpen] = useState(false);
-  
   const location = useLocation();
   const { content, language } = useContent();
-
-  // Reset navigation UI when route changes
-  React.useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional menu reset on navigation
-    setIsMenuOpen(false);
-    setIsMobileServicesOpen(false);
-    setIsMobileToolsOpen(false);
-    setIsServicesHovered(false);
-    setIsToolsHovered(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [location.pathname]);
-
-  const toggleMobileServices = () => {
-    setIsMobileServicesOpen(!isMobileServicesOpen);
-  };
-
-  const toggleMobileTools = () => {
-    setIsMobileToolsOpen(!isMobileToolsOpen);
-  };
+  const {
+    isMenuOpen,
+    isServicesHovered,
+    isToolsHovered,
+    isMobileServicesOpen,
+    isMobileToolsOpen,
+    setIsMenuOpen,
+    setIsServicesHovered,
+    setIsToolsHovered,
+    toggleMenu,
+    toggleMobileServices,
+    toggleMobileTools,
+  } = useNavigation(location.pathname);
 
   return (
     <div dir={language === 'ar' ? 'rtl' : 'ltr'} className="min-h-screen bg-slate-50/50 dark:bg-luxury-black text-slate-800 dark:text-slate-200 font-sans overflow-x-hidden selection:bg-luxury-gold/30 transition-colors duration-300">
@@ -130,7 +119,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
              <ThemeToggle />
              <button 
               className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={toggleMenu}
             >
               {isMenuOpen ? <X /> : <Menu />}
             </button>
