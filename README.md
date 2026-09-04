@@ -146,6 +146,8 @@ npm ci && npm run lint && npm run typecheck && npm run test:coverage && npm run 
 
 We welcome developers to learn from our codebase! While this is the source for our official company site, feel free to open issues or suggest optimizations.
 
+**Commit style for maintainability:** keep each feature or fix in its own small commit (or PR) and include the tests that prove the new behavior in the same change. Avoid bulk commits that mix formatting, refactors, and features.
+
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
