@@ -71,7 +71,7 @@ describe('Home', () => {
     expect(screen.getByText(/Our Stack \(Services\)/i)).toBeInTheDocument();
     expect(screen.getByText(/Selected Platforms/i)).toBeInTheDocument();
     expect(screen.getByText(/Kashx Company/i)).toBeInTheDocument();
-    expect(screen.getByText(/StoreX/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/StoreX/i).length).toBeGreaterThan(0);
     expect(screen.queryByText(/Kashx System/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/Kashx Apps/i)).not.toBeInTheDocument();
     expect(screen.getByText(/From our free tools/i)).toBeInTheDocument();
