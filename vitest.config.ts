@@ -20,8 +20,13 @@ export default defineConfig({
         'lib/useNavigation.ts',
         'lib/logger.ts',
         'components/ui/MultiStepForm.tsx',
+        'components/ui/FreeTools.tsx',
         'pages/Home.tsx',
         'pages/ToolDetail.tsx',
+        'pages/ToolsBrowse.tsx',
+        'pages/About.tsx',
+        'pages/Services.tsx',
+        'pages/Contact.tsx',
       ],
       exclude: ['**/*.test.{ts,tsx}', '**/__tests__/**'],
       thresholds: {

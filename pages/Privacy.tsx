@@ -113,7 +113,7 @@ export default function Privacy() {
           {/* Back Link */}
           <Link 
             to="/legal" 
-            className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline mb-8"
+            className="inline-flex items-center gap-2 text-accent hover:underline mb-8"
           >
             <ArrowIcon className="w-4 h-4" />
             {language === 'ar' ? 'رجوع للمستندات القانونية' : 'Back to Legal Documents'}
@@ -121,22 +121,22 @@ export default function Privacy() {
 
           {/* Header */}
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center">
-              <Shield className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+            <div className="w-16 h-16 bg-accent-soft rounded-lg flex items-center justify-center">
+              <Shield className="w-8 h-8 text-accent" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+              <h1 className="font-display text-3xl md:text-4xl font-bold text-ink">
                 {language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
               </h1>
-              <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
+              <p className="text-ink-muted text-sm mt-1">
                 {language === 'ar' ? `آخر تحديث: ${lastUpdated}` : `Last updated: ${lastUpdated}`}
               </p>
             </div>
           </div>
 
           {/* Intro */}
-          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-500/20 rounded-xl p-6 mb-10">
-            <p className="text-slate-700 dark:text-slate-300">
+          <div className="bg-accent-soft border border-app rounded-lg p-6 mb-10">
+            <p className="text-ink">
               {language === 'ar' 
                 ? 'في الصقر (Elsakr)، خصوصيتك مهمة جداً لينا. السياسة دي بتوضح إزاي بنجمع ونستخدم ونحمي بياناتك الشخصية.'
                 : 'At Elsakr, your privacy is extremely important to us. This policy explains how we collect, use, and protect your personal data.'}
@@ -146,16 +146,16 @@ export default function Privacy() {
           {/* Sections */}
           <div className="space-y-8">
             {sections.map((section, index) => (
-              <div key={index} className="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 rounded-xl p-6">
+              <div key={index} className="bg-surface border border-app rounded-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center">
-                    <section.icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                    <section.icon className="w-5 h-5 text-accent" />
                   </div>
-                  <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+                  <h2 className="font-display text-xl font-bold text-ink">
                     {section.title}
                   </h2>
                 </div>
-                <div className="text-slate-600 dark:text-slate-400 whitespace-pre-line leading-relaxed">
+                <div className="text-ink-muted whitespace-pre-line leading-relaxed">
                   {section.content}
                 </div>
               </div>
@@ -163,19 +163,19 @@ export default function Privacy() {
           </div>
 
           {/* Contact */}
-          <div className="mt-10 bg-slate-100 dark:bg-slate-900 rounded-xl p-6 text-center">
-            <Mail className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+          <div className="mt-10 bg-surface-muted rounded-lg p-6 text-center">
+            <Mail className="w-8 h-8 text-accent mx-auto mb-4" />
+            <h3 className="text-lg font-bold text-ink mb-2">
               {language === 'ar' ? 'عندك سؤال؟' : 'Have a question?'}
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-4">
+            <p className="text-ink-muted mb-4">
               {language === 'ar' 
                 ? 'لو عندك أي استفسار عن سياسة الخصوصية، تواصل معانا.'
                 : 'If you have any questions about our privacy policy, feel free to contact us.'}
             </p>
             <a 
               href="mailto:privacy@elsakr.com"
-              className="text-blue-600 dark:text-blue-400 font-medium hover:underline"
+              className="text-accent font-medium hover:underline"
             >
               privacy@elsakr.com
             </a>
