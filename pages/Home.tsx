@@ -101,7 +101,7 @@ export default function Home() {
                 : 'Proprietary systems built and operated by Elsakr.'}
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
             {content.projects.map((project) => (
               <a
                 key={project.id}
@@ -110,11 +110,11 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="group block bg-surface border border-app rounded-lg overflow-hidden hover-lift"
               >
-                <div className="aspect-[16/10] overflow-hidden bg-surface-muted">
+                <div className="aspect-[16/10] overflow-hidden bg-black flex items-center justify-center p-6">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                    className="max-w-full max-h-full object-contain group-hover:scale-[1.03] transition-transform duration-500"
                     loading="lazy"
                   />
                 </div>

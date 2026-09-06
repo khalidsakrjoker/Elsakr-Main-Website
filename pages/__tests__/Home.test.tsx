@@ -70,6 +70,10 @@ describe('Home', () => {
     expect(screen.getByText('Elsakr')).toBeInTheDocument();
     expect(screen.getByText(/Our Stack \(Services\)/i)).toBeInTheDocument();
     expect(screen.getByText(/Selected Platforms/i)).toBeInTheDocument();
+    expect(screen.getByText(/Kashx Company/i)).toBeInTheDocument();
+    expect(screen.getByText(/StoreX/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Kashx System/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Kashx Apps/i)).not.toBeInTheDocument();
     expect(screen.getByText(/Free Open Source Tools/i)).toBeInTheDocument();
     expect(screen.getByText(/Ready to build with Elsakr/i)).toBeInTheDocument();
     expect(document.body.textContent).not.toMatch(/System Operational/i);
