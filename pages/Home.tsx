@@ -8,12 +8,13 @@ import { Button } from '../components/ui/Button';
 import { SEO } from '../components/seo/SEO';
 import { useTheme } from '../lib/ThemeContext';
 import { getPageEnterProps } from '../lib/motion';
+import { ToolsSlider } from '../components/ui/ToolsSlider';
 
 export default function Home() {
   const { content, language } = useContent();
   const { theme } = useTheme();
   const ArrowIcon = language === 'ar' ? ArrowLeft : ArrowRight;
-  const toolsPreview = [...(content.freeToolsDesktop ?? []), ...(content.freeToolsWeb ?? [])].slice(0, 6);
+  const allTools = [...(content.freeToolsDesktop ?? []), ...(content.freeToolsWeb ?? [])];
 
   return (
     <Layout>
@@ -88,7 +89,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Selected platforms / work */}
+      {/* 3. Selected platforms — 3D logos with depth */}
       <section className="py-24 px-6 bg-surface-muted border-t border-app">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mb-14">
@@ -101,29 +102,29 @@ export default function Home() {
                 : 'A selection of systems we build and operate — not the full portfolio.'}
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
+          <div className="platform-stage grid sm:grid-cols-2 gap-8 max-w-5xl">
             {content.projects.map((project) => (
               <a
                 key={project.id}
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block bg-surface border border-app rounded-lg overflow-hidden hover-lift"
+                className="platform-card-3d group block bg-surface border border-app rounded-lg overflow-hidden"
               >
-                <div className="aspect-[16/10] overflow-hidden bg-black flex items-center justify-center p-6">
+                <div className="aspect-[16/11] overflow-hidden bg-black flex items-center justify-center p-4 md:p-5">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="max-w-full max-h-full object-contain group-hover:scale-[1.03] transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-[1.04] transition-transform duration-500"
                     loading="lazy"
                   />
                 </div>
-                <div className="p-5">
-                  <h3 className="font-display font-semibold text-ink flex items-center gap-2 mb-2">
+                <div className="p-6">
+                  <h3 className="font-display text-lg font-semibold text-ink flex items-center gap-2 mb-2">
                     {project.title}
                     <ExternalLink className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-accent" />
                   </h3>
-                  <p className="text-sm text-ink-muted line-clamp-2">{project.description}</p>
+                  <p className="text-sm text-ink-muted line-clamp-3">{project.description}</p>
                 </div>
               </a>
             ))}
@@ -131,7 +132,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Partners — curated subset, not the full roster */}
+      {/* 4. Partners — curated subset */}
       <section className="py-16 px-6 bg-app border-t border-app">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 max-w-xl mx-auto">
@@ -168,7 +169,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Free tools preview */}
+      {/* 5. Free tools — in-place slider */}
       <section className="py-24 px-6 bg-surface border-t border-app">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
@@ -178,38 +179,18 @@ export default function Home() {
               </h2>
               <p className="text-ink-muted">
                 {language === 'ar'
-                  ? 'جزء من الأدوات المفتوحة المصدر — كل واحدة بهويتها، وباقي المجموعة على صفحة الأدوات.'
-                  : 'A slice of the open-source set — each with its own mark; the rest lives on the tools page.'}
+                  ? 'مرّ على الأدوات من هنا — كل واحدة بهويتها. كتالوج الفلترة متاح لو حابب تتعمق.'
+                  : 'Browse the set right here — each tool keeps its own mark. Use the catalog when you want filters.'}
               </p>
             </div>
             <Link to="/tools">
               <Button variant="outline">
-                {language === 'ar' ? 'عرض كل الأدوات' : 'Browse all tools'}
+                {language === 'ar' ? 'كتالوج الأدوات' : 'Tools catalog'}
                 <ArrowIcon className="w-4 h-4" />
               </Button>
             </Link>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {toolsPreview.map((tool) => (
-              <Link
-                key={tool.id}
-                to={`/tools/${tool.id}`}
-                className="group p-5 bg-app border border-app rounded-lg hover-lift hover:border-[var(--color-accent)] transition-colors"
-              >
-                {tool.logo ? (
-                  <img src={tool.logo} alt="" className="w-12 h-12 mb-4 object-contain" />
-                ) : (
-                  <div className="w-12 h-12 mb-4 rounded-md bg-accent-soft flex items-center justify-center text-accent font-display font-bold text-lg">
-                    {tool.title.charAt(0)}
-                  </div>
-                )}
-                <h3 className="font-semibold text-ink group-hover:text-accent transition-colors mb-1">
-                  {tool.title}
-                </h3>
-                <p className="text-sm text-ink-muted line-clamp-2">{tool.description}</p>
-              </Link>
-            ))}
-          </div>
+          <ToolsSlider tools={allTools} language={language} />
         </div>
       </section>
 

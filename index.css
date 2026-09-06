@@ -104,6 +104,21 @@ body {
     transform: translateY(-2px);
   }
 
+  .platform-stage {
+    perspective: 900px;
+  }
+
+  .platform-card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  }
+
+  .platform-card-3d:hover {
+    transform: translateY(-6px) rotateX(2deg);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  }
+
   .theme-crossfade {
     transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
   }
@@ -120,6 +135,11 @@ body {
 
     .hover-lift:hover {
       transform: none;
+    }
+
+    .platform-card-3d:hover {
+      transform: none;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
     }
 
     .theme-crossfade {

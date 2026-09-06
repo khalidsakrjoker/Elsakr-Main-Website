@@ -53,9 +53,10 @@ describe('Home', () => {
       configurable: true,
       get: () => 'en-US',
     });
+    Element.prototype.scrollIntoView = vi.fn();
   });
 
-  it('renders brand-led hero and key sections without marquees', () => {
+  it('renders brand-led hero, platforms, tools slider, and +100 accounts without marquees', () => {
     render(
       <HelmetProvider>
         <ThemeProvider>
@@ -68,14 +69,15 @@ describe('Home', () => {
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Software Engineering/i);
     expect(screen.getByText('Elsakr')).toBeInTheDocument();
-    expect(screen.getByText(/Our Stack \(Services\)/i)).toBeInTheDocument();
     expect(screen.getByText(/Selected Platforms/i)).toBeInTheDocument();
     expect(screen.getByText(/Kashx Company/i)).toBeInTheDocument();
     expect(screen.getAllByText(/StoreX/i).length).toBeGreaterThan(0);
-    expect(screen.queryByText(/Kashx System/i)).not.toBeInTheDocument();
-    expect(screen.queryByText(/Kashx Apps/i)).not.toBeInTheDocument();
     expect(screen.getByText(/From our free tools/i)).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: /Tools slider/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/Next tools/i)).toBeInTheDocument();
     expect(screen.getByText(/Selected alliances/i)).toBeInTheDocument();
+    expect(screen.getByText('+100')).toBeInTheDocument();
+    expect(screen.getByText(/Active enterprise accounts/i)).toBeInTheDocument();
     expect(screen.getByText(/Ready to build with Elsakr/i)).toBeInTheDocument();
     expect(document.body.textContent).not.toMatch(/System Operational/i);
     expect(document.body.textContent).not.toMatch(/Technical Alliances/i);

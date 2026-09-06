@@ -18,8 +18,9 @@ describe('design tokens', () => {
     expect(css).not.toContain('goldShimmer');
   });
 
-  it('includes theme crossfade and reduced-motion safeguards', () => {
+  it('includes theme crossfade, platform depth, and reduced-motion safeguards', () => {
     expect(css).toContain('theme-crossfade');
+    expect(css).toContain('platform-card-3d');
     expect(css).toContain('prefers-reduced-motion');
     expect(css).toContain('hover-lift');
   });
