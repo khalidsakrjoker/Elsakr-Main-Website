@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ArrowLeft, ExternalLink } from 'lucide-react';
+import { ArrowRight, ArrowLeft, ArrowDown, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useContent } from '../lib/useContent';
 import { Layout } from '../components/ui/Layout';
@@ -9,6 +9,7 @@ import { SEO } from '../components/seo/SEO';
 import { useTheme } from '../lib/ThemeContext';
 import { getPageEnterProps } from '../lib/motion';
 import { ToolsSlider } from '../components/ui/ToolsSlider';
+import { HeroShowcase } from '../components/ui/HeroShowcase';
 
 export default function Home() {
   const { content, language } = useContent();
@@ -20,21 +21,12 @@ export default function Home() {
     <Layout>
       <SEO />
 
-      {/* 1. Hero — brand first, full-bleed atmosphere */}
-      <section className="relative min-h-[88vh] flex items-end overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              theme === 'dark'
-                ? 'linear-gradient(160deg, #1c1916 0%, #12100e 45%, #2a2118 100%)'
-                : 'linear-gradient(160deg, #efeae2 0%, #f7f4ef 40%, #e8dcc8 100%)',
-          }}
-          aria-hidden
-        />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--color-accent-soft),transparent_55%)]" aria-hidden />
+      {/* 1. Hero — brand first + showcase composition */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 hero-mesh" aria-hidden />
+        <div className="absolute inset-0 hero-grain pointer-events-none" aria-hidden />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 pt-32">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-28 pb-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div {...getPageEnterProps()} className="max-w-3xl">
             <p className="font-display text-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               {content.brand.name}
@@ -42,7 +34,11 @@ export default function Home() {
             <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tight text-ink leading-[1.05] mb-6">
               {content.hero.title}
             </h1>
-            <p className="text-lg md:text-xl text-ink-muted max-w-xl mb-10 leading-relaxed">
+            <p
+              className={`text-lg md:text-xl text-ink-muted max-w-xl mb-10 leading-relaxed ${
+                language === 'ar' ? 'border-r-2 pr-6' : 'border-l-2 pl-6'
+              } border-[var(--color-accent)]`}
+            >
               {content.hero.subtitle}
             </p>
             <div className="flex flex-wrap gap-4">
@@ -57,7 +53,19 @@ export default function Home() {
               </Link>
             </div>
           </motion.div>
+
+          <HeroShowcase language={language} brandName={content.brand.name} />
         </div>
+
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-ink-muted flex flex-col items-center gap-2"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+          aria-hidden
+        >
+          <span className="text-[10px] uppercase tracking-[0.2em]">Scroll</span>
+          <ArrowDown className="w-4 h-4" />
+        </motion.div>
       </section>
 
       {/* 2. Capabilities */}
