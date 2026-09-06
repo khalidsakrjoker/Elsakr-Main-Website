@@ -97,8 +97,8 @@ export default function Home() {
             </h2>
             <p className="text-ink-muted">
               {language === 'ar'
-                ? 'أنظمة مملوكة ومشغّلة بواسطة الصقر.'
-                : 'Proprietary systems built and operated by Elsakr.'}
+                ? 'عيّنة من الأنظمة اللي بنبنيها ونشغّلها — مش كل المحفظة.'
+                : 'A selection of systems we build and operate — not the full portfolio.'}
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
@@ -131,14 +131,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Partners — static wrap */}
+      {/* 4. Partners — curated subset, not the full roster */}
       <section className="py-16 px-6 bg-app border-t border-app">
         <div className="max-w-7xl mx-auto">
-          <h2 className="font-display text-xl font-semibold text-ink mb-8 text-center">
-            {content.partnersTitle}
-          </h2>
+          <div className="text-center mb-8 max-w-xl mx-auto">
+            <h2 className="font-display text-xl font-semibold text-ink mb-2">
+              {content.partnersTitle}
+            </h2>
+            <p className="text-sm text-ink-muted">
+              {language === 'ar'
+                ? 'عيّنة من الشبكات والشركاء اللي اشتغلنا معاهم — مش القائمة كاملة.'
+                : 'A sample of networks and partners we have worked with — not the full list.'}
+            </p>
+          </div>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {content.clients.map((client) => {
+            {content.clients.slice(0, 3).map((client) => {
               const logoSrc =
                 theme === 'dark' && client.logoDark
                   ? client.logoDark
@@ -167,12 +174,12 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div className="max-w-xl">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-ink mb-3">
-                {language === 'ar' ? 'أدوات مجانية مفتوحة المصدر' : 'Free Open Source Tools'}
+                {language === 'ar' ? 'من أدواتنا المجانية' : 'From our free tools'}
               </h2>
               <p className="text-ink-muted">
                 {language === 'ar'
-                  ? 'كل أداة بهويتها الخاصة — بدون نسخ شعار الصقر على الكل.'
-                  : 'Each tool has its own mark — the falcon stays on the studio, not stamped on every product.'}
+                  ? 'جزء من الأدوات المفتوحة المصدر — كل واحدة بهويتها، وباقي المجموعة على صفحة الأدوات.'
+                  : 'A slice of the open-source set — each with its own mark; the rest lives on the tools page.'}
               </p>
             </div>
             <Link to="/tools">

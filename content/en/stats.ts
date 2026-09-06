@@ -1,6 +1,6 @@
 export const stats = [
-    { label: "Production Deployments", value: "+150" },
-    { label: "Uptime Guarantee", value: "99.99%" },
-    { label: "Security Rating", value: "A+" },
-    { label: "Enterprise Clients", value: "+40" }
-  ];
+  { label: 'Shipped deployments', value: '+150' },
+  { label: 'Typical uptime targets', value: '99.99%' },
+  { label: 'Security posture', value: 'A+' },
+  { label: 'Active enterprise accounts', value: '+40' },
+];

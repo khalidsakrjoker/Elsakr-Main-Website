@@ -74,8 +74,10 @@ describe('Home', () => {
     expect(screen.getByText(/StoreX/i)).toBeInTheDocument();
     expect(screen.queryByText(/Kashx System/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/Kashx Apps/i)).not.toBeInTheDocument();
-    expect(screen.getByText(/Free Open Source Tools/i)).toBeInTheDocument();
+    expect(screen.getByText(/From our free tools/i)).toBeInTheDocument();
+    expect(screen.getByText(/Selected alliances/i)).toBeInTheDocument();
     expect(screen.getByText(/Ready to build with Elsakr/i)).toBeInTheDocument();
     expect(document.body.textContent).not.toMatch(/System Operational/i);
+    expect(document.body.textContent).not.toMatch(/Technical Alliances/i);
   });
 });

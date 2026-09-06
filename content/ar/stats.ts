@@ -1,6 +1,6 @@
 export const stats = [
-    { label: "Production Deployments", value: "+150" },
-    { label: "Uptime (مفيش وقت للوقوع)", value: "99.99%" },
-    { label: "Security score", value: "A+" },
-    { label: "بيزنس بيعتمد علينا", value: "+40" }
-  ];
+  { label: 'مشاريع نزلت production', value: '+150' },
+  { label: 'أهداف uptime المعتادة', value: '99.99%' },
+  { label: 'مستوى الأمان', value: 'A+' },
+  { label: 'حسابات مؤسسات نشطة', value: '+40' },
+];
