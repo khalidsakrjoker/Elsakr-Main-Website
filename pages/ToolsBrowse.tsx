@@ -3,18 +3,17 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { useContent } from '../lib/useContent';
 import { Layout } from '../components/ui/Layout';
 import { SEO } from '../components/seo/SEO';
-import { Search, Filter, ArrowLeft, ArrowRight, X } from 'lucide-react';
+import { Search, Filter, ArrowLeft, ArrowRight, X, Monitor, Globe } from 'lucide-react';
 import { combineTools, extractTags, filterTools } from '../lib/toolsFilter';
 
 export default function ToolsBrowse() {
   const { content, language } = useContent();
   const [searchParams] = useSearchParams();
   const ArrowIcon = language === 'ar' ? ArrowLeft : ArrowRight;
-  
 
   const typeParam = searchParams.get('type');
   const initialCategory = typeParam === 'desktop' ? 'desktop' : typeParam === 'web' ? 'web' : 'all';
-  
+
   const [category, setCategory] = useState<'all' | 'desktop' | 'web'>(initialCategory);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
@@ -33,85 +32,92 @@ export default function ToolsBrowse() {
 
   return (
     <Layout>
-      <SEO 
+      <SEO
         title={language === 'ar' ? 'أدوات مجانية مفتوحة المصدر' : 'Free Open Source Tools'}
-        description={language === 'ar' 
-          ? 'استكشف مجموعة أدواتنا المجانية مفتوحة المصدر للمطورين والمصممين'
-          : 'Explore our collection of free open source tools for developers and designers'}
+        description={
+          language === 'ar'
+            ? 'استكشف مجموعة أدواتنا المجانية مفتوحة المصدر للمطورين والمصممين'
+            : 'Explore our collection of free open source tools for developers and designers'
+        }
       />
 
-      <section className="py-20 px-6 min-h-screen">
+      <section className="py-20 px-6 min-h-screen bg-app">
         <div className="max-w-7xl mx-auto">
-          
-          {/* Header */}
-          <div className="text-center mb-12">
-            <Link 
-              to="/#free-tools"
-              className="inline-flex items-center gap-2 text-blue-500 hover:underline mb-4"
+          <div className="mb-12">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-accent hover:underline mb-4 text-sm"
             >
               <ArrowIcon className={`w-4 h-4 ${language === 'ar' ? '' : 'rotate-180'}`} />
               {language === 'ar' ? 'العودة للرئيسية' : 'Back to Home'}
             </Link>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-ink mb-3">
               {language === 'ar' ? 'أدوات مفتوحة المصدر' : 'Open Source Tools'}
             </h1>
-            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              {language === 'ar' 
+            <p className="text-ink-muted max-w-2xl">
+              {language === 'ar'
                 ? 'كل الأدوات مجانية ومفتوحة المصدر. حمّل الكود أو استخدمها أونلاين.'
                 : 'All tools are free and open source. Download the code or use them online.'}
             </p>
           </div>
 
-          {/* Filters Bar */}
-          <div className="bg-white dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-white/10 p-4 mb-8 space-y-4">
-            
-            {/* Search & Category */}
+          <div className="bg-surface border border-app rounded-lg p-4 mb-8 space-y-4">
             <div className="flex flex-col sm:flex-row gap-4">
-              {/* Search */}
               <div className="relative flex-1">
-                <Search className="absolute left-3 rtl:right-3 rtl:left-auto top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                <Search className="absolute left-3 rtl:right-3 rtl:left-auto top-1/2 -translate-y-1/2 w-5 h-5 text-ink-muted" />
                 <input
                   type="text"
+                  aria-label={language === 'ar' ? 'ابحث عن أداة' : 'Search tools'}
                   placeholder={language === 'ar' ? 'ابحث عن أداة...' : 'Search tools...'}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 rtl:pr-10 rtl:pl-4 pr-4 py-3 bg-slate-100 dark:bg-slate-800 border border-transparent focus:border-blue-500 rounded-xl text-slate-900 dark:text-white placeholder-slate-500 outline-none transition-colors"
+                  className="w-full pl-10 rtl:pr-10 rtl:pl-4 pr-4 py-3 bg-app border border-app focus:border-[var(--color-accent)] rounded-lg text-ink placeholder:text-ink-muted outline-none transition-colors"
                 />
               </div>
-              
-              {/* Category Tabs */}
-              <div className="flex bg-slate-100 dark:bg-slate-800 rounded-xl p-1">
+
+              <div className="flex bg-app border border-app rounded-lg p-1" role="tablist" aria-label="Tool category">
                 {(['all', 'desktop', 'web'] as const).map((cat) => (
                   <button
                     key={cat}
+                    type="button"
+                    role="tab"
+                    aria-selected={category === cat}
                     onClick={() => setCategory(cat)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                       category === cat
-                        ? 'bg-blue-500 text-white'
-                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                        ? 'bg-accent text-white'
+                        : 'text-ink-muted hover:text-ink'
                     }`}
                   >
-                    {cat === 'all' ? (language === 'ar' ? 'الكل' : 'All') :
-                     cat === 'desktop' ? (language === 'ar' ? 'سطح المكتب' : 'Desktop') :
-                     (language === 'ar' ? 'الويب' : 'Web')}
+                    {cat === 'all'
+                      ? language === 'ar'
+                        ? 'الكل'
+                        : 'All'
+                      : cat === 'desktop'
+                        ? language === 'ar'
+                          ? 'سطح المكتب'
+                          : 'Desktop'
+                        : language === 'ar'
+                          ? 'الويب'
+                          : 'Web'}
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Tags */}
             <div className="flex flex-wrap gap-2">
-              <span className="text-xs text-slate-500 flex items-center gap-1">
+              <span className="text-xs text-ink-muted flex items-center gap-1">
                 <Filter className="w-3 h-3" /> Tags:
               </span>
               {allTags.map((tag) => (
                 <button
                   key={tag}
+                  type="button"
                   onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                  className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${
                     selectedTag === tag
-                      ? 'bg-blue-500 text-white'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                      ? 'bg-accent text-white'
+                      : 'bg-app border border-app text-ink-muted hover:text-ink'
                   }`}
                 >
                   {tag}
@@ -121,82 +127,68 @@ export default function ToolsBrowse() {
             </div>
           </div>
 
-          {/* Results Count */}
-          <p className="text-sm text-slate-500 mb-6">
-            {language === 'ar' 
+          <p className="text-sm text-ink-muted mb-6">
+            {language === 'ar'
               ? `عرض ${filteredTools.length} أداة`
               : `Showing ${filteredTools.length} tools`}
           </p>
 
-          {/* Tools Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {filteredTools.map((tool) => (
               <Link
                 key={tool.id}
                 to={`/tools/${tool.id}`}
-                className="group bg-white dark:bg-slate-900/50 rounded-2xl border border-slate-200 dark:border-white/10 overflow-hidden hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300"
+                className="group p-5 bg-surface border border-app rounded-lg hover-lift hover:border-[var(--color-accent)] transition-colors"
               >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={tool.image} 
-                    alt={tool.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  
-                  {/* Category Badge */}
-                  <span className={`absolute top-3 left-3 px-2 py-1 rounded-lg text-[10px] uppercase font-bold ${
-                    tool.category === 'desktop' 
-                      ? 'bg-blue-500 text-white' 
-                      : 'bg-emerald-500 text-white'
-                  }`}>
-                    {tool.category === 'desktop' ? '🖥️ Desktop' : '🌐 Web'}
+                <div className="flex items-start justify-between gap-3 mb-4">
+                  <img src={tool.logo} alt="" className="w-14 h-14 object-contain" loading="lazy" />
+                  <span className="text-[10px] uppercase tracking-wide font-semibold text-ink-muted flex items-center gap-1">
+                    {tool.category === 'desktop' ? (
+                      <>
+                        <Monitor className="w-3 h-3" /> Desktop
+                      </>
+                    ) : (
+                      <>
+                        <Globe className="w-3 h-3" /> Web
+                      </>
+                    )}
                   </span>
-                  
-                  {/* Tags */}
-                  <div className="absolute bottom-3 left-3 flex gap-2">
-                    {tool.tags?.slice(0, 2).map((tag) => (
-                      <span key={tag} className="px-2 py-1 bg-white/20 backdrop-blur-sm text-white text-[10px] uppercase rounded-full">
+                </div>
+                <h2 className="text-lg font-semibold text-ink mb-2 group-hover:text-accent transition-colors">
+                  {tool.title}
+                </h2>
+                <p className="text-sm text-ink-muted line-clamp-2">{tool.description}</p>
+                {tool.tags && tool.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mt-4">
+                    {tool.tags.slice(0, 3).map((tag) => (
+                      <span key={tag} className="text-[10px] uppercase tracking-wide text-ink-muted">
                         {tag}
                       </span>
                     ))}
                   </div>
-                </div>
-                
-                {/* Content */}
-                <div className="p-5">
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-500 transition-colors flex items-center gap-2">
-                    {tool.title}
-                    <ArrowIcon className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ${language === 'ar' ? '' : ''}`} />
-                  </h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2">
-                    {tool.description}
-                  </p>
-                </div>
+                )}
               </Link>
             ))}
           </div>
 
-          {/* No Results */}
           {filteredTools.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-slate-500 text-lg">
+              <p className="text-ink-muted text-lg">
                 {language === 'ar' ? 'لم يتم العثور على أدوات' : 'No tools found'}
               </p>
               <button
+                type="button"
                 onClick={() => {
                   setSearchQuery('');
                   setSelectedTag(null);
                   setCategory('all');
                 }}
-                className="mt-4 text-blue-500 hover:underline"
+                className="mt-4 text-accent hover:underline"
               >
                 {language === 'ar' ? 'إعادة تعيين الفلاتر' : 'Reset filters'}
               </button>
             </div>
           )}
-
         </div>
       </section>
     </Layout>

@@ -60,11 +60,13 @@ describe('ToolDetail', () => {
     });
   });
 
-  it('renders tool title and description for a known tool id', () => {
+  it('renders tool title, description, and unique logo for a known tool id', () => {
     renderToolDetail('sqlite-browser');
 
     expect(screen.getByRole('heading', { name: /Elsakr SQLite Browser/i })).toBeInTheDocument();
     expect(screen.getByText(/professional desktop tool to explore/i)).toBeInTheDocument();
+    const logo = screen.getByTestId('tool-logo');
+    expect(logo).toHaveAttribute('src', '/assets/tools/logos/sqlite-browser.svg');
   });
 
   it('redirects to /tools when the tool id is unknown', () => {
