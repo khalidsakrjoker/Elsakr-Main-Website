@@ -10,6 +10,8 @@ import { useTheme } from '../lib/ThemeContext';
 import { getPageEnterProps } from '../lib/motion';
 import { ToolsSlider } from '../components/ui/ToolsSlider';
 import { HeroShowcase } from '../components/ui/HeroShowcase';
+import { FalconField } from '../components/ui/FalconField';
+import { ClientVoices } from '../components/ui/ClientVoices';
 
 export default function Home() {
   const { content, language } = useContent();
@@ -21,9 +23,10 @@ export default function Home() {
     <Layout>
       <SEO />
 
-      {/* 1. Hero — brand first + showcase composition */}
+      {/* 1. Hero — brand first + showcase + Falcon field atmosphere */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 hero-mesh" aria-hidden />
+        <FalconField />
+        <div className="absolute inset-0 hero-mesh opacity-70 mix-blend-normal pointer-events-none" aria-hidden />
         <div className="absolute inset-0 hero-grain pointer-events-none" aria-hidden />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-28 pb-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -213,6 +216,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* 6b. Client voices — Falcon alternative to old testimonial glass stack */}
+      <ClientVoices />
 
       {/* 7. Contact CTA */}
       <section className="py-24 px-6 bg-app border-t border-app">

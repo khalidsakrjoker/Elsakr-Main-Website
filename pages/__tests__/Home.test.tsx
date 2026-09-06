@@ -70,6 +70,9 @@ describe('Home', () => {
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Software Engineering/i);
     expect(screen.getAllByText('Elsakr').length).toBeGreaterThan(0);
     expect(screen.getByTestId('hero-showcase')).toBeInTheDocument();
+    expect(screen.getByTestId('falcon-field')).toBeInTheDocument();
+    expect(screen.getByTestId('client-voices')).toBeInTheDocument();
+    expect(screen.getByText(/From client conversations/i)).toBeInTheDocument();
     expect(screen.getByText(/Selected Platforms/i)).toBeInTheDocument();
     expect(document.body.textContent).not.toMatch(/System Operational/i);
     expect(document.body.textContent).not.toMatch(/PROCESSING_DATA/i);
