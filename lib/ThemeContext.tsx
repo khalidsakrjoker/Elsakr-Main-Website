@@ -53,9 +53,9 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     
     // Update font based on language
     if (language === 'ar') {
-      root.style.fontFamily = "'Cairo', sans-serif";
+      root.style.fontFamily = "var(--font-ar)";
     } else {
-      root.style.fontFamily = "'Inter', sans-serif";
+      root.style.fontFamily = "var(--font-sans)";
     }
   }, [language]);
 

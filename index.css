@@ -2,38 +2,119 @@
 @config "./tailwind.config.js";
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* Falcon heritage — light (equal strength) */
+  --color-bg: #f7f4ef;
+  --color-surface: #ffffff;
+  --color-surface-muted: #efeae2;
+  --color-ink: #1a1714;
+  --color-ink-muted: #5c564e;
+  --color-border: #ddd5c8;
+  --color-accent: #b45309;
+  --color-accent-hover: #92400e;
+  --color-accent-soft: rgba(180, 83, 9, 0.12);
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: "Syne", "DM Sans", system-ui, sans-serif;
+  --font-ar: "Cairo", "DM Sans", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+.dark {
+  --color-bg: #12100e;
+  --color-surface: #1c1916;
+  --color-surface-muted: #26221d;
+  --color-ink: #f5f0e8;
+  --color-ink-muted: #a89f92;
+  --color-border: #3a342c;
+  --color-accent: #e8a04a;
+  --color-accent-hover: #f0b86a;
+  --color-accent-soft: rgba(232, 160, 74, 0.14);
+  color-scheme: dark;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+}
+
+html[lang="ar"],
+html[dir="rtl"] {
+  font-family: var(--font-ar);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+::selection {
+  background-color: var(--color-accent-soft);
+  color: var(--color-ink);
 }
 
 @layer utilities {
-  .text-gold-24k {
-    background: linear-gradient(
-      90deg,
-      #BF953F 0%,
-      #FCF6BA 25%,
-      #B38728 50%,
-      #FBF5B7 75%,
-      #AA771C 100%
-    );
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: goldShimmer 5s linear infinite;
-    filter: drop-shadow(0px 1px 2px rgba(100, 60, 20, 0.6));
+  .font-display {
+    font-family: var(--font-display);
   }
-  
-  /* Faster animation in dark mode */
-  .dark .text-gold-24k {
-    animation: goldShimmer 3s linear infinite;
+
+  .bg-app {
+    background-color: var(--color-bg);
   }
-  
-  @keyframes goldShimmer {
-    0% {
-      background-position: 0% center;
+
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+
+  .bg-surface-muted {
+    background-color: var(--color-surface-muted);
+  }
+
+  .text-ink {
+    color: var(--color-ink);
+  }
+
+  .text-ink-muted {
+    color: var(--color-ink-muted);
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+  }
+
+  .border-app {
+    border-color: var(--color-border);
+  }
+
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
+
+  .bg-accent-soft {
+    background-color: var(--color-accent-soft);
+  }
+
+  .hover-lift {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
-    100% {
-      background-position: 200% center;
+
+    .hover-lift:hover {
+      transform: none;
     }
   }
 }

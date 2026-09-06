@@ -28,86 +28,99 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   } = useNavigation(location.pathname);
 
   return (
-    <div dir={language === 'ar' ? 'rtl' : 'ltr'} className="min-h-screen bg-slate-50/50 dark:bg-luxury-black text-slate-800 dark:text-slate-200 font-sans overflow-x-hidden selection:bg-luxury-gold/30 transition-colors duration-300">
-      
-      {/* Ambient Background Glows */}
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-luxury-gold/10 dark:bg-luxury-gold/5 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-normal" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-amber-500/10 dark:bg-amber-900/10 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-normal" />
-      </div>
-
-      {/* Grid Overlay */}
-      <div className="fixed inset-0 z-0 pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 dark:opacity-20" />
-      <div 
-        className="fixed inset-0 z-0 pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.08) 1px, transparent 0)`,
-          backgroundSize: '32px 32px'
-        }}
-      />
-
-
+    <div
+      dir={language === 'ar' ? 'rtl' : 'ltr'}
+      className="min-h-screen bg-app text-ink font-sans overflow-x-hidden transition-colors duration-300"
+    >
       {/* Navigation */}
-      <nav 
-        className="fixed top-0 w-full z-50 border-b border-slate-200 dark:border-luxury-gold/10 bg-stone-500/30 dark:bg-luxury-black/90 backdrop-blur-md transition-colors duration-300"
+      <nav
+        className="fixed top-0 w-full z-50 border-b border-app bg-surface/90 backdrop-blur-md transition-colors duration-300"
         onMouseLeave={() => setIsServicesHovered(false)}
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
           <NavLink to="/" className="flex items-center gap-2 group z-50">
             <div className="relative">
-              <img 
-                src="/Sakr-logo.webp" 
-                alt={content.brand.name} 
-                className="w-14 h-14 object-contain transition-transform group-hover:scale-110 duration-300" 
+              <img
+                src="/Sakr-logo.webp"
+                alt={content.brand.name}
+                className="w-12 h-12 object-contain transition-transform group-hover:scale-105 duration-300"
               />
             </div>
-            <span className="text-3xl font-bold tracking-widest uppercase font-mono text-gold-24k">
+            <span className="text-2xl font-display font-bold tracking-tight text-ink">
               {content.brand.name}
             </span>
           </NavLink>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8 h-full">
-            <NavLink to="/" className={({isActive}) => `text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${isActive ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400'}`}>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `text-sm font-medium hover:text-accent transition-colors ${isActive ? 'text-accent' : 'text-ink-muted'}`
+              }
+            >
               {content.nav.home}
             </NavLink>
-             <NavLink to="/about" className={({isActive}) => `text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${isActive ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400'}`}>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `text-sm font-medium hover:text-accent transition-colors ${isActive ? 'text-accent' : 'text-ink-muted'}`
+              }
+            >
               {content.nav.about}
             </NavLink>
-            
+
             {/* Services Mega Menu Trigger */}
-            <div 
+            <div
               className="relative h-full flex items-center"
-              onMouseEnter={() => { setIsServicesHovered(true); setIsToolsHovered(false); }}
+              onMouseEnter={() => {
+                setIsServicesHovered(true);
+                setIsToolsHovered(false);
+              }}
             >
-              <NavLink 
-                to="/services" 
-                className={({isActive}) => `flex items-center gap-1 text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${isActive || isServicesHovered ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400'}`}
+              <NavLink
+                to="/services"
+                className={({ isActive }) =>
+                  `flex items-center gap-1 text-sm font-medium hover:text-accent transition-colors ${
+                    isActive || isServicesHovered ? 'text-accent' : 'text-ink-muted'
+                  }`
+                }
               >
                 {content.nav.services}
-                <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isServicesHovered ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  className={`w-3 h-3 transition-transform duration-300 ${isServicesHovered ? 'rotate-180' : ''}`}
+                />
               </NavLink>
             </div>
 
             {/* Tools Menu Trigger */}
-            <div 
+            <div
               className="relative h-full flex items-center"
-              onMouseEnter={() => { setIsToolsHovered(true); setIsServicesHovered(false); }}
+              onMouseEnter={() => {
+                setIsToolsHovered(true);
+                setIsServicesHovered(false);
+              }}
             >
-              <NavLink 
-                to="/tools" 
-                className={({isActive}) => `flex items-center gap-1 text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${isActive || isToolsHovered ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400'}`}
+              <NavLink
+                to="/tools"
+                className={({ isActive }) =>
+                  `flex items-center gap-1 text-sm font-medium hover:text-accent transition-colors ${
+                    isActive || isToolsHovered ? 'text-accent' : 'text-ink-muted'
+                  }`
+                }
               >
                 {language === 'ar' ? 'الأدوات' : 'Tools'}
-                <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isToolsHovered ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  className={`w-3 h-3 transition-transform duration-300 ${isToolsHovered ? 'rotate-180' : ''}`}
+                />
               </NavLink>
             </div>
 
-            <div className="h-4 w-[1px] bg-slate-300 dark:bg-slate-700 mx-2" />
+            <div className="h-4 w-[1px] bg-[var(--color-border)] mx-2" />
             <LanguageSwitcher />
             <ThemeToggle />
             <NavLink to="/contact">
-              <Button variant="primary" className="!py-2 !px-6 text-xs">
+              <Button variant="primary" className="!py-2 !px-5 text-xs">
                 {content.nav.contact}
               </Button>
             </NavLink>
@@ -115,11 +128,12 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
           {/* Mobile Toggle */}
           <div className="flex items-center gap-4 md:hidden">
-             <LanguageSwitcher />
-             <ThemeToggle />
-             <button 
-              className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+            <LanguageSwitcher />
+            <ThemeToggle />
+            <button
+              className="p-2 text-ink-muted hover:text-ink"
               onClick={toggleMenu}
+              aria-label="Toggle menu"
             >
               {isMenuOpen ? <X /> : <Menu />}
             </button>
@@ -136,7 +150,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
               transition={{ duration: 0.2 }}
               onMouseEnter={() => setIsServicesHovered(true)}
               onMouseLeave={() => setIsServicesHovered(false)}
-              className="hidden md:flex fixed top-20 left-0 right-0 w-full bg-white/95 dark:bg-[#010208]/95 border-b border-slate-200 dark:border-white/10 shadow-2xl backdrop-blur-3xl z-40 justify-center"
+              className="hidden md:flex fixed top-20 left-0 right-0 w-full bg-surface border-b border-app shadow-lg z-40 justify-center"
             >
               <div className="max-w-7xl w-full mx-auto px-6 py-8">
                 <div className="grid grid-cols-12 gap-8">
@@ -199,7 +213,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
               transition={{ duration: 0.2 }}
               onMouseEnter={() => setIsToolsHovered(true)}
               onMouseLeave={() => setIsToolsHovered(false)}
-              className="hidden md:flex fixed top-20 left-0 right-0 w-full bg-white/95 dark:bg-[#010208]/95 border-b border-slate-200 dark:border-white/10 shadow-2xl backdrop-blur-3xl z-40 justify-center"
+              className="hidden md:flex fixed top-20 left-0 right-0 w-full bg-surface border-b border-app shadow-lg z-40 justify-center"
             >
               <div className="max-w-4xl w-full mx-auto px-6 py-8">
                 <div className="text-center mb-6">

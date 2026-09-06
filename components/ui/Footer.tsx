@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative bg-slate-100 dark:bg-[#010208] border-t border-slate-200 dark:border-white/10">
+    <footer className="relative bg-surface-muted border-t border-app">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
                 alt={brand.name} 
                 className="w-12 h-12 object-contain group-hover:scale-110 transition-transform" 
               />
-              <span className="text-2xl font-bold tracking-wider uppercase font-mono text-gold-24k">
+              <span className="text-2xl font-display font-bold tracking-tight text-ink">
                 {brand.name}
               </span>
             </Link>
