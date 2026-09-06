@@ -25,6 +25,7 @@ export default defineConfig({
         'components/ui/ToolsSlider.tsx',
         'components/ui/HeroShowcase.tsx',
         'components/ui/ClientVoices.tsx',
+        'components/ui/FalconField.tsx',
         'pages/Home.tsx',
         'pages/ToolDetail.tsx',
         'pages/ToolsBrowse.tsx',

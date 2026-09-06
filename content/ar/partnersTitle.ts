@@ -1,1 +1,1 @@
-export const partnersTitle = 'من تحالفاتنا';
+export const partnersTitle = 'من شركائنا';

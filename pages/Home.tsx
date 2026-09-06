@@ -143,7 +143,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Partners — curated subset */}
+      {/* 4. Partners — show all listed partners (except retired ones); framing stays “from our…” */}
       <section className="py-16 px-6 bg-app border-t border-app">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 max-w-xl mx-auto">
@@ -152,12 +152,12 @@ export default function Home() {
             </h2>
             <p className="text-sm text-ink-muted">
               {language === 'ar'
-                ? 'عيّنة من الشبكات والشركاء اللي اشتغلنا معاهم — مش القائمة كاملة.'
-                : 'A sample of networks and partners we have worked with — not the full list.'}
+                ? 'جزء من شركائنا — القائمة هنا مش كاملة، وفي شراكات تانية ومشاريع لسه جاية.'
+                : 'Part of our partners — this list is not complete; more alliances and work sit outside what we show here.'}
             </p>
           </div>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {content.clients.slice(0, 3).map((client) => {
+            {content.clients.map((client) => {
               const logoSrc =
                 theme === 'dark' && client.logoDark
                   ? client.logoDark

@@ -81,7 +81,10 @@ describe('Home', () => {
     expect(screen.getByText(/From our free tools/i)).toBeInTheDocument();
     expect(screen.getByRole('region', { name: /Tools slider/i })).toBeInTheDocument();
     expect(screen.getByLabelText(/Next tools/i)).toBeInTheDocument();
-    expect(screen.getByText(/Selected alliances/i)).toBeInTheDocument();
+    expect(screen.getByText(/From our partners/i)).toBeInTheDocument();
+    expect(screen.getByAltText('Stimyouli')).toBeInTheDocument();
+    expect(screen.getByAltText('STC Egypt')).toBeInTheDocument();
+    expect(screen.queryByAltText('Vexel Point')).not.toBeInTheDocument();
     expect(screen.getByText('+100')).toBeInTheDocument();
     expect(screen.getByText(/Active enterprise accounts/i)).toBeInTheDocument();
     expect(screen.getByText(/Ready to build with Elsakr/i)).toBeInTheDocument();

@@ -1,1 +1,1 @@
-export const partnersTitle = 'Selected alliances';
+export const partnersTitle = 'From our partners';
