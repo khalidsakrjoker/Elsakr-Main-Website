@@ -7,28 +7,27 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-The official source code for **[Elsakr.company](https://elsakr.company)** — the digital headquarters of Elsakr Software Engineering Studio. A showcase of modern web performance, accessibility, and premium aesthetics.
+The official source code for **[Elsakr.company](https://elsakr.company)** — Elsakr Software Engineering Studio. Falcon-heritage bilingual marketing site with free open-source tools, equal light/dark themes, Vitest coverage, Docker, and CI.
 
 > **"Open Source with a Falcon's Vision."**
 
-## 🎨 Features
+## Features
 
-- **💎 Premium UI/UX:** Glassmorphism, smooth Framer Motion animations, and a bespoke design system.
-- **🌗 Dark/Light Mode:** First-class dark mode support with system preference detection.
-- **🌍 Bilingual Support:** Native English and Arabic (RTL) support.
-- **⚡ High Performance:** Built on Vite for lightning-fast HMR and optimized production builds.
-- **📱 Fully Responsive:** Adaptive layouts that look stunning on 4K screens and mobile devices.
-- **🧩 Component Architecture:** Modular, reusable React components with strict TypeScript typing.
+- **Falcon design system:** CSS token maps for equal light/dark, Syne/DM Sans/Cairo typography, restrained motion.
+- **Bilingual EN/AR** with full RTL support.
+- **Free tools catalog** with unique per-tool logos, browse/filter, and Home tools slider.
+- **Owned platforms** (Kashx, StoreX) and curated alliances.
+- **Quality gates:** ESLint, TypeScript, Vitest + coverage thresholds, `npm run verify`, Docker/nginx, GitHub Actions + Dependabot.
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Framework:** React 18 + Vite
 - **Language:** TypeScript
-- **Styling:** Tailwind CSS + PostCSS
-- **Animations:** Framer Motion
-- **Icons:** Lucide React + React Icons
+- **Styling:** Tailwind CSS + design tokens in `index.css`
+- **Animations:** Framer Motion (reduced-motion aware)
 - **Routing:** React Router DOM
-- **Deployment:** GitHub Pages / Vercel
+- **Tests:** Vitest + Testing Library
+- **Runtime:** Docker + nginx (port 3000)
 
 ## 🚀 Getting Started
 
