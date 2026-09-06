@@ -13,6 +13,11 @@ describe('design tokens', () => {
     expect(css).toContain('--color-ink');
   });
 
+  it('does not include animated gold shimmer utility', () => {
+    expect(css).not.toContain('text-gold-24k');
+    expect(css).not.toContain('goldShimmer');
+  });
+
   it('includes theme crossfade and reduced-motion safeguards', () => {
     expect(css).toContain('theme-crossfade');
     expect(css).toContain('prefers-reduced-motion');
