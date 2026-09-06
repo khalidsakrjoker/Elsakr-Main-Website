@@ -9,23 +9,11 @@ import { ThemeProvider } from '../../lib/ThemeContext';
 vi.mock('framer-motion', () => ({
   motion: {
     div: ({ children, ...props }: React.PropsWithChildren<Record<string, unknown>>) => {
-      const {
-        initial,
-        animate,
-        exit,
-        transition,
-        whileInView,
-        viewport,
-        whileHover,
-        ...rest
-      } = props;
+      const { initial, animate, exit, transition, ...rest } = props;
       void initial;
       void animate;
       void exit;
       void transition;
-      void whileInView;
-      void viewport;
-      void whileHover;
       return <div {...rest}>{children}</div>;
     },
   },
@@ -38,42 +26,6 @@ vi.mock('../../components/ui/Layout', () => ({
 
 vi.mock('../../components/seo/SEO', () => ({
   SEO: () => null,
-}));
-
-vi.mock('../../components/ui/CyberGrid', () => ({
-  CyberGrid: () => null,
-}));
-
-vi.mock('../../components/ui/TechTicker', () => ({
-  TechTicker: () => <div>TechTicker</div>,
-}));
-
-vi.mock('../../components/ui/VelocityText', () => ({
-  VelocityText: () => null,
-}));
-
-vi.mock('../../components/ui/FreeTools', () => ({
-  FreeTools: () => <div>FreeTools</div>,
-}));
-
-vi.mock('../../components/ui/Testimonials', () => ({
-  Testimonials: () => <div>Testimonials</div>,
-}));
-
-vi.mock('../../components/ui/Accordion', () => ({
-  Accordion: () => null,
-}));
-
-vi.mock('../../components/ui/PartnersMarquee', () => ({
-  PartnersMarquee: () => <div>Partners</div>,
-}));
-
-vi.mock('../../components/ui/PlatformsMarquee', () => ({
-  PlatformsMarquee: () => <div>Platforms</div>,
-}));
-
-vi.mock('../../components/ui/SpotlightCard', () => ({
-  SpotlightCard: ({ children }: React.PropsWithChildren) => <div>{children}</div>,
 }));
 
 vi.mock('../../components/ui/Button', () => ({
@@ -103,7 +55,7 @@ describe('Home', () => {
     });
   });
 
-  it('renders hero headline and services section title', () => {
+  it('renders brand-led hero and key sections without marquees', () => {
     render(
       <HelmetProvider>
         <ThemeProvider>
@@ -114,9 +66,12 @@ describe('Home', () => {
       </HelmetProvider>
     );
 
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/ENGINEER/i);
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/THE FUTURE/i);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Software Engineering/i);
+    expect(screen.getByText('Elsakr')).toBeInTheDocument();
     expect(screen.getByText(/Our Stack \(Services\)/i)).toBeInTheDocument();
-    expect(screen.getByText('FreeTools')).toBeInTheDocument();
+    expect(screen.getByText(/Selected Platforms/i)).toBeInTheDocument();
+    expect(screen.getByText(/Free Open Source Tools/i)).toBeInTheDocument();
+    expect(screen.getByText(/Ready to build with Elsakr/i)).toBeInTheDocument();
+    expect(document.body.textContent).not.toMatch(/System Operational/i);
   });
 });
