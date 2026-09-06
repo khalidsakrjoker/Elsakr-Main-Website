@@ -21,6 +21,8 @@ export interface Tool {
   version?: string;
   releaseDate?: string;
   image?: string;
+  /** Unique product mark path (not the company falcon). */
+  logo: string;
   links: ToolLinks;
   tags?: string[];
 }

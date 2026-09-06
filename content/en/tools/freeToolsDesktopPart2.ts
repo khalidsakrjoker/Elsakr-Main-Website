@@ -36,6 +36,7 @@ export const freeToolsDesktopPart2 = [
       version: "1.0.0",
       releaseDate: "2024-12-15",
       image: "/assets/Free_Tools/Elsakr_Port_Scanner/Elsakr_Port_Scanner.webp",
+      logo: "/assets/tools/logos/port-scanner.svg",
       links: {
         exe: "https://github.com/khalidsakrjoker/Elsakr-Port-Scanner/releases/download/v1.0.0/Elsakr_Port_Scanner_EXE.zip",
         source: "https://github.com/khalidsakrjoker/Elsakr-Port-Scanner/releases/download/v1.0.0/Elsakr_Port_Scanner_Source.zip",
@@ -80,6 +81,7 @@ export const freeToolsDesktopPart2 = [
       version: "1.0.0",
       releaseDate: "2024-12-15",
       image: "/assets/Free_Tools/Elsakr_Image_Compressor/Elsakr_Image_Compressor_desktop.webp",
+      logo: "/assets/tools/logos/image-compressor.svg",
       links: {
         exe: "https://github.com/khalidsakrjoker/Elsakr-Image-Compressor/releases/download/v1.0.0/Elsakr_Image._ompressor_EXE.zip",
         source: "https://github.com/khalidsakrjoker/Elsakr-Image-Compressor/releases/download/v1.0.0/Elsakr_Image._ompressor_Source.zip",
@@ -125,6 +127,7 @@ export const freeToolsDesktopPart2 = [
       version: "1.0.0",
       releaseDate: "2024-12-15",
       image: "/assets/Free_Tools/Whatsapp_Checker/api_gui-min.webp",
+      logo: "/assets/tools/logos/whatsapp-api-gui.svg",
       links: {
         exe: "https://github.com/khalidsakrjoker/whatsapp-numbers-checker/releases/download/v1.0.0/WA_API_GUI.zip",
         source: "https://github.com/khalidsakrjoker/whatsapp-numbers-checker/releases/download/v1.0.0/WA_API_GUI_Source.zip",
@@ -170,6 +173,7 @@ export const freeToolsDesktopPart2 = [
       version: "1.0.0",
       releaseDate: "2024-12-15",
       image: "/assets/Free_Tools/Whatsapp_Checker/api_terminal-min.webp",
+      logo: "/assets/tools/logos/whatsapp-api-terminal.svg",
       links: {
         exe: "https://github.com/khalidsakrjoker/whatsapp-numbers-checker/releases/download/v1.0.0/WA_API_Terminal.zip",
         source: "https://github.com/khalidsakrjoker/whatsapp-numbers-checker/releases/download/v1.0.0/WA_API_Terminal_Source.zip",
@@ -215,6 +219,7 @@ export const freeToolsDesktopPart2 = [
       version: "1.0.0",
       releaseDate: "2024-12-15",
       image: "/assets/Free_Tools/Whatsapp_Checker/free_gui-min.webp",
+      logo: "/assets/tools/logos/whatsapp-free-gui.svg",
       links: {
         exe: "https://github.com/khalidsakrjoker/whatsapp-numbers-checker/releases/download/v1.0.0/WA_FREE_GUI.zip",
         source: "https://github.com/khalidsakrjoker/whatsapp-numbers-checker/releases/download/v1.0.0/WA_FREE_GUI_Source.zip",
@@ -260,6 +265,7 @@ export const freeToolsDesktopPart2 = [
       version: "1.0.0",
       releaseDate: "2024-12-15",
       image: "/assets/Free_Tools/Whatsapp_Checker/free_terminal-min.webp",
+      logo: "/assets/tools/logos/whatsapp-free-terminal.svg",
       links: {
         exe: "https://github.com/khalidsakrjoker/whatsapp-numbers-checker/releases/download/v1.0.0/WA_FREE_Terminal.zip",
         source: "https://github.com/khalidsakrjoker/whatsapp-numbers-checker/releases/download/v1.0.0/WA_FREE_Terminal_Source.zip",

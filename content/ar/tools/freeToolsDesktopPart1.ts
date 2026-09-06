@@ -36,6 +36,7 @@ export const freeToolsDesktopPart1 = [
       version: "1.0.0",
       releaseDate: "2024-12-25",
       image: "/assets/Free_Tools/Elsakr_SQLite_Browser/Elsakr_SQLite_Browser.webp",
+      logo: "/assets/tools/logos/sqlite-browser.svg",
       links: {
         exe: "https://github.com/khalidsakrjoker/Elsakr-SQLite-Browser/releases/download/v1.0.0/Elsakr_SQLite_Browser_EXE.zip",
         source: "https://github.com/khalidsakrjoker/Elsakr-SQLite-Browser/releases/download/v1.0.0/Elsakr_SQLite_Browser_Source.zip",
@@ -79,6 +80,7 @@ export const freeToolsDesktopPart1 = [
       version: "1.0.0",
       releaseDate: "2024-12-25",
       image: "/assets/Free_Tools/Elsakr_CSV_Splitter/Elsakr_CSV_Splitter.webp",
+      logo: "/assets/tools/logos/csv-splitter.svg",
       links: {
         exe: "https://github.com/khalidsakrjoker/Elsakr-CSV-Splitter/releases/download/v1.0.0/Elsakr_CSV_Splitter_EXE.zip",
         source: "https://github.com/khalidsakrjoker/Elsakr-CSV-Splitter/releases/download/v1.0.0/Elsakr_CSV_Splitter_Source.zip",
@@ -124,6 +126,7 @@ export const freeToolsDesktopPart1 = [
       version: "1.1.0",
       releaseDate: "2025-01-07",
       image: "/assets/Free_Tools/Elsakr_QR_Code_Generator/Elsakr_QR_Code_Generator.webp",
+      logo: "/assets/tools/logos/qr-code-generator-desktop.svg",
       links: {
         exe: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Desktop/releases/download/v1.1.0/Elsakr_QR_Code_Generator_EXE_V1.1.0.zip",
         source: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Desktop/releases/download/v1.1.0/Elsakr_QR_Code_Generator_Source_V1.1.0.zip",
@@ -168,6 +171,7 @@ export const freeToolsDesktopPart1 = [
       version: "1.0.0",
       releaseDate: "2024-12-15",
       image: "/assets/Free_Tools/Elsakr_Fav_Icon_Generator/Fav_Icons_Generator.webp",
+      logo: "/assets/tools/logos/favicon-generator.svg",
       links: {
         exe: "https://github.com/khalidsakrjoker/Elsakr-Favicon-Generator/releases/download/v1.0.0/Elsakr_Favicon_Generator_EXE.zip",
         source: "https://github.com/khalidsakrjoker/Elsakr-Favicon-Generator/releases/download/v1.0.0/Elsakr_Favicon_Generator_Source.zip",
@@ -212,6 +216,7 @@ export const freeToolsDesktopPart1 = [
       version: "1.0.0",
       releaseDate: "2024-12-15",
       image: "/assets/Free_Tools/Elsakr_Image_Converter/elsakr-image-converter.webp",
+      logo: "/assets/tools/logos/image-converter.svg",
       links: {
         exe: "https://github.com/khalidsakrjoker/Elsakr-Image-Converter/releases/download/v1.0.0/Elsakr._mage_Converter_EXE.zip",
         source: "https://github.com/khalidsakrjoker/Elsakr-Image-Converter/releases/download/v1.0.0/Elsakr._mage_Converter_Source.zip",
@@ -257,6 +262,7 @@ export const freeToolsDesktopPart1 = [
       version: "1.0.0",
       releaseDate: "2024-12-15",
       image: "/assets/Free_Tools/Elsakr_Password_Vault/Elsakr_Password_Vault.webp",
+      logo: "/assets/tools/logos/password-vault.svg",
       links: {
         exe: "https://github.com/khalidsakrjoker/Elsakr-Password-Vault/releases/download/v1.0.0/Elsakr_Password_Vault_EXE.zip",
         source: "https://github.com/khalidsakrjoker/Elsakr-Password-Vault/releases/download/v1.0.0/Elsakr_Password_Vault_Source.zip",

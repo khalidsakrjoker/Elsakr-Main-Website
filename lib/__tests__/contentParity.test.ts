@@ -13,6 +13,9 @@ function assertToolShape(tools: Tool[], label: string) {
     expect(tool.title, `${label}:${tool.id} missing title`).toBeTruthy();
     expect(tool.description, `${label}:${tool.id} missing description`).toBeTruthy();
     expect(tool.links, `${label}:${tool.id} missing links`).toBeTruthy();
+    expect(tool.logo, `${label}:${tool.id} missing logo`).toBe(
+      `/assets/tools/logos/${tool.id}.svg`
+    );
   }
 }
 
@@ -27,5 +30,14 @@ describe('content parity EN/AR tools', () => {
     expect(idsOf(en.freeToolsWeb)).toEqual(idsOf(ar.freeToolsWeb));
     assertToolShape(en.freeToolsWeb, 'en.web');
     assertToolShape(ar.freeToolsWeb, 'ar.web');
+  });
+
+  it('assigns a unique logo path per tool id across desktop and web', () => {
+    const all = [...en.freeToolsDesktop, ...en.freeToolsWeb];
+    const logos = all.map((t) => t.logo);
+    expect(new Set(logos).size).toBe(logos.length);
+    for (const tool of all) {
+      expect(tool.logo).toBe(`/assets/tools/logos/${tool.id}.svg`);
+    }
   });
 });

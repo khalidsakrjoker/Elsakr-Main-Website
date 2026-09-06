@@ -37,6 +37,7 @@ export const freeToolsWeb = [
       version: "1.1.0",
       releaseDate: "2025-01-07",
       image: "/assets/Free_Tools/Elsakr_QR_Code_Generator/Elsakr_QR_Code_Generator_Web.webp",
+      logo: "/assets/tools/logos/qr-code-generator-web.svg",
       links: {
         live: "https://khalidsakrjoker.github.io/Elsakr-QR-Code-Generator-Web/",
         source: "https://github.com/khalidsakrjoker/Elsakr-QR-Code-Generator-Web/releases/download/v1.1.0/Elsakr_QR_Code_Generator_Web_V1.1.0.zip",
@@ -81,6 +82,7 @@ export const freeToolsWeb = [
       version: "1.0.0",
       releaseDate: "2024-12-18",
       image: "/assets/Free_Tools/Elsakr_Image_Compressor_Web/Elsakr_Image_Compressor_Web.webp",
+      logo: "/assets/tools/logos/image-compressor-web.svg",
       links: {
         live: "https://khalidsakrjoker.github.io/Elsakr-Image-Compressor-Web/",
         source: "https://github.com/khalidsakrjoker/Elsakr-Image-Compressor-Web/releases/download/v1.0.0/Elsakr_Image_Compressor_Web.zip",
@@ -126,6 +128,7 @@ export const freeToolsWeb = [
       version: "1.0.0",
       releaseDate: "2024-12-18",
       image: "/assets/Free_Tools/Elsakr_CSS_Gradient_Generator/Elsakr_CSS_Gradient_Generator.webp",
+      logo: "/assets/tools/logos/css-gradient-generator.svg",
       links: {
         live: "https://khalidsakrjoker.github.io/Elsakr-CSS-Gradient-Generator/",
         source: "https://github.com/khalidsakrjoker/Elsakr-CSS-Gradient-Generator/releases/download/v1.0.0/Elsakr.CSS.Gradient.Generator.zip",
@@ -171,6 +174,7 @@ export const freeToolsWeb = [
       version: "1.0.0",
       releaseDate: "2024-12-18",
       image: "/assets/Free_Tools/Elsakr_CSS_Design_Toolkit/Elsakr_CSS_Design_Toolkit.webp",
+      logo: "/assets/tools/logos/css-design-toolkit.svg",
       links: {
         live: "https://khalidsakrjoker.github.io/Elsakr-CSS-Design-Toolkit/",
         source: "https://github.com/khalidsakrjoker/Elsakr-CSS-Design-Toolkit/releases/download/v1.0.0/Elsakr_CSS_Design_Toolkit.zip",
@@ -216,6 +220,7 @@ export const freeToolsWeb = [
       version: "1.0.0",
       releaseDate: "2024-12-18",
       image: "/assets/Free_Tools/Elsakr_SEO_Toolkit/Elsakr_SEO_Toolkit.webp",
+      logo: "/assets/tools/logos/seo-toolkit.svg",
       links: {
         live: "https://khalidsakrjoker.github.io/Elsakr-SEO-Toolkit/",
         source: "https://github.com/khalidsakrjoker/Elsakr-SEO-Toolkit/releases/download/v1.0.0/Elsakr-SEO-Toolkit.zip",
