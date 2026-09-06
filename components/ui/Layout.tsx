@@ -9,6 +9,7 @@ import { ThemeToggle } from './ThemeToggle';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { Footer } from './Footer';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getPageEnterProps } from '../../lib/motion';
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
@@ -30,7 +31,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   return (
     <div
       dir={language === 'ar' ? 'rtl' : 'ltr'}
-      className="min-h-screen bg-app text-ink font-sans overflow-x-hidden transition-colors duration-300"
+      className="min-h-screen bg-app text-ink font-sans overflow-x-hidden theme-crossfade"
     >
       {/* Navigation */}
       <nav
@@ -410,7 +411,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       </nav>
 
       <main className="relative z-10 pt-20 min-h-[calc(100vh-80px)]">
-        {children}
+        <motion.div {...getPageEnterProps()}>{children}</motion.div>
       </main>
 
       <Footer />

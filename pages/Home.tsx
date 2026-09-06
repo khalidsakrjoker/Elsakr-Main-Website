@@ -7,11 +7,7 @@ import { Layout } from '../components/ui/Layout';
 import { Button } from '../components/ui/Button';
 import { SEO } from '../components/seo/SEO';
 import { useTheme } from '../lib/ThemeContext';
-
-const fadeUp = {
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0 },
-};
+import { getPageEnterProps } from '../lib/motion';
 
 export default function Home() {
   const { content, language } = useContent();
@@ -38,11 +34,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--color-accent-soft),transparent_55%)]" aria-hidden />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 pt-32">
-          <motion.div
-            {...fadeUp}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl"
-          >
+          <motion.div {...getPageEnterProps()} className="max-w-3xl">
             <p className="font-display text-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               {content.brand.name}
             </p>

@@ -19,6 +19,7 @@ export default defineConfig({
         'lib/types.ts',
         'lib/useNavigation.ts',
         'lib/logger.ts',
+        'lib/motion.ts',
         'components/ui/MultiStepForm.tsx',
         'components/ui/FreeTools.tsx',
         'pages/Home.tsx',

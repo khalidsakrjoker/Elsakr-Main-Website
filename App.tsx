@@ -24,8 +24,8 @@ const App: React.FC = () => {
     <ThemeProvider>
       <Router>
         <React.Suspense fallback={
-          <div className="flex items-center justify-center min-h-screen">
-             <div className="w-8 h-8 border-4 border-blue-500 rounded-full animate-spin border-t-transparent"></div>
+          <div className="flex items-center justify-center min-h-screen bg-app" role="status" aria-label="Loading">
+             <div className="w-8 h-8 border-4 border-[var(--color-accent)] rounded-full animate-spin border-t-transparent" />
           </div>
         }>
           <Routes>
