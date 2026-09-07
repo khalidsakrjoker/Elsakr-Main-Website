@@ -43,6 +43,61 @@ describe('useNavigation', () => {
     });
     expect(result.current.isMobileServicesOpen).toBe(true);
     expect(result.current.isMobileToolsOpen).toBe(true);
+
+    act(() => {
+      result.current.toggleMobileServices();
+    });
+    expect(result.current.isMobileServicesOpen).toBe(false);
+    expect(result.current.isMobileToolsOpen).toBe(true);
+
+    act(() => {
+      result.current.toggleMobileTools();
+    });
+    expect(result.current.isMobileToolsOpen).toBe(false);
+  });
+
+  it('sets services and tools hover independently', () => {
+    const { result } = renderHook(() => useNavigation('/'));
+
+    act(() => {
+      result.current.setIsServicesHovered(true);
+    });
+    expect(result.current.isServicesHovered).toBe(true);
+    expect(result.current.isToolsHovered).toBe(false);
+
+    act(() => {
+      result.current.setIsToolsHovered(true);
+      result.current.setIsServicesHovered(false);
+    });
+    expect(result.current.isToolsHovered).toBe(true);
+    expect(result.current.isServicesHovered).toBe(false);
+
+    act(() => {
+      result.current.setIsToolsHovered(false);
+    });
+    expect(result.current.isToolsHovered).toBe(false);
+  });
+
+  it('closeAll clears menu, mobile sections, and hover state', () => {
+    const { result } = renderHook(() => useNavigation('/'));
+
+    act(() => {
+      result.current.toggleMenu();
+      result.current.toggleMobileServices();
+      result.current.toggleMobileTools();
+      result.current.setIsServicesHovered(true);
+      result.current.setIsToolsHovered(true);
+    });
+
+    act(() => {
+      result.current.closeAll();
+    });
+
+    expect(result.current.isMenuOpen).toBe(false);
+    expect(result.current.isMobileServicesOpen).toBe(false);
+    expect(result.current.isMobileToolsOpen).toBe(false);
+    expect(result.current.isServicesHovered).toBe(false);
+    expect(result.current.isToolsHovered).toBe(false);
   });
 
   it('resets navigation state when the pathname changes', () => {
