@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { render, screen, cleanup, within } from '@testing-library/react';
+import { render, screen, cleanup, within, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
@@ -109,5 +109,35 @@ describe('Layout', () => {
     expect(root).toHaveAttribute('dir', 'rtl');
     expect(within(root).getAllByText('الداشبورد').length).toBeGreaterThan(0);
     expect(switchers[0]).toHaveTextContent('EN');
+  });
+
+  it('opens mobile services and tools mega sections', async () => {
+    const user = userEvent.setup();
+    renderLayout();
+
+    await user.click(screen.getByRole('button', { name: 'Toggle menu' }));
+
+    await user.click(await screen.findByRole('button', { name: /Capabilities/i }));
+    expect(await screen.findByRole('link', { name: /Web Architecture/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /View All Services/i })).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: /^Tools$/i }));
+    expect(await screen.findByRole('link', { name: /Desktop Apps/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Web Apps/i })).toBeInTheDocument();
+  });
+
+  it('shows desktop services and tools mega menus on hover', () => {
+    renderLayout();
+
+    const servicesTrigger = screen.getByRole('link', { name: /Capabilities/i });
+    fireEvent.mouseEnter(servicesTrigger.parentElement as HTMLElement);
+    expect(screen.getByText('Tailored Solutions')).toBeInTheDocument();
+    expect(screen.getAllByText('Web Architecture').length).toBeGreaterThan(0);
+
+    const toolsTrigger = screen.getByRole('link', { name: /^Tools$/i });
+    fireEvent.mouseEnter(toolsTrigger.parentElement as HTMLElement);
+    expect(screen.getByText('Open Source Tools')).toBeInTheDocument();
+    expect(screen.getByText('Desktop Apps')).toBeInTheDocument();
+    expect(screen.getByText('Web Apps')).toBeInTheDocument();
   });
 });
