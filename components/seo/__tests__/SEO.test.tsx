@@ -91,4 +91,39 @@ describe('SEO', () => {
       expect(keywords?.getAttribute('content')).toContain('شركة الصقر للبرمجيات');
     });
   });
+
+  it('renders extra SoftwareApplication JSON-LD when provided', async () => {
+    render(
+      <HelmetProvider>
+        <ThemeProvider>
+          <MemoryRouter initialEntries={['/tools']}>
+            <SEO
+              title="Free Open Source Tools"
+              jsonLdExtra={{
+                '@context': 'https://schema.org',
+                '@type': 'ItemList',
+                itemListElement: [
+                  {
+                    '@type': 'ListItem',
+                    position: 1,
+                    item: {
+                      '@type': 'SoftwareApplication',
+                      name: 'Demo Tool',
+                      url: 'https://elsakr.company/tools/demo',
+                    },
+                  },
+                ],
+              }}
+            />
+          </MemoryRouter>
+        </ThemeProvider>
+      </HelmetProvider>
+    );
+
+    await waitFor(() => {
+      const payloads = jsonLdScripts().join('\n');
+      expect(payloads).toContain('SoftwareApplication');
+      expect(payloads).toContain('Demo Tool');
+    });
+  });
 });

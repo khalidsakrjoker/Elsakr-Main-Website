@@ -5,6 +5,7 @@ import { Layout } from '../components/ui/Layout';
 import { SEO } from '../components/seo/SEO';
 import { Search, Filter, ArrowLeft, ArrowRight, X, Monitor, Globe } from 'lucide-react';
 import { combineTools, extractTags, filterTools } from '../lib/toolsFilter';
+import { buildToolsSoftwareApplicationList } from '../lib/toolsJsonLd';
 
 export default function ToolsBrowse() {
   const { content, language } = useContent();
@@ -30,6 +31,8 @@ export default function ToolsBrowse() {
     [allTools, category, searchQuery, selectedTag]
   );
 
+  const toolsJsonLd = useMemo(() => buildToolsSoftwareApplicationList(allTools), [allTools]);
+
   return (
     <Layout>
       <SEO
@@ -39,6 +42,7 @@ export default function ToolsBrowse() {
             ? 'استكشف مجموعة أدواتنا المجانية مفتوحة المصدر للمطورين والمصممين'
             : 'Explore our collection of free open source tools for developers and designers'
         }
+        jsonLdExtra={toolsJsonLd}
       />
 
       <section className="py-20 px-6 min-h-screen bg-app">

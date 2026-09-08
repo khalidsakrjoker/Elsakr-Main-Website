@@ -13,6 +13,7 @@ interface SEOProps {
   author?: string;
   publishedTime?: string;
   modifiedTime?: string;
+  jsonLdExtra?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 export const SEO: React.FC<SEOProps> = ({
@@ -25,6 +26,7 @@ export const SEO: React.FC<SEOProps> = ({
   author = 'Elsakr',
   publishedTime,
   modifiedTime,
+  jsonLdExtra,
 }) => {
   const { language, content } = useContent();
   const location = useLocation();
@@ -248,6 +250,14 @@ export const SEO: React.FC<SEOProps> = ({
           },
         })}
       </script>
+
+      {(Array.isArray(jsonLdExtra) ? jsonLdExtra : jsonLdExtra ? [jsonLdExtra] : []).map(
+        (payload, index) => (
+          <script key={`jsonld-extra-${index}`} type="application/ld+json">
+            {JSON.stringify(payload)}
+          </script>
+        )
+      )}
     </Helmet>
   );
 };
