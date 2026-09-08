@@ -69,6 +69,7 @@ export interface ServiceItem {
 export interface SiteContent {
   brand: {
     name: string;
+    shortName: string;
     tagline: string;
     description: string;
     email: string;

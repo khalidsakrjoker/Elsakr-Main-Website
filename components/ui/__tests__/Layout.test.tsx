@@ -108,6 +108,7 @@ describe('Layout', () => {
 
     expect(root).toHaveAttribute('dir', 'rtl');
     expect(within(root).getAllByText('الداشبورد').length).toBeGreaterThan(0);
+    expect(within(root).getAllByText('الصقر').length).toBeGreaterThan(0);
     expect(switchers[0]).toHaveTextContent('EN');
   });
 

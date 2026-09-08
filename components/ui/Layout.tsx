@@ -43,12 +43,12 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             <div className="relative">
               <img
                 src="/Sakr-logo.webp"
-                alt={content.brand.name}
+                alt={content.brand.shortName}
                 className="w-12 h-12 object-contain transition-transform group-hover:scale-105 duration-300"
               />
             </div>
             <span className="text-2xl font-display font-bold tracking-tight text-ink">
-              {content.brand.name}
+              {content.brand.shortName}
             </span>
           </NavLink>
 
