@@ -37,10 +37,14 @@ export function filterTools(tools: ToolWithCategory[], options: ToolFilterOption
     if (category !== 'all' && tool.category !== category) return false;
 
     if (searchQuery) {
-      const query = searchQuery.toLowerCase();
-      const matchTitle = tool.title.toLowerCase().includes(query);
-      const matchDesc = tool.description.toLowerCase().includes(query);
-      if (!matchTitle && !matchDesc) return false;
+      const query = searchQuery.trim().toLowerCase();
+      if (!query) {
+        // whitespace-only search should not filter results
+      } else {
+        const matchTitle = tool.title.toLowerCase().includes(query);
+        const matchDesc = tool.description.toLowerCase().includes(query);
+        if (!matchTitle && !matchDesc) return false;
+      }
     }
 
     if (selectedTag && !tool.tags?.includes(selectedTag)) return false;
