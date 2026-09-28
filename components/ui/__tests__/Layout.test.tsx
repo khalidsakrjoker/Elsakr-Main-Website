@@ -132,6 +132,7 @@ describe('Layout', () => {
 
     const servicesTrigger = screen.getByRole('link', { name: /Capabilities/i });
     fireEvent.mouseEnter(servicesTrigger.parentElement as HTMLElement);
+    expect(screen.getByTestId('services-mega-menu')).toBeInTheDocument();
     expect(screen.getByText('Tailored Solutions')).toBeInTheDocument();
     expect(screen.getAllByText('Web Architecture').length).toBeGreaterThan(0);
 
