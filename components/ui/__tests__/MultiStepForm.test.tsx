@@ -133,4 +133,26 @@ describe('MultiStepForm', () => {
     expect(screen.queryByText('Category')).not.toBeInTheDocument();
     expect(screen.getByRole('alert')).toHaveTextContent(/valid email/i);
   });
+
+  it('logs submit failures when WhatsApp popup cannot open', async () => {
+    const user = userEvent.setup();
+    const logger = await import('../../../lib/logger');
+    const errorSpy = vi.spyOn(logger.logger, 'error').mockImplementation(() => undefined);
+    vi.spyOn(window, 'open').mockReturnValue(null);
+
+    renderForm();
+
+    await user.type(screen.getByPlaceholderText('John Doe'), 'Jane Doe');
+    await user.type(screen.getByPlaceholderText('john@company.com'), 'jane@company.com');
+    await user.click(screen.getByRole('button', { name: /next step/i }));
+    await user.click(screen.getByRole('button', { name: /next step/i }));
+    await user.click(screen.getByRole('button', { name: /next step/i }));
+    await user.click(screen.getByRole('button', { name: /send via whatsapp/i }));
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'MultiStepForm submit failed',
+      expect.objectContaining({ error: expect.any(String) })
+    );
+    expect(screen.getByRole('alert')).toHaveTextContent(/could not open whatsapp/i);
+  });
 });

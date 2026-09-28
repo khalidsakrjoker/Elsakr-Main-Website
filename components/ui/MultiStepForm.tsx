@@ -5,6 +5,7 @@ import { useContent } from '../../lib/useContent';
 import { Button } from './Button';
 import { CheckCircle, ChevronLeft, ChevronRight, Smartphone } from 'lucide-react';
 import { GlassCard } from './GlassCard';
+import { logger } from '../../lib/logger';
 
 const contactStepSchema = z.object({
   name: z.string().trim().min(1, 'Name is required'),
@@ -61,8 +62,7 @@ export const MultiStepForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Construct WhatsApp Message
+
     const msg = `*New Project Inquiry*
     
 *Client:* ${formData.name}
@@ -78,7 +78,21 @@ ${formData.details}
     `;
 
     const encodedMsg = encodeURIComponent(msg);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`, '_blank');
+    try {
+      const opened = window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`, '_blank');
+      if (!opened) {
+        throw new Error('Popup blocked while opening WhatsApp');
+      }
+    } catch (error) {
+      logger.error('MultiStepForm submit failed', {
+        error: error instanceof Error ? error.message : String(error),
+      });
+      setValidationError(
+        language === 'ar'
+          ? 'تعذر فتح واتساب. حاول مرة أخرى أو تواصل مباشرة.'
+          : 'Could not open WhatsApp. Please try again or contact us directly.'
+      );
+    }
   };
 
   const renderStep = () => {
@@ -120,11 +134,6 @@ ${formData.details}
                 placeholder="Acme Corp"
               />
             </div>
-            {validationError && (
-              <p role="alert" className="text-sm text-red-400 font-mono">
-                {validationError}
-              </p>
-            )}
           </div>
         );
       case 1: // Scope & Budget
@@ -273,6 +282,11 @@ ${formData.details}
               {renderStep()}
             </motion.div>
           </AnimatePresence>
+          {validationError && (
+            <p role="alert" className="text-sm text-red-400 font-mono mt-4">
+              {validationError}
+            </p>
+          )}
         </div>
 
         <div className="flex justify-between pt-8 border-t border-white/5 mt-8">
