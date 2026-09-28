@@ -30,7 +30,6 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       dir={language === 'ar' ? 'rtl' : 'ltr'}
       className="min-h-screen bg-app text-ink font-sans overflow-x-hidden theme-crossfade"
     >
-      {/* Navigation */}
       <nav
         className="fixed top-0 w-full z-50 border-b border-app bg-surface/90 backdrop-blur-md transition-colors duration-300"
         onMouseLeave={() => {
@@ -52,7 +51,6 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             </span>
           </NavLink>
 
-          {/* Desktop Nav */}
           <DesktopNav
             content={content}
             language={language}
@@ -62,7 +60,6 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             setIsToolsHovered={setIsToolsHovered}
           />
 
-          {/* Mobile Nav */}
           <MobileNav
             content={content}
             language={language}
