@@ -19,11 +19,12 @@ export default function Services() {
           <p className="text-lg text-ink-muted">{content.services.subtitle}</p>
         </div>
 
-        <div className="max-w-7xl mx-auto grid gap-6">
+        <div className="max-w-7xl mx-auto grid gap-6" data-testid="services-list">
           {content.services.items.map((service) => (
             <div
               key={service.id}
-              data-testid="services-grid" className="grid md:grid-cols-12 border border-app rounded-lg overflow-hidden bg-surface hover-lift"
+              data-testid="service-card"
+              className="grid md:grid-cols-12 border border-app rounded-lg overflow-hidden bg-surface hover-lift"
             >
               <div className="md:col-span-4 bg-surface-muted p-8 flex flex-col justify-center items-center md:items-start border-b md:border-b-0 md:border-r rtl:md:border-r-0 rtl:md:border-l border-app">
                 <service.icon className="w-14 h-14 text-accent mb-6" />
