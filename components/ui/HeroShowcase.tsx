@@ -14,6 +14,7 @@ export function HeroShowcase({ language, brandName }: HeroShowcaseProps) {
   return (
     <div
       data-testid="hero-showcase"
+      data-reduced-motion={reduce ? 'true' : 'false'}
       className="relative hidden lg:block h-[520px] w-full"
       aria-hidden={false}
       aria-label={language === 'ar' ? 'عرض بصري للعلامة' : 'Brand visual showcase'}
