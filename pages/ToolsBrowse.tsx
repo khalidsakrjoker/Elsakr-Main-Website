@@ -176,9 +176,9 @@ export default function ToolsBrowse() {
           </div>
 
           {filteredTools.length === 0 && (
-            <div className="text-center py-20">
+            <div className="text-center py-20" data-testid="tools-empty-state">
               <p className="text-ink-muted text-lg">
-                {language === 'ar' ? 'لم يتم العثور على أدوات' : 'No tools found'}
+                {language === 'ar' ? 'لا نتائج — جرّب مسح البحث أو التاج' : 'No matches — try clearing search or tags'}
               </p>
               <button
                 type="button"

@@ -58,6 +58,23 @@ describe('ToolsBrowse', () => {
     expect(screen.queryByText(/Elsakr SQLite Browser/i)).not.toBeInTheDocument();
   });
 
+  it('shows a clearer empty state when search matches nothing', () => {
+    render(
+      <HelmetProvider>
+        <ThemeProvider>
+          <MemoryRouter>
+            <ToolsBrowse />
+          </MemoryRouter>
+        </ThemeProvider>
+      </HelmetProvider>
+    );
+
+    fireEvent.change(screen.getByLabelText(/Search tools/i), {
+      target: { value: 'zzzz-no-such-tool' },
+    });
+    expect(screen.getByTestId('tools-empty-state')).toHaveTextContent(/No matches/i);
+  });
+
   it('switches category tabs without crashing', () => {
     render(
       <HelmetProvider>
