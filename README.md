@@ -162,3 +162,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <div align="center">
   <p>Built with ❤️ by the <a href="https://elsakr.company">Elsakr Team</a></p>
 </div>
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for local setup, commit style, and quality gates.
