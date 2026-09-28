@@ -1,8 +1,18 @@
 import React from 'react';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider, useTheme } from '../ThemeContext';
+import { logger } from '../logger';
+
+vi.mock('../logger', () => ({
+  logger: {
+    error: vi.fn(),
+    info: vi.fn(),
+    warn: vi.fn(),
+    debug: vi.fn(),
+  },
+}));
 
 function ThemeProbe() {
   const { theme, language, direction, toggleTheme, toggleLanguage } = useTheme();
@@ -25,6 +35,7 @@ describe('ThemeContext', () => {
   beforeEach(() => {
     cleanup();
     localStorage.clear();
+    vi.clearAllMocks();
     document.documentElement.className = '';
     document.documentElement.removeAttribute('dir');
     document.documentElement.removeAttribute('lang');
@@ -88,5 +99,24 @@ describe('ThemeContext', () => {
     expect(screen.getByTestId('direction')).toHaveTextContent('rtl');
     expect(document.documentElement.getAttribute('dir')).toBe('rtl');
     expect(localStorage.getItem('language')).toBe('ar');
+  });
+
+  it('logs when localStorage writes fail', async () => {
+    const user = userEvent.setup();
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('quota exceeded');
+    });
+
+    render(
+      <ThemeProvider>
+        <ThemeProbe />
+      </ThemeProvider>
+    );
+
+    await user.click(screen.getByRole('button', { name: /toggle theme/i }));
+    expect(logger.error).toHaveBeenCalledWith(
+      'ThemeContext storage write failed',
+      expect.objectContaining({ key: 'theme' })
+    );
   });
 });

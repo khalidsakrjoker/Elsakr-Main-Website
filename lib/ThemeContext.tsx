@@ -1,5 +1,5 @@
-
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { logger } from './logger';
 
 type Theme = 'dark' | 'light';
 type Language = 'en' | 'ar';
@@ -14,25 +14,46 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+function safeSetItem(key: string, value: string) {
+  try {
+    localStorage.setItem(key, value);
+  } catch (error) {
+    logger.error('ThemeContext storage write failed', {
+      key,
+      error: error instanceof Error ? error.message : String(error),
+    });
+  }
+}
+
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(() => {
-    // 1. Check local storage
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark' || saved === 'light') return saved;
-    
-    // 2. Check system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-       return 'light';
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'light') return saved;
+    } catch (error) {
+      logger.error('ThemeContext storage read failed', {
+        key: 'theme',
+        error: error instanceof Error ? error.message : String(error),
+      });
     }
-    
-    // 3. Default to dark
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+      return 'light';
+    }
+
     return 'dark';
   });
 
   const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem('language');
-    if (saved === 'en' || saved === 'ar') return saved;
-    // Default to browser preference
+    try {
+      const saved = localStorage.getItem('language');
+      if (saved === 'en' || saved === 'ar') return saved;
+    } catch (error) {
+      logger.error('ThemeContext storage read failed', {
+        key: 'language',
+        error: error instanceof Error ? error.message : String(error),
+      });
+    }
     const browserLang = navigator.language.split('-')[0];
     return browserLang === 'ar' ? 'ar' : 'en';
   });
@@ -41,7 +62,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const root = window.document.documentElement;
     root.classList.remove('light', 'dark');
     root.classList.add(theme);
-    localStorage.setItem('theme', theme);
+    safeSetItem('theme', theme);
   }, [theme]);
 
   useEffect(() => {
@@ -49,32 +70,33 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const dir = language === 'ar' ? 'rtl' : 'ltr';
     root.setAttribute('dir', dir);
     root.setAttribute('lang', language);
-    localStorage.setItem('language', language);
-    
-    // Update font based on language
+    safeSetItem('language', language);
+
     if (language === 'ar') {
-      root.style.fontFamily = "var(--font-ar)";
+      root.style.fontFamily = 'var(--font-ar)';
     } else {
-      root.style.fontFamily = "var(--font-sans)";
+      root.style.fontFamily = 'var(--font-sans)';
     }
   }, [language]);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
   const toggleLanguage = () => {
-    setLanguage(prev => prev === 'en' ? 'ar' : 'en');
+    setLanguage((prev) => (prev === 'en' ? 'ar' : 'en'));
   };
 
   return (
-    <ThemeContext.Provider value={{ 
-      theme, 
-      toggleTheme, 
-      language, 
-      toggleLanguage,
-      direction: language === 'ar' ? 'rtl' : 'ltr'
-    }}>
+    <ThemeContext.Provider
+      value={{
+        theme,
+        toggleTheme,
+        language,
+        toggleLanguage,
+        direction: language === 'ar' ? 'rtl' : 'ltr',
+      }}
+    >
       {children}
     </ThemeContext.Provider>
   );
