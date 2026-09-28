@@ -70,7 +70,7 @@ export default function Contact() {
               <h2 className="font-display text-xl font-bold mb-6 text-ink">
                 {language === 'ar' ? 'أسئلة شائعة' : 'FAQ'}
               </h2>
-              <Accordion items={content.contact.faq.slice(0, 3)} />
+              <div data-testid="contact-faq"><Accordion items={content.contact.faq.slice(0, 4)} /></div>
             </div>
           </div>
 
