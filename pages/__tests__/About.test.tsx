@@ -28,7 +28,7 @@ vi.mock('../../components/ui/Button', () => ({
 }));
 
 vi.mock('../../components/ui/Timeline', () => ({
-  Timeline: () => <div data-testid="timeline" />,
+  Timeline: () => <div data-testid="timeline">Timeline content</div>,
 }));
 
 describe('About page', () => {
@@ -68,6 +68,7 @@ describe('About page', () => {
     expect(screen.getByText('Elsakr')).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
     expect(screen.getByText(/Operating Principles/i)).toBeInTheDocument();
+    expect(screen.getByTestId('about-timeline')).toBeInTheDocument();
     expect(screen.getByTestId('timeline')).toBeInTheDocument();
   });
 });

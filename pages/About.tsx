@@ -56,7 +56,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <Timeline items={content.about.timeline} />
+            <div data-testid="about-timeline"><Timeline items={content.about.timeline} /></div>
           </div>
         </div>
       </section>
