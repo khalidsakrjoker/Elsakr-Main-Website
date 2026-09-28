@@ -23,7 +23,7 @@ export default function Services() {
           {content.services.items.map((service) => (
             <div
               key={service.id}
-              className="grid md:grid-cols-12 border border-app rounded-lg overflow-hidden bg-surface hover-lift"
+              data-testid="services-grid" className="grid md:grid-cols-12 border border-app rounded-lg overflow-hidden bg-surface hover-lift"
             >
               <div className="md:col-span-4 bg-surface-muted p-8 flex flex-col justify-center items-center md:items-start border-b md:border-b-0 md:border-r rtl:md:border-r-0 rtl:md:border-l border-app">
                 <service.icon className="w-14 h-14 text-accent mb-6" />
