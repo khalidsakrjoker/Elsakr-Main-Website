@@ -101,7 +101,7 @@ export default function Home() {
       </section>
 
       {/* 3. Selected platforms — 3D logos with depth */}
-      <section className="py-24 px-6 bg-surface-muted border-t border-app">
+      <section data-testid="home-platforms" className="py-24 px-6 bg-surface-muted border-t border-app">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mb-14">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-ink mb-3">
@@ -144,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* 4. Partners — show all listed partners (except retired ones); framing stays “from our…” */}
-      <section className="py-16 px-6 bg-app border-t border-app">
+      <section data-testid="home-partners" className="py-16 px-6 bg-app border-t border-app">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 max-w-xl mx-auto">
             <h2 className="font-display text-xl font-semibold text-ink mb-2">

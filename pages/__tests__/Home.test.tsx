@@ -73,6 +73,8 @@ describe('Home', () => {
     expect(screen.getByTestId('falcon-field')).toBeInTheDocument();
     expect(screen.getByTestId('client-voices')).toBeInTheDocument();
     expect(screen.getByText(/From client conversations/i)).toBeInTheDocument();
+    expect(screen.getByTestId('home-platforms')).toBeInTheDocument();
+    expect(screen.getByTestId('home-partners')).toBeInTheDocument();
     expect(screen.getByText(/Selected Platforms/i)).toBeInTheDocument();
     expect(document.body.textContent).not.toMatch(/System Operational/i);
     expect(document.body.textContent).not.toMatch(/PROCESSING_DATA/i);
