@@ -78,6 +78,10 @@ describe('Layout', () => {
     expect(brand).toBeInTheDocument();
     expect(screen.getAllByRole('img', { name: 'Elsakr' }).length).toBeGreaterThan(0);
     expect(screen.getByText('Page content')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /skip to content/i })).toHaveAttribute(
+      'href',
+      '#main-content'
+    );
   });
 
   it('toggles the mobile menu open and closed', async () => {

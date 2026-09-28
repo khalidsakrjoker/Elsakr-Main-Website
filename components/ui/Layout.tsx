@@ -30,6 +30,12 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       dir={language === 'ar' ? 'rtl' : 'ltr'}
       className="min-h-screen bg-app text-ink font-sans overflow-x-hidden theme-crossfade"
     >
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-surface focus:text-ink focus:px-4 focus:py-2 focus:border focus:border-app"
+      >
+        {language === 'ar' ? 'تخطي إلى المحتوى' : 'Skip to content'}
+      </a>
       <nav
         className="fixed top-0 w-full z-50 border-b border-app bg-surface/90 backdrop-blur-md transition-colors duration-300"
         onMouseLeave={() => {
@@ -74,7 +80,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         </div>
       </nav>
 
-      <main className="relative z-10 pt-20 min-h-[calc(100vh-80px)]">
+      <main id="main-content" className="relative z-10 pt-20 min-h-[calc(100vh-80px)]" tabIndex={-1}>
         <motion.div {...getPageEnterProps()}>{children}</motion.div>
       </main>
 
