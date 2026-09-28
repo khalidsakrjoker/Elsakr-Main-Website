@@ -10,7 +10,7 @@ export function ClientVoices() {
   if (voices.length === 0) return null;
 
   return (
-    <section className="py-24 px-6 bg-app border-t border-app" data-testid="client-voices">
+    <section className="py-24 px-6 bg-app border-t border-app" data-testid="client-voices" data-voice-count={voices.length}>
       <div className="max-w-7xl mx-auto">
         <div className="max-w-2xl mb-14">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-ink mb-3">

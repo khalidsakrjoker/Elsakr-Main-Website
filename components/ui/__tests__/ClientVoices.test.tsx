@@ -40,5 +40,16 @@ describe('ClientVoices', () => {
     expect(screen.getByTestId('client-voices')).toBeInTheDocument();
     expect(screen.getByText(/From client conversations/i)).toBeInTheDocument();
     expect(screen.getByText(/Sara/i)).toBeInTheDocument();
+    expect(screen.getByTestId('client-voices')).toHaveAttribute('data-voice-count', '3');
   });
 });
+
+describe('testimonials content parity', () => {
+  it('keeps equal EN/AR testimonial counts for ClientVoices', async () => {
+    const { content: en } = await import('../../../content/en/index');
+    const { content: ar } = await import('../../../content/ar/index');
+    expect(en.testimonials.length).toBe(ar.testimonials.length);
+    expect(en.testimonials.length).toBeGreaterThanOrEqual(3);
+  });
+});
+
