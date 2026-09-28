@@ -138,6 +138,7 @@ describe('Layout', () => {
 
     const toolsTrigger = screen.getByRole('link', { name: /^Tools$/i });
     fireEvent.mouseEnter(toolsTrigger.parentElement as HTMLElement);
+    expect(screen.getByTestId('tools-mega-menu')).toBeInTheDocument();
     expect(screen.getByText('Open Source Tools')).toBeInTheDocument();
     expect(screen.getByText('Desktop Apps')).toBeInTheDocument();
     expect(screen.getByText('Web Apps')).toBeInTheDocument();
