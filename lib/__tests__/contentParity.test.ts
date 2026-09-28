@@ -41,3 +41,10 @@ describe('content parity EN/AR tools', () => {
     }
   });
 });
+
+  it('requires brand shortName for chrome and full name for SEO', () => {
+    expect(en.brand.shortName).toBeTruthy();
+    expect(ar.brand.shortName).toBeTruthy();
+    expect(en.brand.name).toBeTruthy();
+    expect(ar.brand.name).toContain('الصقر');
+  });

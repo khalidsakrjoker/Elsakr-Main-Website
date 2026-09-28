@@ -75,3 +75,22 @@ describe('toolsFilter', () => {
     expect(tags).toEqual(['CSV', 'Database', 'JavaScript', 'Python', 'SQLite', 'Web']);
   });
 });
+
+  it('trims search and ignores empty selectedTag', () => {
+    const results = filterTools(allTools, {
+      category: 'all',
+      searchQuery: '  sqlite  ',
+      selectedTag: null,
+    });
+    expect(results).toHaveLength(1);
+    expect(results[0].id).toBe('sqlite-browser');
+  });
+
+  it('returns empty list when category has no tools', () => {
+    const results = filterTools(allTools, {
+      category: 'web',
+      searchQuery: 'sqlite',
+      selectedTag: null,
+    });
+    expect(results).toHaveLength(0);
+  });
