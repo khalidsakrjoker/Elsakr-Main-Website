@@ -134,6 +134,11 @@ describe('MultiStepForm', () => {
     expect(screen.getByRole('alert')).toHaveTextContent(/valid email/i);
   });
 
+  it('shows step progress for clearer multi-step UX', () => {
+    renderForm();
+    expect(screen.getByTestId('form-step-progress')).toHaveTextContent('Step 1 of 4');
+  });
+
   it('logs submit failures when WhatsApp popup cannot open', async () => {
     const user = userEvent.setup();
     const logger = await import('../../../lib/logger');

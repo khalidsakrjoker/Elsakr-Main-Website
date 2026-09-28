@@ -270,6 +270,11 @@ ${formData.details}
       </div>
 
       <form onSubmit={handleSubmit} className="flex-1 flex flex-col">
+        <p className="text-xs font-mono text-slate-500 mb-4" data-testid="form-step-progress">
+          {language === 'ar'
+            ? `الخطوة ${step + 1} من ${steps.length}`
+            : `Step ${step + 1} of ${steps.length}`}
+        </p>
         <div className="flex-1">
           <AnimatePresence mode="wait">
             <motion.div
