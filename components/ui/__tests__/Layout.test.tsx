@@ -107,13 +107,15 @@ describe('Layout', () => {
     expect(root).toHaveAttribute('dir', 'ltr');
     expect(within(root).getAllByText('Dashboard').length).toBeGreaterThan(0);
 
-    const switchers = screen.getAllByRole('button', { name: 'Toggle Language' });
+    const switchers = screen.getAllByRole('button', { name: 'Switch to Arabic' });
     await user.click(switchers[0]);
 
     expect(root).toHaveAttribute('dir', 'rtl');
     expect(within(root).getAllByText('الداشبورد').length).toBeGreaterThan(0);
     expect(within(root).getAllByText('الصقر').length).toBeGreaterThan(0);
-    expect(switchers[0]).toHaveTextContent('EN');
+    expect(screen.getAllByRole('button', { name: 'Switch to English' })[0]).toHaveTextContent(
+      'EN'
+    );
   });
 
   it('opens mobile services and tools mega sections', async () => {
