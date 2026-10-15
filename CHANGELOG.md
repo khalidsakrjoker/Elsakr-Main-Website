@@ -4,6 +4,8 @@ All notable changes to this project are documented in this file.
 
 ## [1.2.0] - 2026-10
 
+September 2026 contribution cadence (C01–C30) closed out with this release.
+
 ### Added
 - ErrorBoundary around App with error logging.
 - Skip-to-content link in Layout for keyboard users.
