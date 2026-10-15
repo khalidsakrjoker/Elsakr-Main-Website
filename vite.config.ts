@@ -5,6 +5,10 @@ import { copyFileSync } from 'fs';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+    // Contact config: VITE_WHATSAPP_NUMBER is client-exposed via Vite's VITE_ prefix.
+    // Touch it here so loadEnv + .env.example stay the documented source of truth.
+    void env.VITE_WHATSAPP_NUMBER;
+
     return {
       server: {
         port: 3000,
@@ -23,9 +27,10 @@ export default defineConfig(({ mode }) => {
           }
         }
       ],
+      // GEMINI keys use define (non-VITE_ prefix). WhatsApp uses import.meta.env.VITE_WHATSAPP_NUMBER.
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
       },
       resolve: {
         alias: {
