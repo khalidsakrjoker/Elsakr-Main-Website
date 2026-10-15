@@ -2,6 +2,23 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.2.0] - 2026-10
+
+### Added
+- ErrorBoundary around App with error logging.
+- Skip-to-content link in Layout for keyboard users.
+- LanguageSwitcher announces the next language for screen readers.
+- Dedicated LanguageSwitcher coverage and expanded Home / parity / filter tests.
+
+### Changed
+- Nav refactors: DesktopNav, MobileNav, ServicesMegaMenu, ToolsMegaMenu; Layout under 200 LOC.
+- Coverage gates raised through 60%.
+- Polish across HeroShowcase/FalconField, ClientVoices, About/Timeline, Services, Contact FAQ, Home platforms.
+- README documents verify-before-Docker compose workflow.
+
+### Fixed
+- Vitest localStorage polyfill for Node 25+ workers.
+
 ## [1.1.0] - 2026-09
 
 ### Added
