@@ -74,4 +74,39 @@ describe('ToolDetail', () => {
 
     expect(screen.getByText('Tools Browse')).toBeInTheDocument();
   });
+
+  it('lists related tools from the same category excluding the current tool', () => {
+    renderToolDetail('sqlite-browser');
+
+    expect(screen.getByRole('heading', { name: /Related Tools/i })).toBeInTheDocument();
+    const relatedLinks = screen
+      .getAllByRole('link')
+      .filter((link) => link.getAttribute('href')?.startsWith('/tools/'))
+      .filter((link) => link.getAttribute('href') !== '/tools/sqlite-browser');
+
+    expect(relatedLinks.length).toBeGreaterThan(0);
+    expect(relatedLinks.every((link) => !link.getAttribute('href')?.includes('sqlite-browser'))).toBe(
+      true
+    );
+  });
+
+  it('emits SoftwareApplication JSON-LD for the current tool', () => {
+    const { container } = renderToolDetail('seo-toolkit');
+    const script = container.querySelector('script[type="application/ld+json"]');
+    expect(script).toBeTruthy();
+
+    const data = JSON.parse(script!.textContent ?? '{}') as {
+      '@type': string;
+      name: string;
+      url: string;
+      applicationCategory: string;
+      offers: { price: string };
+    };
+
+    expect(data['@type']).toBe('SoftwareApplication');
+    expect(data.name.toLowerCase()).toContain('seo');
+    expect(data.url).toBe('https://elsakr.company/tools/seo-toolkit');
+    expect(data.applicationCategory).toBe('WebApplication');
+    expect(data.offers.price).toBe('0');
+  });
 });
