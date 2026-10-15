@@ -3,7 +3,8 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { HelmetProvider } from 'react-helmet-async';
-import { MultiStepForm, contactStepSchema } from '../MultiStepForm';
+import { MultiStepForm } from '../MultiStepForm';
+import { contactStepSchema } from '../../../lib/contactStepSchema';
 
 vi.mock('framer-motion', () => ({
   motion: {

@@ -20,6 +20,7 @@ export default defineConfig({
         'lib/useNavigation.ts',
         'lib/logger.ts',
         'lib/contactConfig.ts',
+        'lib/contactStepSchema.ts',
         'lib/motion.ts',
         'components/ui/MultiStepForm.tsx',
         'components/ui/FreeTools.tsx',

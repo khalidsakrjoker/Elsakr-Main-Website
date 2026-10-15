@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { z } from 'zod';
 import { useContent } from '../../lib/useContent';
 import { Button } from './Button';
 import { CheckCircle, ChevronLeft, ChevronRight, Smartphone } from 'lucide-react';
 import { GlassCard } from './GlassCard';
 import { logger } from '../../lib/logger';
 import { getWhatsAppMeUrl } from '../../lib/contactConfig';
-
-const contactStepSchema = z.object({
-  name: z.string().trim().min(1, 'Name is required'),
-  email: z.string().trim().email('Enter a valid email address'),
-});
-
-export { contactStepSchema };
+import { contactStepSchema } from '../../lib/contactStepSchema';
 
 export const MultiStepForm: React.FC = () => {
   const [step, setStep] = useState(0);
