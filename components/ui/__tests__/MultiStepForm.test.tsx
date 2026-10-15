@@ -1,9 +1,9 @@
 import React from 'react';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { HelmetProvider } from 'react-helmet-async';
-import { MultiStepForm } from '../MultiStepForm';
+import { MultiStepForm, contactStepSchema } from '../MultiStepForm';
 
 vi.mock('framer-motion', () => ({
   motion: {
@@ -82,6 +82,18 @@ describe('MultiStepForm', () => {
   beforeEach(() => {
     cleanup();
     vi.clearAllMocks();
+    vi.stubEnv('VITE_WHATSAPP_NUMBER', '19995550123');
+  });
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
+  it('rejects invalid contactStepSchema payloads', () => {
+    expect(contactStepSchema.safeParse({ name: '', email: 'bad' }).success).toBe(false);
+    expect(
+      contactStepSchema.safeParse({ name: 'Jane', email: 'jane@company.com' }).success
+    ).toBe(true);
   });
 
   it('advances to step 1 when required fields are filled and Next is clicked', async () => {
@@ -137,6 +149,25 @@ describe('MultiStepForm', () => {
   it('shows step progress for clearer multi-step UX', () => {
     renderForm();
     expect(screen.getByTestId('form-step-progress')).toHaveTextContent('Step 1 of 4');
+  });
+
+  it('opens wa.me using VITE_WHATSAPP_NUMBER from env on submit', async () => {
+    const user = userEvent.setup();
+    const openSpy = vi.spyOn(window, 'open').mockReturnValue({} as Window);
+
+    renderForm();
+
+    await user.type(screen.getByPlaceholderText('John Doe'), 'Jane Doe');
+    await user.type(screen.getByPlaceholderText('john@company.com'), 'jane@company.com');
+    await user.click(screen.getByRole('button', { name: /next step/i }));
+    await user.click(screen.getByRole('button', { name: /next step/i }));
+    await user.click(screen.getByRole('button', { name: /next step/i }));
+    await user.click(screen.getByRole('button', { name: /send via whatsapp/i }));
+
+    expect(openSpy).toHaveBeenCalled();
+    const openedUrl = String(openSpy.mock.calls[0]?.[0] ?? '');
+    expect(openedUrl.startsWith('https://wa.me/19995550123?text=')).toBe(true);
+    expect(openedUrl).toContain(encodeURIComponent('Jane Doe'));
   });
 
   it('logs submit failures when WhatsApp popup cannot open', async () => {
