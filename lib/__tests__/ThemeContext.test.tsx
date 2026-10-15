@@ -103,7 +103,7 @@ describe('ThemeContext', () => {
 
   it('logs when localStorage writes fail', async () => {
     const user = userEvent.setup();
-    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+    vi.spyOn(localStorage, 'setItem').mockImplementation(() => {
       throw new Error('quota exceeded');
     });
 
