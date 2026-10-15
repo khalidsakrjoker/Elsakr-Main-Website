@@ -16,7 +16,7 @@
     "verify": "npm run lint && npm run typecheck && npm run test:coverage && npm run build"
   },
   "dependencies": {
-    "@motionone/utils": "10.17.0",
+    "@motionone/utils": "10.18.0",
     "@types/react-helmet-async": "^1.0.1",
     "framer-motion": "^11.15.0",
     "lucide-react": "0.344.0",
