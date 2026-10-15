@@ -10,11 +10,11 @@ export const projects = [
   },
   {
     id: 2,
-    title: 'StoreX',
+    title: 'Sajda POS',
     description:
-      'E-commerce platform spanning web, mobile app, and desktop app — one StoreX product across every surface.',
-    image: '/assets/projects/storex.png',
-    tags: ['E-commerce', 'Web', 'Mobile', 'Desktop'],
-    link: 'https://teststorex.jabalhost.com/',
+      'Cloud POS and retail software for Egyptian shops: barcode sales, shift cash counts, returns, installments, purchases, expenses, and customer/supplier balances — Windows builds keep selling when the internet drops.',
+    image: '/assets/projects/sajda-pos.jpg',
+    tags: ['POS', 'Retail', 'Desktop', 'Cloud'],
+    link: 'https://sajdapos.com/',
   },
 ];

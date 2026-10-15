@@ -79,7 +79,9 @@ export function HeroShowcase({ language, brandName }: HeroShowcaseProps) {
             <p className="text-xs font-semibold text-ink">
               {language === 'ar' ? 'منصات مملوكة' : 'Owned platforms'}
             </p>
-            <p className="text-[11px] text-ink-muted mt-1">Kashx · StoreX</p>
+            <p className="text-[11px] text-ink-muted mt-1">
+              {language === 'ar' ? 'كاش إكس · سجدة' : 'Kashx · Sajda'}
+            </p>
           </motion.div>
 
           <motion.div

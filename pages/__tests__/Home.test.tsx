@@ -79,7 +79,7 @@ describe('Home', () => {
     expect(document.body.textContent).not.toMatch(/System Operational/i);
     expect(document.body.textContent).not.toMatch(/PROCESSING_DATA/i);
     expect(screen.getByText(/Kashx Company/i)).toBeInTheDocument();
-    expect(screen.getAllByText(/StoreX/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Sajda POS/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/From our free tools/i)).toBeInTheDocument();
     expect(screen.getByRole('region', { name: /Tools slider/i })).toBeInTheDocument();
     expect(screen.getByLabelText(/Next tools/i)).toBeInTheDocument();

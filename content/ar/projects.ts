@@ -10,11 +10,11 @@ export const projects = [
   },
   {
     id: 2,
-    title: 'StoreX',
+    title: 'سجدة POS',
     description:
-      'منصة تجارة إلكترونية تشمل الموقع وتطبيق الموبايل وتطبيق الديسكتوب — منتج StoreX واحد على كل الأجهزة.',
-    image: '/assets/projects/storex.png',
-    tags: ['E-commerce', 'Web', 'Mobile', 'Desktop'],
-    link: 'https://teststorex.jabalhost.com/',
+      'برنامج كاشير ونقاط بيع ومخازن للمحلات في مصر: بيع بالباركود، ورديات بجرد نقدية، مرتجعات وأقساط ومشتريات ومصروفات، وأرصدة العملاء والموردين — نسخة ويندوز تكمل البيع لو انقطع الإنترنت.',
+    image: '/assets/projects/sajda-pos.jpg',
+    tags: ['POS', 'Retail', 'Desktop', 'Cloud'],
+    link: 'https://sajdapos.com/',
   },
 ];

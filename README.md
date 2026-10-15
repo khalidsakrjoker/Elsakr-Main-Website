@@ -16,7 +16,7 @@ The official source code for **[Elsakr.company](https://elsakr.company)** — El
 - **Falcon design system:** CSS token maps for equal light/dark, Syne/DM Sans/Cairo typography, restrained motion.
 - **Bilingual EN/AR** with full RTL support.
 - **Free tools catalog** with unique per-tool logos, browse/filter, and Home tools slider.
-- **Owned platforms** (Kashx, StoreX) and curated alliances.
+- **Owned platforms** (Kashx, Sajda POS) and curated alliances.
 - **Quality gates:** ESLint, TypeScript, Vitest + coverage thresholds, `npm run verify`, Docker/nginx, GitHub Actions + Dependabot.
 
 ## Tech Stack
