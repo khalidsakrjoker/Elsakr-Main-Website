@@ -1,4 +1,5 @@
 import { Facebook, Smartphone } from 'lucide-react';
+import { getWhatsAppMeUrl } from '../../lib/contactConfig';
 
 export const footer = {
     tagline: "بنبني ديجيتال صح.",
@@ -29,6 +30,6 @@ export const footer = {
     rights: "© 2024 الصقر للبرمجيات. كل الحقوق محفوظة.",
     social: [
       { name: "Facebook", icon: Facebook, link: "https://www.facebook.com/people/Elsakr/61584979738922/" },
-      { name: "WhatsApp", icon: Smartphone, link: "https://wa.me/201016495229" } // Icon will be swapped in component if needed
+      { name: "WhatsApp", icon: Smartphone, link: getWhatsAppMeUrl() }
     ]
   };

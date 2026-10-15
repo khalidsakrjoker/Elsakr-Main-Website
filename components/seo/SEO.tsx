@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useContent } from '../../lib/useContent';
+import { getWhatsAppMeUrl, getWhatsAppTelephone } from '../../lib/contactConfig';
 import { useLocation } from 'react-router-dom';
 
 interface SEOProps {
@@ -196,7 +197,7 @@ export const SEO: React.FC<SEOProps> = ({
           contactPoint: [
             {
               '@type': 'ContactPoint',
-              telephone: '+201016495229',
+              telephone: getWhatsAppTelephone(),
               contactType: 'sales',
               availableLanguage: ['Arabic', 'English'],
             },
@@ -208,7 +209,7 @@ export const SEO: React.FC<SEOProps> = ({
           ],
           sameAs: [
             'https://github.com/khalidsakrjoker',
-            'https://wa.me/201016495229',
+            getWhatsAppMeUrl(),
             'https://www.facebook.com/people/Elsakr/61584979738922/',
           ],
           knowsAbout,

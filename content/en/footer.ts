@@ -1,4 +1,5 @@
 import { Facebook, Smartphone } from 'lucide-react';
+import { getWhatsAppMeUrl } from '../../lib/contactConfig';
 
 export const footer = {
     tagline: "Building the Digital Future.",
@@ -29,6 +30,6 @@ export const footer = {
     rights: "© 2024 Elsakr. All rights reserved.",
     social: [
       { name: "Facebook", icon: Facebook, link: "https://www.facebook.com/people/Elsakr/61584979738922/" },
-      { name: "WhatsApp", icon: Smartphone, link: "https://wa.me/201016495229" } 
+      { name: "WhatsApp", icon: Smartphone, link: getWhatsAppMeUrl() }
     ]
   };

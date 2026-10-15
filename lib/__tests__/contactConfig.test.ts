@@ -7,13 +7,13 @@ describe('contactConfig', () => {
   });
 
   it('reads VITE_WHATSAPP_NUMBER and builds wa.me / tel forms', () => {
-    vi.stubEnv('VITE_WHATSAPP_NUMBER', '201016495229');
+    vi.stubEnv('VITE_WHATSAPP_NUMBER', '19995550123');
 
-    expect(getWhatsAppNumber()).toBe('201016495229');
-    expect(getWhatsAppTelephone()).toBe('+201016495229');
-    expect(getWhatsAppMeUrl()).toBe('https://wa.me/201016495229');
+    expect(getWhatsAppNumber()).toBe('19995550123');
+    expect(getWhatsAppTelephone()).toBe('+19995550123');
+    expect(getWhatsAppMeUrl()).toBe('https://wa.me/19995550123');
     expect(getWhatsAppMeUrl('Hello')).toBe(
-      `https://wa.me/201016495229?text=${encodeURIComponent('Hello')}`
+      `https://wa.me/19995550123?text=${encodeURIComponent('Hello')}`
     );
   });
 

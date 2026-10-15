@@ -6,11 +6,14 @@ import { Button } from './Button';
 import { CheckCircle, ChevronLeft, ChevronRight, Smartphone } from 'lucide-react';
 import { GlassCard } from './GlassCard';
 import { logger } from '../../lib/logger';
+import { getWhatsAppMeUrl } from '../../lib/contactConfig';
 
 const contactStepSchema = z.object({
   name: z.string().trim().min(1, 'Name is required'),
   email: z.string().trim().email('Enter a valid email address'),
 });
+
+export { contactStepSchema };
 
 export const MultiStepForm: React.FC = () => {
   const [step, setStep] = useState(0);
@@ -32,9 +35,6 @@ export const MultiStepForm: React.FC = () => {
 
   const steps = content.contact.form.steps;
   const isLastStep = step === steps.length - 1;
-
-  // TODO: Replace with the actual WhatsApp number
-  const WHATSAPP_NUMBER = "201016495229"; 
 
   const handleNext = () => {
     if (step === 0) {
@@ -77,9 +77,8 @@ export const MultiStepForm: React.FC = () => {
 ${formData.details}
     `;
 
-    const encodedMsg = encodeURIComponent(msg);
     try {
-      const opened = window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`, '_blank');
+      const opened = window.open(getWhatsAppMeUrl(msg), '_blank');
       if (!opened) {
         throw new Error('Popup blocked while opening WhatsApp');
       }

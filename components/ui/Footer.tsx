@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Send, MessageCircle, Facebook, Github, ArrowUpRight, Code } from 'lucide-react';
 import { useContent } from '../../lib/useContent';
+import { getWhatsAppMeUrl } from '../../lib/contactConfig';
 import { Button } from './Button';
 
 export const Footer: React.FC = () => {
@@ -10,12 +11,9 @@ export const Footer: React.FC = () => {
   const { brand } = content;
   const [message, setMessage] = useState('');
 
-  const WHATSAPP_NUMBER = "201016495229";
-
   const handleQuickMessage = () => {
     if (!message.trim()) return;
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
+    window.open(getWhatsAppMeUrl(message), '_blank');
     setMessage('');
   };
 
