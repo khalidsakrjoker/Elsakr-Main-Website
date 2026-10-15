@@ -108,13 +108,28 @@ npm run typecheck
 
 ### Docker (one-command sandbox)
 
-Build and serve the production site in an isolated container:
+The image builds the Vite production bundle (`npm run build` inside the Dockerfile) and serves it with nginx on port 3000.
+
+**Recommended:** run the full verify pipeline locally first, then bring the container up:
 
 ```bash
+npm ci && npm run verify
 docker compose up --build
 ```
 
 Then open http://localhost:3000
+
+Useful compose commands:
+
+```bash
+# Rebuild image after code changes
+docker compose up --build
+
+# Stop and remove the container
+docker compose down
+```
+
+`docker-compose.yml` maps host `3000` → container `80`. No extra env vars are required for the static site image.
 
 ### Verify (full pipeline)
 
@@ -130,6 +145,7 @@ Or step by step:
 npm ci && npm run lint && npm run typecheck && npm run test:coverage && npm run build
 ```
 
+`verify` is the gate before push and before shipping the Docker image. Compose itself does not re-run lint/tests — it only builds and serves the production assets.
 ## 📂 Project Structure
 
 ```
