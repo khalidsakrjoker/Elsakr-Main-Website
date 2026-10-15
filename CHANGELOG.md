@@ -2,6 +2,20 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.2.1] - 2026-10
+
+### Added
+- `VITE_WHATSAPP_NUMBER` contact config (`lib/contactConfig.ts`) for forms, footer, and Organization schema.
+- README Observability section for the structured logger.
+- Stronger MultiStepForm and ToolDetail specs (wa.me from env, validation guards, related tools, JSON-LD).
+
+### Changed
+- Coverage gate raised from 60% to 70% (branches 55%).
+- Owned platforms: StoreX replaced by Sajda POS.
+
+### Fixed
+- Service worker no longer pins a stale `index.html` across deploys.
+
 ## [1.2.0] - 2026-10
 
 September 2026 contribution cadence (C01–C30) closed out with this release.
