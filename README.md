@@ -76,6 +76,7 @@ cp .env.example .env
 |----------|----------|-------------|
 | `GEMINI_API_KEY` | No | Optional API key injected at build time via `vite.config.ts` for GEMINI integrations |
 | `API_KEY` | No | Alias of `GEMINI_API_KEY` (also exposed as `process.env.API_KEY` in the Vite build) |
+| `VITE_WHATSAPP_NUMBER` | Yes for contact CTAs | Digits-only WhatsApp business number (country code, no `+`). Read by `lib/contactConfig.ts` for forms, footer, and Organization JSON-LD |
 
 ### Testing
 
@@ -146,6 +147,17 @@ npm ci && npm run lint && npm run typecheck && npm run test:coverage && npm run 
 ```
 
 `verify` is the gate before push and before shipping the Docker image. Compose itself does not re-run lint/tests — it only builds and serves the production assets.
+
+### Observability
+
+Client-side logging goes through `lib/logger.ts`. Every call emits a structured object (not a raw string):
+
+```ts
+{ level: 'info' | 'warn' | 'error', message: string, timestamp: string, details?: unknown }
+```
+
+Use it from React error boundaries and recoverable UI failures (for example MultiStepForm WhatsApp popup blocks). `ErrorBoundary` around `App` logs render errors via `logger.error`. Prefer `logger` over bare `console.*` so payloads stay consistent for future sinks.
+
 ## 📂 Project Structure
 
 ```
