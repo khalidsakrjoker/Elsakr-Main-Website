@@ -21,6 +21,16 @@ npm run verify
 
 - Keep English and Arabic content modules in sync (`content/en`, `content/ar`).
 - Prefer `brand.shortName` for chrome; full `brand.name` for SEO.
+- Free-tools catalogs validate against `content/shared/toolsSchema.ts` where wired (Part1 desktop today).
+
+## Maintenance & review
+
+This repository is currently maintained solo. Bus-factor mitigation:
+
+1. **Verify gate:** every change must pass `npm run verify` (lint, typecheck, coverage thresholds, production build) before merge.
+2. **CODEOWNERS:** module ownership for `lib/`, `content/`, `pages/`, and `components/` is declared in [`CODEOWNERS`](CODEOWNERS). Request review from listed owners on PRs that touch those paths.
+3. **Second maintainer onboarding:** a future collaborator should (a) fork or get write access, (b) run `npm ci && npm run verify` on a clean clone, (c) land one small PR with its tests under their own Git identity, (d) follow conventional commits and this file.
+4. **PR expectation:** describe why, link issues when relevant, and wait for green CI before merging.
 
 ## Pull requests
 

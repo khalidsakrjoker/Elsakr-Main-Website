@@ -1,0 +1,9 @@
+# Ownership for review routing and bus-factor clarity.
+# Primary maintainer: @khalidsakrjoker
+
+*       @khalidsakrjoker
+/lib/   @khalidsakrjoker
+/content/ @khalidsakrjoker
+/pages/ @khalidsakrjoker
+/components/ @khalidsakrjoker
+/.github/ @khalidsakrjoker
