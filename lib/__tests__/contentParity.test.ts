@@ -19,6 +19,17 @@ function assertToolShape(tools: Tool[], label: string) {
   }
 }
 
+function assertSameKeysPerId(enTools: Tool[], arTools: Tool[], label: string) {
+  const arById = new Map(arTools.map((tool) => [tool.id, tool]));
+  for (const enTool of enTools) {
+    const arTool = arById.get(enTool.id);
+    expect(arTool, `${label}: missing AR tool for ${enTool.id}`).toBeTruthy();
+    const enKeys = Object.keys(enTool).sort();
+    const arKeys = Object.keys(arTool as Tool).sort();
+    expect(arKeys, `${label}:${enTool.id} key mismatch`).toEqual(enKeys);
+  }
+}
+
 describe('content parity EN/AR tools', () => {
   it('keeps matching freeToolsDesktop ids and required fields', () => {
     expect(idsOf(en.freeToolsDesktop)).toEqual(idsOf(ar.freeToolsDesktop));
@@ -40,7 +51,11 @@ describe('content parity EN/AR tools', () => {
       expect(tool.logo).toBe(`/assets/tools/logos/${tool.id}.svg`);
     }
   });
-});
+
+  it('requires matching own keys for every EN/AR tool id', () => {
+    assertSameKeysPerId(en.freeToolsDesktop, ar.freeToolsDesktop, 'desktop');
+    assertSameKeysPerId(en.freeToolsWeb, ar.freeToolsWeb, 'web');
+  });
 
   it('requires brand shortName for chrome and full name for SEO', () => {
     expect(en.brand.shortName).toBeTruthy();
@@ -48,3 +63,4 @@ describe('content parity EN/AR tools', () => {
     expect(en.brand.name).toBeTruthy();
     expect(ar.brand.name).toContain('الصقر');
   });
+});
