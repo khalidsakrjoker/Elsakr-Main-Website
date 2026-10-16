@@ -1,4 +1,6 @@
-export const freeToolsDesktopPart1 = [
+import { toolsCatalogSchema } from '../../shared/toolsSchema';
+
+const freeToolsDesktopPart1Raw = [
 {
       id: "sqlite-browser",
       title: "Elsakr SQLite Browser",
@@ -271,3 +273,5 @@ export const freeToolsDesktopPart1 = [
       tags: ["Python", "Security", "Encryption"]
     }
 ];
+
+export const freeToolsDesktopPart1 = toolsCatalogSchema.parse(freeToolsDesktopPart1Raw);
