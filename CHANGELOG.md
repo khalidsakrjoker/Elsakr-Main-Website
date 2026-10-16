@@ -2,6 +2,19 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.2.2] - 2026-10
+
+### Added
+- Zod `toolsSchema` / `toolsCatalogSchema` for free-tools catalog entries.
+- Dedicated `MultiStepForm.submit.test.tsx` for WhatsApp popup-blocked errors.
+- `CODEOWNERS` and CONTRIBUTING maintenance / bus-factor guidance.
+- contentParity assertion that EN/AR tools share the same keys per id.
+
+### Changed
+- CI verify steps are named (Lint, Typecheck, Test with coverage, Build, Security audit).
+- EN/AR `freeToolsDesktopPart1` validate through `toolsCatalogSchema` at module load.
+- `@types/react` and `@types/react-dom` aligned to React 18.x.
+
 ## [1.2.1] - 2026-10
 
 ### Added
