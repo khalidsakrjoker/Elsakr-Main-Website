@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import { LocaleLink } from '../components/ui/LocaleLink';
 import { useContent } from '../lib/useContent';
 import { Layout } from '../components/ui/Layout';
 import { SEO } from '../components/seo/SEO';
@@ -48,13 +49,13 @@ export default function ToolsBrowse() {
       <section className="py-20 px-6 min-h-screen bg-app">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
-            <Link
+            <LocaleLink
               to="/"
               className="inline-flex items-center gap-2 text-accent hover:underline mb-4 text-sm"
             >
               <ArrowIcon className={`w-4 h-4 ${language === 'ar' ? '' : 'rotate-180'}`} />
               {language === 'ar' ? 'العودة للرئيسية' : 'Back to Home'}
-            </Link>
+            </LocaleLink>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-ink mb-3">
               {language === 'ar' ? 'أدوات مفتوحة المصدر' : 'Open Source Tools'}
             </h1>
@@ -139,7 +140,7 @@ export default function ToolsBrowse() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {filteredTools.map((tool) => (
-              <Link
+              <LocaleLink
                 key={tool.id}
                 to={`/tools/${tool.id}`}
                 className="group p-5 bg-surface border border-app rounded-lg hover-lift hover:border-[var(--color-accent)] transition-colors"
@@ -171,7 +172,7 @@ export default function ToolsBrowse() {
                     ))}
                   </div>
                 )}
-              </Link>
+              </LocaleLink>
             ))}
           </div>
 

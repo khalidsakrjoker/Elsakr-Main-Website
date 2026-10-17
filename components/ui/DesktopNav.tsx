@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { LocaleNavLink } from './LocaleLink';
 import { ChevronDown } from 'lucide-react';
 import { Button } from './Button';
 import { ThemeToggle } from './ThemeToggle';
@@ -28,22 +28,38 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
   return (
     <>
       <div className="hidden md:flex items-center gap-6 lg:gap-8 h-full">
-        <NavLink
+        <LocaleNavLink
           to="/"
           className={({ isActive }) =>
             `text-sm font-medium hover:text-accent transition-colors ${isActive ? 'text-accent' : 'text-ink-muted'}`
           }
         >
           {content.nav.home}
-        </NavLink>
-        <NavLink
+        </LocaleNavLink>
+        <LocaleNavLink
           to="/about"
           className={({ isActive }) =>
             `text-sm font-medium hover:text-accent transition-colors ${isActive ? 'text-accent' : 'text-ink-muted'}`
           }
         >
           {content.nav.about}
-        </NavLink>
+        </LocaleNavLink>
+        <LocaleNavLink
+          to="/case-studies"
+          className={({ isActive }) =>
+            `text-sm font-medium hover:text-accent transition-colors ${isActive ? 'text-accent' : 'text-ink-muted'}`
+          }
+        >
+          {language === 'ar' ? 'دراسات الحالة' : 'Case Studies'}
+        </LocaleNavLink>
+        <LocaleNavLink
+          to="/insights"
+          className={({ isActive }) =>
+            `text-sm font-medium hover:text-accent transition-colors ${isActive ? 'text-accent' : 'text-ink-muted'}`
+          }
+        >
+          {language === 'ar' ? 'مقالات' : 'Insights'}
+        </LocaleNavLink>
 
         <div
           className="relative h-full flex items-center"
@@ -52,7 +68,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
             setIsToolsHovered(false);
           }}
         >
-          <NavLink
+          <LocaleNavLink
             to="/services"
             className={({ isActive }) =>
               `flex items-center gap-1 text-sm font-medium hover:text-accent transition-colors ${
@@ -64,7 +80,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
             <ChevronDown
               className={`w-3 h-3 transition-transform duration-300 ${isServicesHovered ? 'rotate-180' : ''}`}
             />
-          </NavLink>
+          </LocaleNavLink>
         </div>
 
         <div
@@ -74,7 +90,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
             setIsServicesHovered(false);
           }}
         >
-          <NavLink
+          <LocaleNavLink
             to="/tools"
             className={({ isActive }) =>
               `flex items-center gap-1 text-sm font-medium hover:text-accent transition-colors ${
@@ -86,17 +102,17 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
             <ChevronDown
               className={`w-3 h-3 transition-transform duration-300 ${isToolsHovered ? 'rotate-180' : ''}`}
             />
-          </NavLink>
+          </LocaleNavLink>
         </div>
 
         <div className="h-4 w-[1px] bg-[var(--color-border)] mx-2" />
         <LanguageSwitcher />
         <ThemeToggle />
-        <NavLink to="/contact">
+        <LocaleNavLink to="/contact">
           <Button variant="primary" className="!py-2 !px-5 text-xs">
             {content.nav.contact}
           </Button>
-        </NavLink>
+        </LocaleNavLink>
       </div>
 
       <ServicesMegaMenu

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowLeft, ArrowDown, ExternalLink } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { LocaleLink } from '../components/ui/LocaleLink';
 import { useContent } from '../lib/useContent';
 import { Layout } from '../components/ui/Layout';
 import { Button } from '../components/ui/Button';
@@ -45,15 +45,15 @@ export default function Home() {
               {content.hero.subtitle}
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
+              <LocaleLink to="/contact">
                 <Button variant="primary">
                   {content.hero.cta}
                   <ArrowIcon className="w-4 h-4" />
                 </Button>
-              </Link>
-              <Link to="/services">
+              </LocaleLink>
+              <LocaleLink to="/services">
                 <Button variant="outline">{content.hero.learnMore}</Button>
-              </Link>
+              </LocaleLink>
             </div>
           </motion.div>
 
@@ -82,7 +82,7 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {content.services.items.slice(0, 6).map((service) => (
-              <Link
+              <LocaleLink
                 key={service.id}
                 to={`/services/${service.id}`}
                 className="group block p-6 bg-surface border border-app rounded-lg hover-lift hover:border-[var(--color-accent)] transition-colors"
@@ -94,7 +94,7 @@ export default function Home() {
                 <p className="text-sm text-ink-muted leading-relaxed line-clamp-3">
                   {service.description}
                 </p>
-              </Link>
+              </LocaleLink>
             ))}
           </div>
         </div>
@@ -194,12 +194,12 @@ export default function Home() {
                   : 'Browse the set right here — each tool keeps its own mark. Use the catalog when you want filters.'}
               </p>
             </div>
-            <Link to="/tools">
+            <LocaleLink to="/tools">
               <Button variant="outline">
                 {language === 'ar' ? 'كتالوج الأدوات' : 'Tools catalog'}
                 <ArrowIcon className="w-4 h-4" />
               </Button>
-            </Link>
+            </LocaleLink>
           </div>
           <ToolsSlider tools={allTools} language={language} />
         </div>
@@ -231,12 +231,12 @@ export default function Home() {
               ? 'شاركنا متطلباتك — نبدأ بهندسة واضحة بدون ضوضاء.'
               : 'Share your requirements — we start with clear engineering, no noise.'}
           </p>
-          <Link to="/contact">
+          <LocaleLink to="/contact">
             <Button variant="primary" className="!px-10 !py-4">
               {content.hero.cta}
               <ArrowIcon className="w-4 h-4" />
             </Button>
-          </Link>
+          </LocaleLink>
         </div>
       </section>
     </Layout>

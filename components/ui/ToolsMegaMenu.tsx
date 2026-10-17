@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { LocaleLink } from './LocaleLink';
 import { ChevronRight, Globe, Monitor } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -39,7 +39,7 @@ export const ToolsMegaMenu: React.FC<ToolsMegaMenuProps> = ({
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <Link
+              <LocaleLink
                 to="/tools?type=desktop"
                 onClick={onClose}
                 className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition-all border border-transparent hover:border-blue-500/30 group"
@@ -55,9 +55,9 @@ export const ToolsMegaMenu: React.FC<ToolsMegaMenuProps> = ({
                     {language === 'ar' ? 'تطبيقات EXE للويندوز' : 'Windows .EXE applications'}
                   </p>
                 </div>
-              </Link>
+              </LocaleLink>
 
-              <Link
+              <LocaleLink
                 to="/tools?type=web"
                 onClick={onClose}
                 className="flex items-center gap-4 p-4 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition-all border border-transparent hover:border-emerald-500/30 group"
@@ -73,18 +73,18 @@ export const ToolsMegaMenu: React.FC<ToolsMegaMenuProps> = ({
                     {language === 'ar' ? 'استخدمها أونلاين مباشرة' : 'Use directly in your browser'}
                   </p>
                 </div>
-              </Link>
+              </LocaleLink>
             </div>
 
             <div className="text-center mt-6 pt-4 border-t border-slate-200 dark:border-white/10">
-              <Link
+              <LocaleLink
                 to="/tools"
                 onClick={onClose}
                 className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
               >
                 {language === 'ar' ? 'عرض كل الأدوات' : 'View All Tools'}
                 <ChevronRight className="w-4 h-4 rtl:rotate-180" />
-              </Link>
+              </LocaleLink>
             </div>
           </div>
         </motion.div>

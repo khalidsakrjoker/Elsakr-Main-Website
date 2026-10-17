@@ -1,11 +1,12 @@
 import React from 'react';
 import { Layout } from '../components/ui/Layout';
+import { SEO } from '../components/seo/SEO';
 import { Shield, FileText } from 'lucide-react';
 import { useContent } from '../lib/useContent';
-import { Link } from 'react-router-dom';
+import { LocaleLink } from '../components/ui/LocaleLink';
 
 export default function Legal() {
-  const { language } = useContent();
+  const { content, language } = useContent();
 
   const sections =
     language === 'ar'
@@ -40,6 +41,7 @@ export default function Legal() {
 
   return (
     <Layout>
+      <SEO title={`${language === 'ar' ? 'المستندات القانونية' : 'Legal Documents'} | ${content.brand.name}`} description={language === 'ar' ? 'سياسة الخصوصية والشروط والأحكام التي تحكم استخدام خدماتنا.' : 'Privacy policy and terms of service governing the use of our software services and free tools.'} />
       <section className="py-20 px-6 bg-app">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-display text-4xl md:text-5xl font-bold text-ink mb-6 text-center">
@@ -53,7 +55,7 @@ export default function Legal() {
 
           <div className="grid md:grid-cols-2 gap-6">
             {sections.map((section) => (
-              <Link
+              <LocaleLink
                 key={section.path}
                 to={section.path}
                 className="group bg-surface border border-app rounded-lg p-8 hover-lift hover:border-[var(--color-accent)] transition-colors"
@@ -65,7 +67,7 @@ export default function Legal() {
                   {section.title}
                 </h2>
                 <p className="text-ink-muted">{section.description}</p>
-              </Link>
+              </LocaleLink>
             ))}
           </div>
         </div>

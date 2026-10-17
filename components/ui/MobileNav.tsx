@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { LocaleLink, LocaleNavLink } from './LocaleLink';
 import { Menu, X, ChevronDown, ChevronRight, Globe, Monitor } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LanguageSwitcher } from './LanguageSwitcher';
@@ -55,20 +55,48 @@ export const MobileNav: React.FC<MobileNavProps> = ({
             className="md:hidden fixed top-20 left-0 right-0 w-full bg-white dark:bg-[#010208] border-b border-slate-200 dark:border-white/10 flex flex-col gap-0 backdrop-blur-xl shadow-xl overflow-hidden max-h-[85vh] overflow-y-auto"
           >
             <div className="p-6 flex flex-col">
-              <NavLink
+              <LocaleNavLink
                 to="/"
                 onClick={() => setIsMenuOpen(false)}
                 className="py-4 text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-blue-500 border-b border-slate-100 dark:border-white/5"
               >
                 {content.nav.home}
-              </NavLink>
-              <NavLink
+              </LocaleNavLink>
+              <LocaleNavLink
                 to="/about"
                 onClick={() => setIsMenuOpen(false)}
                 className="py-4 text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-blue-500 border-b border-slate-100 dark:border-white/5"
               >
                 {content.nav.about}
-              </NavLink>
+              </LocaleNavLink>
+              <LocaleNavLink
+                to="/case-studies"
+                onClick={() => setIsMenuOpen(false)}
+                className="py-4 text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-blue-500 border-b border-slate-100 dark:border-white/5"
+              >
+                {language === 'ar' ? 'دراسات الحالة' : 'Case Studies'}
+              </LocaleNavLink>
+              <LocaleNavLink
+                to="/insights"
+                onClick={() => setIsMenuOpen(false)}
+                className="py-4 text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-blue-500 border-b border-slate-100 dark:border-white/5"
+              >
+                {language === 'ar' ? 'مقالات' : 'Insights'}
+              </LocaleNavLink>
+              <LocaleNavLink
+                to="/industries"
+                onClick={() => setIsMenuOpen(false)}
+                className="py-4 text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-blue-500 border-b border-slate-100 dark:border-white/5"
+              >
+                {language === 'ar' ? 'القطاعات' : 'Industries'}
+              </LocaleNavLink>
+              <LocaleNavLink
+                to="/faq"
+                onClick={() => setIsMenuOpen(false)}
+                className="py-4 text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-blue-500 border-b border-slate-100 dark:border-white/5"
+              >
+                {language === 'ar' ? 'أسئلة شائعة' : 'FAQ'}
+              </LocaleNavLink>
 
               {/* Mobile Services Accordion */}
               <div className="border-b border-slate-100 dark:border-white/5">
@@ -90,7 +118,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                       className="overflow-hidden bg-slate-50 dark:bg-slate-900/50 rounded-lg mb-4"
                     >
                       {content.services.items.map((service) => (
-                        <Link
+                        <LocaleLink
                           key={service.id}
                           to={`/services/${service.id}`}
                           onClick={() => setIsMenuOpen(false)}
@@ -98,16 +126,16 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                         >
                           <service.icon className="w-4 h-4 opacity-70" />
                           {service.title}
-                        </Link>
+                        </LocaleLink>
                       ))}
-                      <Link
+                      <LocaleLink
                         to="/services"
                         onClick={() => setIsMenuOpen(false)}
                         className="flex items-center gap-3 py-3 px-4 text-sm font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
                       >
                         {language === 'ar' ? 'عرض جميع الخدمات' : 'View All Services'}{' '}
                         <ChevronRight className="w-3 h-3 rtl:rotate-180" />
-                      </Link>
+                      </LocaleLink>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -132,46 +160,46 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                       exit={{ opacity: 0, height: 0 }}
                       className="overflow-hidden bg-slate-50 dark:bg-slate-900/50 rounded-lg mb-4"
                     >
-                      <Link
+                      <LocaleLink
                         to="/tools?type=desktop"
                         onClick={() => setIsMenuOpen(false)}
                         className="flex items-center gap-3 py-3 px-4 text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-white dark:hover:bg-white/5 transition-all"
                       >
                         <Monitor className="w-4 h-4 opacity-70" />
                         {language === 'ar' ? 'تطبيقات سطح المكتب' : 'Desktop Apps'}
-                      </Link>
-                      <Link
+                      </LocaleLink>
+                      <LocaleLink
                         to="/tools?type=web"
                         onClick={() => setIsMenuOpen(false)}
                         className="flex items-center gap-3 py-3 px-4 text-sm text-slate-600 dark:text-slate-400 hover:text-emerald-600 hover:bg-white dark:hover:bg-white/5 transition-all"
                       >
                         <Globe className="w-4 h-4 opacity-70" />
                         {language === 'ar' ? 'تطبيقات الويب' : 'Web Apps'}
-                      </Link>
-                      <Link
+                      </LocaleLink>
+                      <LocaleLink
                         to="/tools"
                         onClick={() => setIsMenuOpen(false)}
                         className="flex items-center gap-3 py-3 px-4 text-sm font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
                       >
                         {language === 'ar' ? 'عرض كل الأدوات' : 'View All Tools'}{' '}
                         <ChevronRight className="w-4 h-4 rtl:rotate-180" />
-                      </Link>
+                      </LocaleLink>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
-              <NavLink
+              <LocaleNavLink
                 to="/contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="py-4 text-lg font-medium text-slate-600 dark:text-slate-300 hover:text-blue-500"
               >
                 {content.nav.contact}
-              </NavLink>
+              </LocaleNavLink>
 
               <div className="mt-8">
                 <Button fullWidth onClick={() => setIsMenuOpen(false)}>
-                  <Link to="/contact">{content.hero.cta}</Link>
+                  <LocaleLink to="/contact">{content.hero.cta}</LocaleLink>
                 </Button>
               </div>
             </div>

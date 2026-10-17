@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { LocaleLink } from './LocaleLink';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './Button';
 import type { SiteContent } from '../../lib/types';
@@ -36,7 +36,7 @@ export const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
             <div className="grid grid-cols-12 gap-8">
               <div className="col-span-8 grid grid-cols-2 gap-4">
                 {content.services.items.map((service) => (
-                  <Link
+                  <LocaleLink
                     key={service.id}
                     to={`/services/${service.id}`}
                     onClick={onClose}
@@ -53,7 +53,7 @@ export const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
                         {service.description}
                       </p>
                     </div>
-                  </Link>
+                  </LocaleLink>
                 ))}
               </div>
 
@@ -68,11 +68,11 @@ export const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
                       : 'Need a custom architecture? Our engineers specialize in high-complexity use cases.'}
                   </p>
                 </div>
-                <Link to="/contact" onClick={onClose}>
+                <LocaleLink to="/contact" onClick={onClose}>
                   <Button variant="outline" fullWidth>
                     {language === 'ar' ? 'تحدث إلى خبير' : 'Talk to an Expert'}
                   </Button>
-                </Link>
+                </LocaleLink>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { LocaleLink } from './LocaleLink';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Tool } from '../../lib/types';
 import { prefersReducedMotion } from '../../lib/motion';
@@ -91,7 +91,7 @@ export function ToolsSlider({ tools, language }: ToolsSliderProps) {
         }}
       >
         {tools.map((tool) => (
-          <Link
+          <LocaleLink
             key={tool.id}
             to={`/tools/${tool.id}`}
             className="group snap-center shrink-0 w-[min(85vw,320px)] p-5 bg-app border border-app rounded-lg hover-lift hover:border-[var(--color-accent)] transition-colors"
@@ -107,7 +107,7 @@ export function ToolsSlider({ tools, language }: ToolsSliderProps) {
               {tool.title}
             </h3>
             <p className="text-sm text-ink-muted line-clamp-2">{tool.description}</p>
-          </Link>
+          </LocaleLink>
         ))}
       </div>
 

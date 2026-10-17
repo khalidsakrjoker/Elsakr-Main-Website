@@ -1,11 +1,12 @@
 import React from 'react';
 import { Layout } from '../components/ui/Layout';
+import { SEO } from '../components/seo/SEO';
 import { FileText, CheckCircle, XCircle, AlertTriangle, Scale, Mail, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useContent } from '../lib/useContent';
-import { Link } from 'react-router-dom';
+import { LocaleLink } from '../components/ui/LocaleLink';
 
 export default function Terms() {
-  const { language } = useContent();
+  const { content, language } = useContent();
   const ArrowIcon = language === 'ar' ? ArrowRight : ArrowLeft;
 
   const lastUpdated = '2024-12-17';
@@ -112,16 +113,17 @@ Each project is governed by a separate detailed agreement.`
 
   return (
     <Layout>
+      <SEO title={`${language === 'ar' ? 'الشروط والأحكام' : 'Terms of Service'} | ${content.brand.name}`} description={language === 'ar' ? 'الشروط والأحكام التي تنظّم استخدام موقعنا وخدماتنا وأدواتنا المجانية.' : 'The terms that govern the use of our website, services, and free tools.'} />
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           {/* Back Link */}
-          <Link 
+          <LocaleLink 
             to="/legal" 
             className="inline-flex items-center gap-2 text-accent hover:underline mb-8"
           >
             <ArrowIcon className="w-4 h-4" />
             {language === 'ar' ? 'رجوع للمستندات القانونية' : 'Back to Legal Documents'}
-          </Link>
+          </LocaleLink>
 
           {/* Header */}
           <div className="flex items-center gap-4 mb-8">

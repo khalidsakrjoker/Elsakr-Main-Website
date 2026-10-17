@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from '../Layout';
+import { LocaleSync } from '../../LocaleSync';
 import { ThemeProvider } from '../../../lib/ThemeContext';
 
 vi.mock('framer-motion', () => ({
@@ -35,11 +36,12 @@ vi.mock('framer-motion', () => ({
   AnimatePresence: ({ children }: React.PropsWithChildren) => <>{children}</>,
 }));
 
-function renderLayout(ui: React.ReactNode = <div>Page content</div>) {
+function renderLayout(ui: React.ReactNode = <div>Page content</div>, path = '/') {
   return render(
     <HelmetProvider>
-      <ThemeProvider>
-        <MemoryRouter>
+      <ThemeProvider initialLanguage={path.startsWith('/ar') ? 'ar' : 'en'}>
+        <MemoryRouter initialEntries={[path]}>
+          <LocaleSync />
           <Layout>{ui}</Layout>
         </MemoryRouter>
       </ThemeProvider>
@@ -116,6 +118,36 @@ describe('Layout', () => {
     expect(screen.getAllByRole('button', { name: 'Switch to English' })[0]).toHaveTextContent(
       'EN'
     );
+  });
+
+  it('keeps navigation links under /ar when browsing Arabic', () => {
+    renderLayout(<div>Page content</div>, '/ar/about');
+
+    const root = document.querySelector('[dir]') as HTMLElement;
+    expect(root).toHaveAttribute('dir', 'rtl');
+
+    const hrefs = within(root)
+      .getAllByRole('link')
+      .map((link) => link.getAttribute('href'))
+      .filter((href): href is string => !!href && href.startsWith('/'));
+
+    expect(hrefs).toContain('/ar');
+    expect(hrefs).toContain('/ar/about');
+    expect(hrefs).toContain('/ar/services');
+    expect(hrefs).toContain('/ar/contact');
+    expect(hrefs).toContain('/ar/legal/privacy');
+    expect(hrefs.filter((href) => !href.startsWith('/ar'))).toEqual([]);
+  });
+
+  it('keeps English links unprefixed', () => {
+    renderLayout();
+    const root = document.querySelector('[dir]') as HTMLElement;
+    const hrefs = within(root)
+      .getAllByRole('link')
+      .map((link) => link.getAttribute('href'))
+      .filter((href): href is string => !!href && href.startsWith('/'));
+    expect(hrefs).toContain('/about');
+    expect(hrefs.some((href) => href.startsWith('/ar'))).toBe(false);
   });
 
   it('opens mobile services and tools mega sections', async () => {

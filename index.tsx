@@ -9,14 +9,20 @@ if (!rootElement) {
   throw new Error('Could not find root element to mount to');
 }
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
+const app = (
   <React.StrictMode>
     <HelmetProvider>
       <App />
     </HelmetProvider>
   </React.StrictMode>
 );
+
+// Prerendered pages ship real HTML inside #root: hydrate it instead of replacing it.
+if (rootElement.hasChildNodes()) {
+  ReactDOM.hydrateRoot(rootElement, app);
+} else {
+  ReactDOM.createRoot(rootElement).render(app);
+}
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -30,3 +36,8 @@ if ('serviceWorker' in navigator) {
       });
   });
 }
+
+// Core Web Vitals → structured logger (Search Console remains the source of truth for field data).
+void import('./lib/webVitals').then(({ initWebVitals }) => {
+  initWebVitals();
+});

@@ -1,51 +1,58 @@
-
 import React from 'react';
-import { HashRouter, BrowserRouter, Routes, Route } from 'react-router-dom';
-const Home = React.lazy(() => import('./pages/Home'));
-const Services = React.lazy(() => import('./pages/Services'));
-const Contact = React.lazy(() => import('./pages/Contact'));
-const About = React.lazy(() => import('./pages/About'));
-const ServiceDetail = React.lazy(() => import('./pages/ServiceDetail'));
-const Legal = React.lazy(() => import('./pages/Legal'));
-const Privacy = React.lazy(() => import('./pages/Privacy'));
-const Terms = React.lazy(() => import('./pages/Terms'));
-const ToolsBrowse = React.lazy(() => import('./pages/ToolsBrowse'));
-const ToolDetail = React.lazy(() => import('./pages/ToolDetail'));
+import { HashRouter, BrowserRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom/server';
 import { ThemeProvider } from './lib/ThemeContext';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { LocaleSync } from './components/LocaleSync';
+import { AppRoutes } from './components/AppRoutes';
+import type { AppPages } from './components/AppRoutes';
+import { lazyPages } from './components/lazyPages';
+import { getLocaleFromPathname } from './lib/seo/localePath';
 
-const App: React.FC = () => {
-  const isBlob = window.location.protocol === 'blob:';
+export interface AppProps {
+  /** Render with a StaticRouter for this URL (SSG / prerender). Omit in the browser. */
+  url?: string;
+  /** Page components; defaults to code-split lazy pages. */
+  pages?: AppPages;
+}
+
+const Fallback: React.FC = () => (
+  <div className="flex items-center justify-center min-h-screen bg-app" role="status" aria-label="Loading">
+    <div className="w-8 h-8 border-4 border-[var(--color-accent)] rounded-full animate-spin border-t-transparent" />
+  </div>
+);
+
+const AppContent: React.FC<{ pages: AppPages }> = ({ pages }) => (
+  <>
+    <LocaleSync />
+    <React.Suspense fallback={<Fallback />}>
+      <AppRoutes pages={pages} />
+    </React.Suspense>
+  </>
+);
+
+const App: React.FC<AppProps> = ({ url, pages = lazyPages }) => {
+  const isBlob = typeof window !== 'undefined' && window.location.protocol === 'blob:';
+
+  if (url !== undefined) {
+    return (
+      <ErrorBoundary>
+        <ThemeProvider initialLanguage={getLocaleFromPathname(url)}>
+          <StaticRouter location={url}>
+            <AppContent pages={pages} />
+          </StaticRouter>
+        </ThemeProvider>
+      </ErrorBoundary>
+    );
+  }
+
   const Router = isBlob ? HashRouter : BrowserRouter;
 
   return (
     <ErrorBoundary>
       <ThemeProvider>
         <Router>
-          <React.Suspense
-            fallback={
-              <div
-                className="flex items-center justify-center min-h-screen bg-app"
-                role="status"
-                aria-label="Loading"
-              >
-                <div className="w-8 h-8 border-4 border-[var(--color-accent)] rounded-full animate-spin border-t-transparent" />
-              </div>
-            }
-          >
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/services/:id" element={<ServiceDetail />} />
-              <Route path="/tools" element={<ToolsBrowse />} />
-              <Route path="/tools/:id" element={<ToolDetail />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/legal" element={<Legal />} />
-              <Route path="/legal/privacy" element={<Privacy />} />
-              <Route path="/legal/terms" element={<Terms />} />
-            </Routes>
-          </React.Suspense>
+          <AppContent pages={pages} />
         </Router>
       </ThemeProvider>
     </ErrorBoundary>
@@ -53,4 +60,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-

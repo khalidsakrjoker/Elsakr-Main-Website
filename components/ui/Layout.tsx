@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { LocaleNavLink } from './LocaleLink';
 import { useContent } from '../../lib/useContent';
 import { useNavigation } from '../../lib/useNavigation';
 import { DesktopNav } from './DesktopNav';
@@ -44,7 +45,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
         }}
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
-          <NavLink to="/" className="flex items-center gap-2 group z-50">
+          <LocaleNavLink to="/" className="flex items-center gap-2 group z-50">
             <div className="relative">
               <img
                 src="/Sakr-logo.webp"
@@ -55,7 +56,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             <span className="text-2xl font-display font-bold tracking-tight text-ink">
               {content.brand.shortName}
             </span>
-          </NavLink>
+          </LocaleNavLink>
 
           <DesktopNav
             content={content}

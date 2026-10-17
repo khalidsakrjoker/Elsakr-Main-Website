@@ -3,6 +3,9 @@ import { Helmet } from 'react-helmet-async';
 import { useContent } from '../../lib/useContent';
 import { getWhatsAppMeUrl, getWhatsAppTelephone } from '../../lib/contactConfig';
 import { useLocation } from 'react-router-dom';
+import { getLocaleFromPathname, withLocale } from '../../lib/seo/localePath';
+import type { Locale } from '../../lib/seo/localePath';
+import { SITE_ORIGIN, getAbsoluteUrl, getAlternatePaths } from '../../lib/seo/routeManifest';
 
 interface SEOProps {
   title?: string;
@@ -29,14 +32,24 @@ export const SEO: React.FC<SEOProps> = ({
   modifiedTime,
   jsonLdExtra,
 }) => {
-  const { language, content } = useContent();
+  const { language: contextLanguage, content } = useContent();
   const location = useLocation();
+
+  // The URL decides the locale (`/ar/*` is Arabic); the ThemeProvider language is the fallback
+  // when the router location does not carry a pathname.
+  const language: Locale = location.pathname
+    ? getLocaleFromPathname(location.pathname)
+    : contextLanguage;
+  const routePath = location.pathname || '/';
 
   const siteTitle = content.brand.name;
   const defaultDescription = content.brand.description;
-  const baseUrl = 'https://elsakr.company';
-  const currentUrl = url || `${baseUrl}${location.pathname}`;
+  const baseUrl = SITE_ORIGIN;
+  const alternates = getAlternatePaths(routePath);
+  const currentUrl = url || getAbsoluteUrl(withLocale(routePath, language));
   const canonicalUrl = currentUrl.split('?')[0];
+  const englishUrl = getAbsoluteUrl(alternates.en);
+  const arabicUrl = getAbsoluteUrl(alternates.ar);
   const fullTitle = title
     ? title
     : language === 'ar'
@@ -110,6 +123,9 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="theme-color" content="#0f172a" />
       <html lang={language} dir={language === 'ar' ? 'rtl' : 'ltr'} />
       <link rel="canonical" href={canonicalUrl} />
+      <link rel="alternate" {...{ hreflang: 'en' }} href={englishUrl} />
+      <link rel="alternate" {...{ hreflang: 'ar' }} href={arabicUrl} />
+      <link rel="alternate" {...{ hreflang: 'x-default' }} href={englishUrl} />
 
       <meta
         name="robots"
@@ -127,7 +143,7 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="apple-mobile-web-app-title" content={content.brand.shortName} />
 
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={currentUrl} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:image" content={finalImage} />

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { LocaleLink } from './LocaleLink';
 import { Send, MessageCircle, Facebook, Github, ArrowUpRight, Code } from 'lucide-react';
 import { useContent } from '../../lib/useContent';
 import { getWhatsAppMeUrl } from '../../lib/contactConfig';
@@ -26,6 +26,10 @@ export const Footer: React.FC = () => {
     { label: language === 'ar' ? 'الرئيسية' : 'Home', path: '/' },
     { label: language === 'ar' ? 'من نحن' : 'About', path: '/about' },
     { label: language === 'ar' ? 'خدماتنا' : 'Services', path: '/services' },
+    { label: language === 'ar' ? 'دراسات الحالة' : 'Case Studies', path: '/case-studies' },
+    { label: language === 'ar' ? 'مقالات' : 'Insights', path: '/insights' },
+    { label: language === 'ar' ? 'القطاعات' : 'Industries', path: '/industries' },
+    { label: language === 'ar' ? 'أسئلة شائعة' : 'FAQ', path: '/faq' },
     { label: language === 'ar' ? 'تواصل معنا' : 'Contact', path: '/contact' },
   ];
 
@@ -47,7 +51,7 @@ export const Footer: React.FC = () => {
           
           {/* Brand & Quick Message */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-6 group">
+            <LocaleLink to="/" className="flex items-center gap-3 mb-6 group">
               <img 
                 src="/Sakr-logo.webp" 
                 alt={brand.name} 
@@ -56,7 +60,7 @@ export const Footer: React.FC = () => {
               <span className="text-2xl font-display font-bold tracking-tight text-ink">
                 {brand.name}
               </span>
-            </Link>
+            </LocaleLink>
             <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-sm">
               {language === 'ar' 
                 ? 'نبني حلول برمجية متكاملة للشركات الطموحة. من الفكرة للتنفيذ.' 
@@ -99,13 +103,13 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.path}>
-                  <Link 
+                  <LocaleLink 
                     to={link.path}
                     className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </Link>
+                  </LocaleLink>
                 </li>
               ))}
             </ul>
@@ -119,13 +123,13 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 mb-8">
               {legalLinks.map((link) => (
                 <li key={link.path}>
-                  <Link 
+                  <LocaleLink 
                     to={link.path}
                     className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm flex items-center gap-1 group"
                   >
                     {link.label}
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </Link>
+                  </LocaleLink>
                 </li>
               ))}
             </ul>

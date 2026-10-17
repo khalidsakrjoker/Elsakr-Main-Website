@@ -1,19 +1,31 @@
-
 import React from 'react';
 import { Globe } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../../lib/ThemeContext';
+import { withLocale } from '../../lib/seo/localePath';
 import { motion } from 'framer-motion';
 
 export const LanguageSwitcher: React.FC = () => {
-  const { language, toggleLanguage } = useTheme();
+  const { language } = useTheme();
+  const navigate = useNavigate();
+  const location = useLocation();
   const nextLanguage = language === 'en' ? 'ar' : 'en';
-  const ariaLabel =
-    language === 'en' ? 'Switch to Arabic' : 'Switch to English';
+  const ariaLabel = language === 'en' ? 'Switch to Arabic' : 'Switch to English';
+
+  // The URL is the source of truth: navigate to the mirrored EN/AR path and
+  // LocaleSync updates the ThemeProvider language from the new pathname.
+  const handleSwitch = () => {
+    navigate({
+      pathname: withLocale(location.pathname, nextLanguage),
+      search: location.search,
+      hash: location.hash,
+    });
+  };
 
   return (
     <button
       type="button"
-      onClick={toggleLanguage}
+      onClick={handleSwitch}
       className="relative flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 group"
       aria-label={ariaLabel}
       title={ariaLabel}

@@ -1,8 +1,10 @@
 import React from 'react';
 import { Layout } from '../components/ui/Layout';
+import { SEO } from '../components/seo/SEO';
+import { toMetaDescription } from '../lib/seo/text';
 import { useContent } from '../lib/useContent';
 import { CheckCircle2, ArrowRight, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { LocaleLink } from '../components/ui/LocaleLink';
 import { Button } from '../components/ui/Button';
 
 export default function Services() {
@@ -11,6 +13,7 @@ export default function Services() {
 
   return (
     <Layout>
+      <SEO title={`${content.services.title} | ${content.brand.name}`} description={toMetaDescription(content.services.subtitle)} />
       <section className="py-20 px-6 bg-app">
         <div className="max-w-4xl mx-auto text-center mb-20 pt-8">
           <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 text-ink">
@@ -40,13 +43,13 @@ export default function Services() {
                     </div>
                   ))}
                 </div>
-                <Link
+                <LocaleLink
                   to={`/services/${service.id}`}
                   className="inline-flex items-center gap-2 text-accent hover:underline text-sm font-medium"
                 >
                   {language === 'ar' ? 'استكشف التفاصيل' : 'Explore Details'}
                   <ArrowIcon className="w-4 h-4" />
-                </Link>
+                </LocaleLink>
               </div>
             </div>
           ))}
@@ -102,11 +105,11 @@ export default function Services() {
           <h2 className="font-display text-3xl font-bold mb-8 text-ink">
             {language === 'ar' ? 'جاهز للتحول؟' : 'Ready to transform?'}
           </h2>
-          <Link to="/contact">
+          <LocaleLink to="/contact">
             <Button variant="primary" className="!text-lg !px-10 !py-4">
               {language === 'ar' ? 'ابدأ الآن' : 'Get Started Now'}
             </Button>
-          </Link>
+          </LocaleLink>
         </div>
       </section>
     </Layout>

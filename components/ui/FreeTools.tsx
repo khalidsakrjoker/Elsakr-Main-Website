@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { LocaleLink } from './LocaleLink';
 import { useContent } from '../../lib/useContent';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 import { Button } from './Button';
@@ -35,17 +35,17 @@ export const FreeTools: React.FC = () => {
                 : 'Each tool carries its own visual identity.'}
             </p>
           </div>
-          <Link to="/tools">
+          <LocaleLink to="/tools">
             <Button variant="outline">
               {language === 'ar' ? 'تصفح الكل' : 'Browse all'}
               <ArrowIcon className="w-4 h-4" />
             </Button>
-          </Link>
+          </LocaleLink>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {tools.map((tool) => (
-            <Link
+            <LocaleLink
               key={tool.id}
               to={`/tools/${tool.id}`}
               className="group p-5 bg-app border border-app rounded-lg hover-lift hover:border-[var(--color-accent)] transition-colors"
@@ -55,7 +55,7 @@ export const FreeTools: React.FC = () => {
                 {tool.title}
               </h3>
               <p className="text-sm text-ink-muted line-clamp-2">{tool.description}</p>
-            </Link>
+            </LocaleLink>
           ))}
         </div>
       </div>

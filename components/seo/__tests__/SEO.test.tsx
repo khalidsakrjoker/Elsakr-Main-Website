@@ -5,12 +5,14 @@ import { MemoryRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { SEO } from '../SEO';
 import { ThemeProvider } from '../../../lib/ThemeContext';
+import { LocaleSync } from '../../LocaleSync';
 
-function renderSEO(initialEntries: string[] = ['/']) {
+function renderSEO(initialEntries: string[] = ['/'], initialLanguage?: 'en' | 'ar') {
   return render(
     <HelmetProvider>
-      <ThemeProvider>
+      <ThemeProvider initialLanguage={initialLanguage}>
         <MemoryRouter initialEntries={initialEntries}>
+          <LocaleSync />
           <SEO />
         </MemoryRouter>
       </ThemeProvider>
@@ -22,6 +24,18 @@ function jsonLdScripts(): string[] {
   return Array.from(document.querySelectorAll('script[type="application/ld+json"]')).map(
     (node) => node.textContent ?? ''
   );
+}
+
+function head(selector: string): string | null {
+  return document.head.querySelector(selector)?.getAttribute('content') ?? null;
+}
+
+function alternates(): Record<string, string | null> {
+  const result: Record<string, string | null> = {};
+  document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((node) => {
+    result[node.getAttribute('hreflang') ?? ''] = node.getAttribute('href');
+  });
+  return result;
 }
 
 describe('SEO', () => {
@@ -61,14 +75,8 @@ describe('SEO', () => {
     expect(payloads).toContain('alternateName');
   });
 
-  it('uses Arabic company naming in title and schema after language switch', async () => {
-    localStorage.setItem('language', 'ar');
-    Object.defineProperty(window.navigator, 'language', {
-      configurable: true,
-      get: () => 'ar-EG',
-    });
-
-    renderSEO();
+  it('uses Arabic company naming in title and schema on /ar routes', async () => {
+    renderSEO(['/ar'], 'ar');
 
     await waitFor(() => {
       expect(document.title).toContain('شركة الصقر للبرمجيات');
@@ -81,15 +89,67 @@ describe('SEO', () => {
     expect(payloads).toContain('تطوير البرمجيات');
   });
 
-  it('includes Arabic SEO keywords in the document head', async () => {
-    localStorage.setItem('language', 'ar');
-    renderSEO();
+  it('includes Arabic SEO keywords in the document head on /ar routes', async () => {
+    renderSEO(['/ar/about'], 'ar');
 
     await waitFor(() => {
-      const keywords = document.querySelector('meta[name="keywords"]');
-      expect(keywords?.getAttribute('content')).toContain('الصقر برمجيات');
-      expect(keywords?.getAttribute('content')).toContain('شركة الصقر للبرمجيات');
+      const keywords = head('meta[name="keywords"]');
+      expect(keywords).toContain('الصقر برمجيات');
+      expect(keywords).toContain('شركة الصقر للبرمجيات');
     });
+  });
+
+  it('emits the English canonical and hreflang set for an English route', async () => {
+    renderSEO(['/about']);
+
+    await waitFor(() => {
+      expect(document.head.querySelector('link[rel="canonical"]')).not.toBeNull();
+    });
+
+    expect(document.head.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(
+      'https://elsakr.company/about'
+    );
+    expect(alternates()).toEqual({
+      en: 'https://elsakr.company/about',
+      ar: 'https://elsakr.company/ar/about',
+      'x-default': 'https://elsakr.company/about',
+    });
+    expect(head('meta[property="og:locale"]')).toBe('en_US');
+    expect(head('meta[property="og:url"]')).toBe('https://elsakr.company/about');
+  });
+
+  it('uses the Arabic URL as canonical on /ar/about while x-default stays English', async () => {
+    renderSEO(['/ar/about'], 'ar');
+
+    await waitFor(() => {
+      expect(document.head.querySelector('link[rel="canonical"]')).not.toBeNull();
+    });
+
+    expect(document.head.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(
+      'https://elsakr.company/ar/about'
+    );
+    expect(alternates()).toEqual({
+      en: 'https://elsakr.company/about',
+      ar: 'https://elsakr.company/ar/about',
+      'x-default': 'https://elsakr.company/about',
+    });
+    expect(head('meta[property="og:locale"]')).toBe('ar_EG');
+    expect(head('meta[property="og:locale:alternate"]')).toBe('en_US');
+    expect(document.documentElement.getAttribute('lang')).toBe('ar');
+  });
+
+  it('maps the home page to / and /ar and strips trailing slashes', async () => {
+    renderSEO(['/ar/']);
+
+    await waitFor(() => {
+      expect(document.head.querySelector('link[rel="canonical"]')).not.toBeNull();
+    });
+
+    expect(document.head.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(
+      'https://elsakr.company/ar'
+    );
+    expect(alternates().en).toBe('https://elsakr.company/');
+    expect(alternates().ar).toBe('https://elsakr.company/ar');
   });
 
   it('renders extra SoftwareApplication JSON-LD when provided', async () => {

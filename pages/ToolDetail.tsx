@@ -1,6 +1,8 @@
 import React from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
+import { LocaleLink } from '../components/ui/LocaleLink';
 import { useContent } from '../lib/useContent';
+import { useLocalizedPath } from '../lib/useLocalizedPath';
 import { Layout } from '../components/ui/Layout';
 import { SEO } from '../components/seo/SEO';
 import {
@@ -22,12 +24,13 @@ import { combineTools } from '../lib/toolsFilter';
 export default function ToolDetail() {
   const { id } = useParams<{ id: string }>();
   const { content, language } = useContent();
+  const localize = useLocalizedPath();
 
   const allTools = combineTools(content.freeToolsDesktop ?? [], content.freeToolsWeb ?? []);
   const tool = allTools.find((t) => t.id === id);
 
   if (!tool) {
-    return <Navigate to="/tools" replace />;
+    return <Navigate to={localize('/tools')} replace />;
   }
 
   const relatedTools = allTools
@@ -40,7 +43,7 @@ export default function ToolDetail() {
     name: tool.title,
     description: tool.description,
     image: `https://elsakr.company${tool.image}`,
-    url: `https://elsakr.company/tools/${tool.id}`,
+    url: `https://elsakr.company${localize(`/tools/${tool.id}`)}`,
     applicationCategory: tool.category === 'web' ? 'WebApplication' : 'DesktopApplication',
     operatingSystem: tool.category === 'web' ? 'Any' : 'Windows',
     offers: {
@@ -74,13 +77,13 @@ export default function ToolDetail() {
       <section className="py-20 px-6 bg-app">
         <div className="max-w-5xl mx-auto">
           <nav className="flex items-center gap-2 text-sm text-ink-muted mb-8">
-            <Link to="/" className="hover:text-accent">
+            <LocaleLink to="/" className="hover:text-accent">
               {language === 'ar' ? 'الرئيسية' : 'Home'}
-            </Link>
+            </LocaleLink>
             <span>/</span>
-            <Link to="/tools" className="hover:text-accent">
+            <LocaleLink to="/tools" className="hover:text-accent">
               {language === 'ar' ? 'الأدوات' : 'Tools'}
-            </Link>
+            </LocaleLink>
             <span>/</span>
             <span className="text-ink">{tool.title}</span>
           </nav>
@@ -337,7 +340,7 @@ export default function ToolDetail() {
               </h2>
               <div className="grid md:grid-cols-3 gap-5">
                 {relatedTools.map((relTool) => (
-                  <Link
+                  <LocaleLink
                     key={relTool.id}
                     to={`/tools/${relTool.id}`}
                     className="group p-5 bg-surface border border-app rounded-lg hover-lift hover:border-[var(--color-accent)] transition-colors"
@@ -352,7 +355,7 @@ export default function ToolDetail() {
                       {relTool.title}
                     </h3>
                     <p className="text-sm text-ink-muted mt-1 line-clamp-2">{relTool.description}</p>
-                  </Link>
+                  </LocaleLink>
                 ))}
               </div>
             </div>

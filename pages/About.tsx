@@ -1,9 +1,11 @@
 import React from 'react';
 import { Layout } from '../components/ui/Layout';
+import { SEO } from '../components/seo/SEO';
+import { toMetaDescription } from '../lib/seo/text';
 import { Timeline } from '../components/ui/Timeline';
 import { useContent } from '../lib/useContent';
 import { Button } from '../components/ui/Button';
-import { Link } from 'react-router-dom';
+import { LocaleLink } from '../components/ui/LocaleLink';
 import { ArrowRight, ArrowLeft, Target } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -13,6 +15,7 @@ export default function About() {
 
   return (
     <Layout>
+      <SEO title={`${content.about.title} | ${content.brand.name}`} description={toMetaDescription(`${content.about.mission} ${content.about.story}`)} />
       <section className="relative py-20 px-6 bg-app overflow-hidden">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -34,12 +37,12 @@ export default function About() {
               {content.about.mission}
             </p>
             <p className="text-ink-muted leading-relaxed mb-8">{content.about.story}</p>
-            <Link to="/contact">
+            <LocaleLink to="/contact">
               <Button variant="primary">
                 {language === 'ar' ? 'انضم للمهمة' : 'Join the Mission'}{' '}
                 <ArrowIcon className={`w-4 h-4 inline ${language === 'ar' ? 'mr-2' : 'ml-2'}`} />
               </Button>
-            </Link>
+            </LocaleLink>
           </motion.div>
 
           <div className="p-8 bg-surface border border-app rounded-lg">

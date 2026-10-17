@@ -1,11 +1,12 @@
 import React from 'react';
 import { Layout } from '../components/ui/Layout';
+import { SEO } from '../components/seo/SEO';
 import { Shield, Lock, Eye, Database, Mail, Globe, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useContent } from '../lib/useContent';
-import { Link } from 'react-router-dom';
+import { LocaleLink } from '../components/ui/LocaleLink';
 
 export default function Privacy() {
-  const { language } = useContent();
+  const { content, language } = useContent();
   const ArrowIcon = language === 'ar' ? ArrowRight : ArrowLeft;
 
   const lastUpdated = '2024-12-17';
@@ -108,16 +109,17 @@ export default function Privacy() {
 
   return (
     <Layout>
+      <SEO title={`${language === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'} | ${content.brand.name}`} description={language === 'ar' ? 'كيف نجمع بياناتك ونستخدمها ونحميها عند استخدام موقعنا وخدماتنا وأدواتنا المجانية.' : 'How we collect, use, and protect your data when you use our website, services, and free tools.'} />
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           {/* Back Link */}
-          <Link 
+          <LocaleLink 
             to="/legal" 
             className="inline-flex items-center gap-2 text-accent hover:underline mb-8"
           >
             <ArrowIcon className="w-4 h-4" />
             {language === 'ar' ? 'رجوع للمستندات القانونية' : 'Back to Legal Documents'}
-          </Link>
+          </LocaleLink>
 
           {/* Header */}
           <div className="flex items-center gap-4 mb-8">
