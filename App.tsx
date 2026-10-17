@@ -1,19 +1,22 @@
 import React from 'react';
 import { HashRouter, BrowserRouter } from 'react-router-dom';
-import { StaticRouter } from 'react-router-dom/server';
 import { ThemeProvider } from './lib/ThemeContext';
+import type { Language } from './lib/ThemeContext';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { LocaleSync } from './components/LocaleSync';
 import { AppRoutes } from './components/AppRoutes';
 import type { AppPages } from './components/AppRoutes';
 import { lazyPages } from './components/lazyPages';
-import { getLocaleFromPathname } from './lib/seo/localePath';
 
 export interface AppProps {
-  /** Render with a StaticRouter for this URL (SSG / prerender). Omit in the browser. */
-  url?: string;
   /** Page components; defaults to code-split lazy pages. */
   pages?: AppPages;
+}
+
+export interface AppShellProps {
+  pages?: AppPages;
+  /** Language for the first paint (SSR / prerender). */
+  initialLanguage?: Language;
 }
 
 const Fallback: React.FC = () => (
@@ -22,40 +25,26 @@ const Fallback: React.FC = () => (
   </div>
 );
 
-const AppContent: React.FC<{ pages: AppPages }> = ({ pages }) => (
-  <>
-    <LocaleSync />
-    <React.Suspense fallback={<Fallback />}>
-      <AppRoutes pages={pages} />
-    </React.Suspense>
-  </>
+/** Shared shell used by the browser app and by entry-server (inside StaticRouter). */
+export const AppShell: React.FC<AppShellProps> = ({ pages = lazyPages, initialLanguage }) => (
+  <ErrorBoundary>
+    <ThemeProvider initialLanguage={initialLanguage}>
+      <LocaleSync />
+      <React.Suspense fallback={<Fallback />}>
+        <AppRoutes pages={pages} />
+      </React.Suspense>
+    </ThemeProvider>
+  </ErrorBoundary>
 );
 
-const App: React.FC<AppProps> = ({ url, pages = lazyPages }) => {
+const App: React.FC<AppProps> = ({ pages = lazyPages }) => {
   const isBlob = typeof window !== 'undefined' && window.location.protocol === 'blob:';
-
-  if (url !== undefined) {
-    return (
-      <ErrorBoundary>
-        <ThemeProvider initialLanguage={getLocaleFromPathname(url)}>
-          <StaticRouter location={url}>
-            <AppContent pages={pages} />
-          </StaticRouter>
-        </ThemeProvider>
-      </ErrorBoundary>
-    );
-  }
-
   const Router = isBlob ? HashRouter : BrowserRouter;
 
   return (
-    <ErrorBoundary>
-      <ThemeProvider>
-        <Router>
-          <AppContent pages={pages} />
-        </Router>
-      </ThemeProvider>
-    </ErrorBoundary>
+    <Router>
+      <AppShell pages={pages} />
+    </Router>
   );
 };
 
