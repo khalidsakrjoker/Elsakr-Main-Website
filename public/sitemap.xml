@@ -1,226 +1,883 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://elsakr.company/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/"/>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://elsakr.company/seo.jpg</image:loc>
-      <image:title>شركة الصقر للبرمجيات | Elsakr Software Engineering Studio</image:title>
-    </image:image>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/about</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/about"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/about"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/services</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
+    <loc>https://elsakr.company/ar/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/tools</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/contact"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/contact"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://elsakr.company/services/web</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services/web"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services/web"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services/web"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/services/web</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services/web"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services/web"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services/web"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/services/mobile</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services/mobile"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services/mobile"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services/mobile"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://elsakr.company/services/enterprise</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://elsakr.company/services/cloud</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://elsakr.company/services/ui-ux</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://elsakr.company/ar/services/mobile</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services/mobile"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services/mobile"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services/mobile"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/services/ai</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services/ai"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services/ai"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services/ai"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://elsakr.company/tools</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://elsakr.company/assets/Free_Tools/Elsakr_SEO_Toolkit/Elsakr_SEO_Toolkit.webp</image:loc>
-      <image:title>Elsakr Free Open Source Tools</image:title>
-    </image:image>
+    <loc>https://elsakr.company/ar/services/ai</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services/ai"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services/ai"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services/ai"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/services/security</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services/security"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services/security"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services/security"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/services/security</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services/security"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services/security"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services/security"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/services/cloud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services/cloud"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services/cloud"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services/cloud"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/services/cloud</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services/cloud"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services/cloud"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services/cloud"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/services/design</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services/design"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services/design"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services/design"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/services/design</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/services/design"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/services/design"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/services/design"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/qr-code-generator-web</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/qr-code-generator-web"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/qr-code-generator-web"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/qr-code-generator-web"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/qr-code-generator-web</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/qr-code-generator-web"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/qr-code-generator-web"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/qr-code-generator-web"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/image-compressor-web</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/image-compressor-web"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/image-compressor-web"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/image-compressor-web"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/image-compressor-web</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/image-compressor-web"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/image-compressor-web"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/image-compressor-web"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/css-gradient-generator</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/css-gradient-generator"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/css-gradient-generator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/css-gradient-generator"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/css-gradient-generator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/css-gradient-generator"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/css-gradient-generator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/css-gradient-generator"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/css-design-toolkit</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/css-design-toolkit"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/css-design-toolkit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/css-design-toolkit"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/css-design-toolkit</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/css-design-toolkit"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/css-design-toolkit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/css-design-toolkit"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/seo-toolkit</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/seo-toolkit"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/seo-toolkit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/seo-toolkit"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/seo-toolkit</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/seo-toolkit"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/seo-toolkit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/seo-toolkit"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/sqlite-browser</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/sqlite-browser"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/sqlite-browser"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/sqlite-browser"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/sqlite-browser</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/sqlite-browser"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/sqlite-browser"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/sqlite-browser"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/csv-splitter</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/csv-splitter"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/csv-splitter"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/csv-splitter"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/csv-splitter</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/csv-splitter"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/csv-splitter"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/csv-splitter"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/qr-code-generator-desktop</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/qr-code-generator-desktop"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/qr-code-generator-desktop"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/qr-code-generator-desktop"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/qr-code-generator-desktop</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/qr-code-generator-desktop"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/qr-code-generator-desktop"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/qr-code-generator-desktop"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/favicon-generator</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/favicon-generator"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/favicon-generator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/favicon-generator"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/favicon-generator</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/favicon-generator"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/favicon-generator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/favicon-generator"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/image-converter</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/image-converter"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/image-converter"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/image-converter"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/image-converter</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/image-converter"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/image-converter"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/image-converter"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/password-vault</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/password-vault"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/password-vault"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/password-vault"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/password-vault</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/password-vault"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/password-vault"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/password-vault"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/port-scanner</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/port-scanner"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/port-scanner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/port-scanner"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/port-scanner</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/port-scanner"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/port-scanner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/port-scanner"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/image-compressor</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/image-compressor"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/image-compressor"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/image-compressor"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/image-compressor</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/image-compressor"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/image-compressor"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/image-compressor"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/whatsapp-api-gui</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/whatsapp-api-gui"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/whatsapp-api-gui"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/whatsapp-api-gui"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/whatsapp-api-gui</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/whatsapp-api-gui"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/whatsapp-api-gui"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/whatsapp-api-gui"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/whatsapp-api-terminal</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/whatsapp-api-terminal"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/whatsapp-api-terminal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/whatsapp-api-terminal"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/whatsapp-api-terminal</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/whatsapp-api-terminal"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/whatsapp-api-terminal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/whatsapp-api-terminal"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/whatsapp-free-gui</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/whatsapp-free-gui"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/whatsapp-free-gui"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/whatsapp-free-gui"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/tools/whatsapp-free-gui</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/whatsapp-free-gui"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/whatsapp-free-gui"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/whatsapp-free-gui"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://elsakr.company/tools/whatsapp-free-terminal</loc>
-    <lastmod>2026-09-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/whatsapp-free-terminal"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/whatsapp-free-terminal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/whatsapp-free-terminal"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://elsakr.company/contact</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://elsakr.company/ar/tools/whatsapp-free-terminal</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/tools/whatsapp-free-terminal"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/tools/whatsapp-free-terminal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/tools/whatsapp-free-terminal"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/case-studies</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/case-studies"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://elsakr.company/privacy</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://elsakr.company/ar/case-studies</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/case-studies"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/case-studies/kashx</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/case-studies/kashx"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/case-studies/kashx"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/case-studies/kashx"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/case-studies/kashx</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/case-studies/kashx"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/case-studies/kashx"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/case-studies/kashx"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/case-studies/sajda</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/case-studies/sajda"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/case-studies/sajda"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/case-studies/sajda"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/case-studies/sajda</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/case-studies/sajda"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/case-studies/sajda"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/case-studies/sajda"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/industries</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/industries"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/industries"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/industries"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/industries</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/industries"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/industries"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/industries"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/industries/retail-pos</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/industries/retail-pos"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/industries/retail-pos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/industries/retail-pos"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/industries/retail-pos</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/industries/retail-pos"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/industries/retail-pos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/industries/retail-pos"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/industries/fintech</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/industries/fintech"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/industries/fintech"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/industries/fintech"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/industries/fintech</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/industries/fintech"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/industries/fintech"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/industries/fintech"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/industries/enterprise</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/industries/enterprise"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/industries/enterprise"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/industries/enterprise"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/industries/enterprise</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/industries/enterprise"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/industries/enterprise"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/industries/enterprise"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/insights</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/insights"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/insights"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/insights"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/insights</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/insights"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/insights"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/insights"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/insights/choosing-software-company-egypt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/insights/choosing-software-company-egypt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/insights/choosing-software-company-egypt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/insights/choosing-software-company-egypt"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/insights/choosing-software-company-egypt</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/insights/choosing-software-company-egypt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/insights/choosing-software-company-egypt"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/insights/choosing-software-company-egypt"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/insights/cloud-pos-offline-continuity</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/insights/cloud-pos-offline-continuity"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/insights/cloud-pos-offline-continuity"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/insights/cloud-pos-offline-continuity"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/insights/cloud-pos-offline-continuity</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/insights/cloud-pos-offline-continuity"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/insights/cloud-pos-offline-continuity"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/insights/cloud-pos-offline-continuity"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/insights/fintech-platform-architecture</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/insights/fintech-platform-architecture"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/insights/fintech-platform-architecture"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/insights/fintech-platform-architecture"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/insights/fintech-platform-architecture</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/insights/fintech-platform-architecture"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/insights/fintech-platform-architecture"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/insights/fintech-platform-architecture"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/faq"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/faq"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/faq"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/faq"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/author/khalid-elsakr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/author/khalid-elsakr"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/author/khalid-elsakr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/author/khalid-elsakr"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/author/khalid-elsakr</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/author/khalid-elsakr"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/author/khalid-elsakr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/author/khalid-elsakr"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/legal</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/legal"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/legal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/legal"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://elsakr.company/terms</loc>
-    <lastmod>2026-09-08</lastmod>
+    <loc>https://elsakr.company/ar/legal</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/legal"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/legal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/legal"/>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
+  <url>
+    <loc>https://elsakr.company/legal/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/legal/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/legal/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/legal/privacy"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/legal/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/legal/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/legal/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/legal/privacy"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/legal/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/legal/terms"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/legal/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/legal/terms"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://elsakr.company/ar/legal/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elsakr.company/legal/terms"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elsakr.company/ar/legal/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://elsakr.company/legal/terms"/>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>

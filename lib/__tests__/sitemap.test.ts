@@ -1,20 +1,25 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { generateSitemapXml } from '../seo/sitemap';
+import { SITE_LASTMOD } from '../seo/routeManifest';
 
-describe('public/sitemap.xml', () => {
-  const xml = readFileSync(resolve(process.cwd(), 'public/sitemap.xml'), 'utf8');
+describe('sitemap generation (route manifest)', () => {
+  const xml = generateSitemapXml(SITE_LASTMOD);
 
-  it('uses the September 2026 lastmod refresh date', () => {
-    expect(xml).toContain('<lastmod>2026-09-08</lastmod>');
+  it('uses the current SITE_LASTMOD and bilingual alternates', () => {
+    expect(xml).toContain(`<lastmod>${SITE_LASTMOD}</lastmod>`);
     expect(xml).not.toContain('<lastmod>2024-12-19</lastmod>');
+    expect(xml).toContain('hreflang="en"');
+    expect(xml).toContain('hreflang="ar"');
   });
 
-  it('includes previously missing tool detail URLs', () => {
+  it('includes tool detail URLs and correct legal paths', () => {
     expect(xml).toContain('https://elsakr.company/tools/whatsapp-free-gui');
     expect(xml).toContain('https://elsakr.company/tools/qr-code-generator-web');
     expect(xml).toContain('https://elsakr.company/tools/sqlite-browser');
     expect(xml).toContain('https://elsakr.company/tools/image-compressor');
     expect(xml).not.toContain('/tools/image-compressor-desktop');
+    expect(xml).toContain('https://elsakr.company/legal/privacy');
+    expect(xml).toContain('https://elsakr.company/legal/terms');
   });
 });
+

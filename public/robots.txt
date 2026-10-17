@@ -1,44 +1,41 @@
 # Elsakr - robots.txt
 # https://elsakr.company
 
-# Allow all crawlers
 User-agent: *
 Allow: /
-
-# Disallow admin and private paths
 Disallow: /admin/
 Disallow: /api/
-Disallow: /_next/
 Disallow: /private/
 
-# Allow important assets
 Allow: /assets/
 Allow: /seo.jpg
 Allow: /Sakr-logo.webp
-Allow: /*.js$
-Allow: /*.css$
+Allow: /llms.txt
+Allow: /insights.xml
+Allow: /sitemap.xml
 
-# Crawl-delay for polite crawling
-Crawl-delay: 1
-
-# Googlebot specific (no crawl delay needed)
+# Google
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0
 
-# Bingbot specific
+User-agent: Google-Extended
+Allow: /
+
+# Bing
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
 
-# AI Crawlers
+# AI / answer-engine crawlers
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: Google-Extended
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
 Allow: /
 
 User-agent: anthropic-ai
@@ -47,5 +44,16 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
-# Sitemap location
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Discovery
 Sitemap: https://elsakr.company/sitemap.xml
+# LLM summary: https://elsakr.company/llms.txt
+# Insights feed: https://elsakr.company/insights.xml

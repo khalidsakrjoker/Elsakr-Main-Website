@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Elsakr Insights</title>
+    <link>https://elsakr.company/insights</link>
+    <description>Engineering guidance from Elsakr</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 17 Oct 2026 18:13:14 GMT</lastBuildDate>
+    <item>
+      <title>How to Choose a Software Company in Egypt: A Practical Checklist</title>
+      <link>https://elsakr.company/insights/choosing-software-company-egypt</link>
+      <guid isPermaLink="true">https://elsakr.company/insights/choosing-software-company-egypt</guid>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
+      <description>A practical checklist for evaluating a software company in Egypt: outcomes, shipped products, ownership terms, engagement models, and security.</description>
+    </item>
+    <item>
+      <title>Cloud POS That Keeps Selling Offline: Design Principles</title>
+      <link>https://elsakr.company/insights/cloud-pos-offline-continuity</link>
+      <guid isPermaLink="true">https://elsakr.company/insights/cloud-pos-offline-continuity</guid>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Design principles for a cloud POS that keeps selling during internet outages: local-first writes, safe sync, and honest limits.</description>
+    </item>
+    <item>
+      <title>FinTech Platform Architecture: Ledgers, Idempotency, and Auditability</title>
+      <link>https://elsakr.company/insights/fintech-platform-architecture</link>
+      <guid isPermaLink="true">https://elsakr.company/insights/fintech-platform-architecture</guid>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Architecture principles for money-moving platforms: an append-only ledger, idempotent requests, explicit transfer states, reconciliation, and security boundaries.</description>
+    </item>
+  </channel>
+</rss>
