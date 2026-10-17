@@ -8,6 +8,12 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     globals: false,
+    server: {
+      deps: {
+        // CJS package needs inlining so HelmetProvider context works under Vitest.
+        inline: ['react-helmet-async'],
+      },
+    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
@@ -24,6 +30,12 @@ export default defineConfig({
         'lib/motion.ts',
         'lib/seo/routeManifest.ts',
         'lib/seo/localePath.ts',
+        'lib/seo/sitemap.ts',
+        'lib/seo/schema.ts',
+        'lib/seo/relatedContent.ts',
+        'lib/seo/text.ts',
+        'lib/bundleBudget.ts',
+        'lib/webVitals.ts',
         'components/ui/MultiStepForm.tsx',
         'components/ui/FreeTools.tsx',
         'components/ui/ToolsSlider.tsx',
