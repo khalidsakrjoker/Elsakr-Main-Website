@@ -101,6 +101,83 @@ describe('ThemeContext', () => {
     expect(localStorage.getItem('language')).toBe('ar');
   });
 
+  it('restores a saved light theme after mount', () => {
+    localStorage.setItem('theme', 'light');
+    render(
+      <ThemeProvider>
+        <ThemeProbe />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId('theme')).toHaveTextContent('light');
+    expect(document.documentElement.classList.contains('light')).toBe(true);
+  });
+
+  it('uses the OS light preference when nothing is saved', () => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: (query: string) => ({
+        matches: query.includes('light'),
+        media: query,
+        onchange: null,
+        addListener: () => undefined,
+        removeListener: () => undefined,
+        addEventListener: () => undefined,
+        removeEventListener: () => undefined,
+        dispatchEvent: () => false,
+      }),
+    });
+    render(
+      <ThemeProvider>
+        <ThemeProbe />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId('theme')).toHaveTextContent('light');
+  });
+
+  it('honours initialLanguage and initialTheme props', () => {
+    render(
+      <ThemeProvider initialLanguage="ar" initialTheme="light">
+        <ThemeProbe />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId('language')).toHaveTextContent('ar');
+    expect(screen.getByTestId('direction')).toHaveTextContent('rtl');
+    expect(screen.getByTestId('theme')).toHaveTextContent('light');
+    expect(document.documentElement.getAttribute('lang')).toBe('ar');
+  });
+
+  it('prefers the URL pathname over a saved language preference', () => {
+    localStorage.setItem('language', 'ar');
+    Object.defineProperty(window.navigator, 'language', {
+      configurable: true,
+      get: () => 'ar-EG',
+    });
+    render(
+      <ThemeProvider>
+        <ThemeProbe />
+      </ThemeProvider>
+    );
+
+    expect(screen.getByTestId('language')).toHaveTextContent('en');
+  });
+
+  it('starts Arabic when the page is loaded under /ar', () => {
+    window.history.pushState({}, '', '/ar/about');
+    try {
+      render(
+        <ThemeProvider>
+          <ThemeProbe />
+        </ThemeProvider>
+      );
+      expect(screen.getByTestId('language')).toHaveTextContent('ar');
+    } finally {
+      window.history.pushState({}, '', '/');
+    }
+  });
+
   it('logs when localStorage writes fail', async () => {
     const user = userEvent.setup();
     vi.spyOn(localStorage, 'setItem').mockImplementation(() => {
