@@ -1,15 +1,46 @@
 import React from 'react';
 import { Layout } from '../components/ui/Layout';
+import { SEO } from '../components/seo/SEO';
+import { toMetaDescription } from '../lib/seo/text';
 import { MultiStepForm } from '../components/ui/MultiStepForm';
 import { useContent } from '../lib/useContent';
+import { getWhatsAppTelephone } from '../lib/contactConfig';
+import { ORGANIZATION_ID, SITE_ORIGIN } from '../lib/seo/schema';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { Accordion } from '../components/ui/Accordion';
+import { LocaleLink } from '../components/ui/LocaleLink';
 
 export default function Contact() {
   const { content, language } = useContent();
+  const telephone = getWhatsAppTelephone() || '+201016495229';
+  const localBusiness = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': `${SITE_ORIGIN}/contact#local`,
+    name: content.brand.name,
+    url: `${SITE_ORIGIN}/contact`,
+    email: content.brand.email,
+    telephone,
+    areaServed: ['Egypt', 'EMEA', 'Worldwide'],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: language === 'ar' ? 'القاهرة' : 'Cairo',
+      addressCountry: 'EG',
+    },
+    parentOrganization: { '@id': ORGANIZATION_ID },
+  };
 
   return (
     <Layout>
+      <SEO
+        title={`${content.contact.title} | ${content.brand.name}`}
+        description={toMetaDescription(
+          language === 'ar'
+            ? 'تواصل مع شركة الصقر للبرمجيات في مصر لخدمات الهندسة البرمجية عن بُعد وعبر منطقة EMEA.'
+            : 'Contact Elsakr in Egypt for software engineering across Egypt, EMEA, and remote worldwide delivery.'
+        )}
+        jsonLdExtra={localBusiness}
+      />
       <section className="py-20 px-6 min-h-[90vh] flex flex-col justify-center bg-app">
         <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4 space-y-12">
@@ -59,7 +90,9 @@ export default function Contact() {
                     {language === 'ar' ? 'القاهرة' : 'Cairo'}
                     <br />
                     <span className="text-ink-muted text-sm">
-                      {language === 'ar' ? 'مصر' : 'Egypt'}
+                      {language === 'ar'
+                        ? 'مصر — خدمة عن بُعد لمنطقة EMEA والعالم. لا ننشر عنوان شارع على هذا الموقع.'
+                        : 'Egypt — remote delivery across EMEA and worldwide. No street address is published on this site.'}
                     </span>
                   </p>
                 </div>
@@ -71,6 +104,11 @@ export default function Contact() {
                 {language === 'ar' ? 'أسئلة شائعة' : 'FAQ'}
               </h2>
               <div data-testid="contact-faq"><Accordion items={content.contact.faq.slice(0, 4)} /></div>
+              <p className="mt-4 text-sm text-ink-muted">
+                <LocaleLink to="/faq" className="text-accent font-semibold">
+                  {language === 'ar' ? 'كل الأسئلة الشائعة' : 'Full FAQ hub'}
+                </LocaleLink>
+              </p>
             </div>
           </div>
 

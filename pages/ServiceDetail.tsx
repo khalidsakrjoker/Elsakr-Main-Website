@@ -1,7 +1,14 @@
 import React from 'react';
-import { useParams, Navigate, Link } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
+import { LocaleLink } from '../components/ui/LocaleLink';
 import { Layout } from '../components/ui/Layout';
+import { SEO } from '../components/seo/SEO';
+import { buildBreadcrumbList, buildFaqPage, buildServiceSchema } from '../lib/seo/schema';
+import { getServiceFaqs } from '../content/shared/serviceFaqs';
 import { useContent } from '../lib/useContent';
+import { useEditorial } from '../lib/useEditorial';
+import { useLocalizedPath } from '../lib/useLocalizedPath';
+import { RelatedLinks } from '../components/ui/EditorialBlocks';
 import { Button } from '../components/ui/Button';
 import { ArrowRight, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -9,18 +16,49 @@ import { motion } from 'framer-motion';
 export default function ServiceDetail() {
   const { id } = useParams<{ id: string }>();
   const { content, language } = useContent();
+  const { editorial } = useEditorial();
+  const localize = useLocalizedPath();
   const ArrowIcon = language === 'ar' ? ArrowLeft : ArrowRight;
 
   const service = content.services.items.find((item) => item.id === id);
 
   if (!service || !service.details) {
-    return <Navigate to="/services" replace />;
+    return <Navigate to={localize('/services')} replace />;
   }
 
   const { details } = service;
+  const faqs = getServiceFaqs(service.id, language);
+  const relatedCaseStudies = editorial.caseStudies.items.filter((item) =>
+    item.serviceIds.includes(service.id)
+  );
+  const relatedIndustries = editorial.industries.items.filter((item) =>
+    item.serviceIds.includes(service.id)
+  );
+  const jsonLdExtra = [
+    buildServiceSchema({
+      id: service.id,
+      name: service.title,
+      description: details.longDescription,
+      language,
+    }),
+    buildBreadcrumbList(
+      [
+        { name: content.nav.home, path: '/' },
+        { name: content.nav.services, path: '/services' },
+        { name: service.title, path: `/services/${service.id}` },
+      ],
+      language
+    ),
+    ...(faqs.length ? [buildFaqPage(faqs, language)] : []),
+  ];
 
   return (
     <Layout>
+      <SEO
+        title={`${service.title} | ${content.brand.name}`}
+        description={details.longDescription}
+        jsonLdExtra={jsonLdExtra}
+      />
       <section className="relative py-20 px-6 bg-app overflow-hidden">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -41,17 +79,17 @@ export default function ServiceDetail() {
             <p className="text-xl text-ink-muted mb-8 leading-relaxed">{details.longDescription}</p>
 
             <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
+              <LocaleLink to="/contact">
                 <Button variant="primary">
                   {language === 'ar' ? 'ابدأ الاستشارة' : 'Start Consultation'}
                   <ArrowIcon className={`w-4 h-4 inline ${language === 'ar' ? 'mr-2' : 'ml-2'}`} />
                 </Button>
-              </Link>
-              <Link to="/services">
+              </LocaleLink>
+              <LocaleLink to="/services">
                 <Button variant="outline">
                   {language === 'ar' ? 'كل الحلول' : 'All Solutions'}
                 </Button>
-              </Link>
+              </LocaleLink>
             </div>
           </motion.div>
 
@@ -121,13 +159,50 @@ export default function ServiceDetail() {
               <p className="text-ink-muted mb-8">
                 {language === 'ar' ? 'دعنا نبني شيئًا استثنائيًا.' : "Let's build something extraordinary."}
               </p>
-              <Link to="/contact">
+              <LocaleLink to="/contact">
                 <Button variant="primary" fullWidth>
                   {language === 'ar' ? 'جدولة مكالمة' : 'Schedule a Call'}
                 </Button>
-              </Link>
+              </LocaleLink>
             </div>
           </div>
+        </div>
+      </section>
+
+      {faqs.length > 0 && (
+        <section className="py-24 px-6 bg-surface-muted border-t border-app">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-display text-3xl font-bold mb-10 text-ink">
+              {language === 'ar' ? 'أسئلة شائعة' : 'Frequently asked questions'}
+            </h2>
+            <dl className="space-y-6">
+              {faqs.map((item) => (
+                <div key={item.q} className="p-6 bg-surface border border-app rounded-lg">
+                  <dt className="font-display text-xl font-bold text-ink mb-3">{item.q}</dt>
+                  <dd className="text-ink-muted leading-relaxed">{item.a}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      )}
+
+      <section className="py-16 px-6 bg-app">
+        <div className="max-w-7xl mx-auto">
+          <RelatedLinks
+            title={editorial.labels.relatedCaseStudies}
+            links={relatedCaseStudies.map((item) => ({
+              name: item.name,
+              path: `/case-studies/${item.id}`,
+            }))}
+          />
+          <RelatedLinks
+            title={editorial.labels.relatedIndustries}
+            links={relatedIndustries.map((item) => ({
+              name: item.name,
+              path: `/industries/${item.id}`,
+            }))}
+          />
         </div>
       </section>
     </Layout>
