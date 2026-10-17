@@ -2,6 +2,40 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.4.0] - 2026-10
+
+GEO authority, discovery, and performance close-out (roadmap Nov 16–30 work landed with the indexability stack).
+
+### Added
+- Insights RSS (`public/insights.xml`), related-content graph, Web Vitals observers, and initial JS bundle budget helpers.
+- Crawl-audit / SEO-audit / discovery-file tests; Search Console checklist in `docs/SEARCH_INDEXING.md`.
+- Verifiable source blocks on case studies; service FAQs with FAQPage JSON-LD; Contact LocalBusiness schema (Egypt / EMEA, no fabricated street address).
+
+### Changed
+- Navigation exposes Case Studies, Insights, Industries, and FAQ hubs (desktop, mobile, footer).
+
+## [1.3.1] - 2026-10
+
+Content people actually search for (roadmap Nov 1–15).
+
+### Added
+- Bilingual case studies (Kashx, Sajda), industries hub, and Insights articles with Article / FAQ / Person schemas.
+- Service landing FAQs and cross-links into case studies and industries.
+
+## [1.3.0] - 2026-10
+
+Indexability foundation (roadmap Oct 18–31).
+
+### Added
+- English-root + Arabic `/ar` URL architecture, typed route manifest, locale-aware links and language switcher.
+- Build-time React SSG/prerender (`entry-server.tsx`, `scripts/prerender.mjs`) emitting Helmet title/meta/schema into route HTML.
+- Manifest-driven sitemap with EN/AR/`x-default` alternates; `llms.txt`; refreshed robots rules for search and AI crawlers.
+- BreadcrumbList, Service, Article, FAQPage, Person, and CaseStudy JSON-LD builders.
+
+### Fixed
+- ThemeProvider is SSR-safe (no window/localStorage access during prerender).
+- Legal sitemap paths use `/legal/privacy` and `/legal/terms`.
+
 ## [1.2.2] - 2026-10
 
 ### Added
