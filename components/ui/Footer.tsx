@@ -10,10 +10,13 @@ export const Footer: React.FC = () => {
   const { content, language } = useContent();
   const { brand } = content;
   const [message, setMessage] = useState('');
+  const trimmedMessage = message.trim();
+  const canSend = trimmedMessage.length > 0;
+  const sendLabel = language === 'ar' ? 'إرسال رسالة واتساب' : 'Send WhatsApp message';
 
   const handleQuickMessage = () => {
-    if (!message.trim()) return;
-    window.open(getWhatsAppMeUrl(message), '_blank');
+    if (!canSend) return;
+    window.open(getWhatsAppMeUrl(trimmedMessage), '_blank');
     setMessage('');
   };
 
@@ -75,11 +78,14 @@ export const Footer: React.FC = () => {
                   placeholder={language === 'ar' ? 'اكتب رسالتك...' : 'Type your message...'}
                   className="flex-1 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-white/10 rounded-lg px-4 py-2 text-sm text-slate-800 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500/50"
                 />
-                <Button 
+                <Button
+                  type="button"
                   onClick={handleQuickMessage}
+                  disabled={!canSend}
+                  aria-label={sendLabel}
                   className="!bg-green-500 hover:!bg-green-600 !px-4"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4" aria-hidden="true" />
                 </Button>
               </div>
             </div>
