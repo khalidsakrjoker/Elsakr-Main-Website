@@ -22,6 +22,8 @@ export default defineConfig({
         'lib/contactConfig.ts',
         'lib/contactStepSchema.ts',
         'lib/motion.ts',
+        'lib/seo/routeManifest.ts',
+        'lib/seo/localePath.ts',
         'components/ui/MultiStepForm.tsx',
         'components/ui/FreeTools.tsx',
         'components/ui/ToolsSlider.tsx',
