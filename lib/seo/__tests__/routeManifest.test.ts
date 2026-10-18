@@ -125,4 +125,43 @@ describe('route helpers', () => {
     expect(findRoute('/ar/services/web')?.kind).toBe('service');
     expect(findRoute('/nope')).toBeUndefined();
   });
+
+  it('findRoute resolves EN, AR, and editorial slugs to the same English entry', () => {
+    expect(findRoute('/case-studies/kashx')?.id).toBe('kashx');
+    expect(findRoute('/ar/case-studies/kashx')?.kind).toBe('case-study');
+    expect(findRoute('/ar/insights/fintech-platform-architecture')?.kind).toBe('insight');
+    expect(findRoute('/author/khalid-elsakr')?.kind).toBe('author');
+    expect(findRoute('/ar/faq')?.kind).toBe('faq');
+  });
+
+  it('lists prerender paths as EN then AR per manifest order with no duplicates', () => {
+    const all = listAllPrerenderPaths();
+    expect(all[0]).toBe('/');
+    expect(all[1]).toBe('/ar');
+    // Each English path is immediately followed by its Arabic mirror.
+    for (let i = 0; i < ROUTE_MANIFEST.length; i++) {
+      const en = getEnglishPath(ROUTE_MANIFEST[i]);
+      const ar = getArabicPath(ROUTE_MANIFEST[i]);
+      expect(all[i * 2]).toBe(en);
+      expect(all[i * 2 + 1]).toBe(ar);
+      expect(getAlternatePaths(en)).toEqual({ en, ar });
+      expect(getAlternatePaths(ar)).toEqual({ en, ar });
+    }
+  });
+
+  it('ranks web tool routes above desktop tool routes', () => {
+    const webIds = new Set(en.freeToolsWeb.map((tool) => tool.id));
+    const toolRoutes = ROUTE_MANIFEST.filter((route) => route.kind === 'tool');
+    for (const route of toolRoutes) {
+      expect(route.id).toBeTruthy();
+      if (webIds.has(route.id!)) {
+        expect(route.priority).toBe(0.8);
+      } else {
+        expect(route.priority).toBe(0.7);
+      }
+    }
+    expect(toolRoutes.some((route) => webIds.has(route.id!))).toBe(true);
+    expect(toolRoutes.some((route) => !webIds.has(route.id!))).toBe(true);
+  });
 });
+
