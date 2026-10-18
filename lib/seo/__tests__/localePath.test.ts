@@ -78,6 +78,21 @@ describe('localizedPath', () => {
     expect(localizedPath('/contact#form', 'ar')).toBe('/ar/contact#form');
   });
 
+  it('preserves combined query and hash, including when switching to English', () => {
+    expect(localizedPath('/tools?type=web#list', 'ar')).toBe('/ar/tools?type=web#list');
+    expect(localizedPath('/ar/tools?type=web#list', 'en')).toBe('/tools?type=web#list');
+    expect(localizedPath('/ar?utm=1', 'en')).toBe('/?utm=1');
+  });
+
+  it('normalizes trailing slashes on the path while keeping the suffix', () => {
+    expect(localizedPath('/about/', 'ar')).toBe('/ar/about');
+    expect(localizedPath('/ar/about/', 'en')).toBe('/about');
+    expect(localizedPath('/services/web/?ref=nav', 'ar')).toBe('/ar/services/web?ref=nav');
+    expect(withLocale('/ar/', 'en')).toBe('/');
+    expect(getLocaleFromPathname('/ar/?x=1')).toBe('ar');
+    expect(stripLocalePrefix('/ar/?x=1')).toBe('/');
+  });
+
   it('does not rewrite external, protocol-relative, hash-only or relative targets', () => {
     expect(localizedPath('https://example.com/x', 'ar')).toBe('https://example.com/x');
     expect(localizedPath('//cdn.example.com/x', 'ar')).toBe('//cdn.example.com/x');
@@ -90,3 +105,4 @@ describe('localizedPath', () => {
     expect(localizedPath('/ar/about', 'en')).toBe('/about');
   });
 });
+
