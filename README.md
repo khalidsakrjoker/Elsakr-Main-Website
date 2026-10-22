@@ -77,6 +77,8 @@ cp .env.example .env
 | `GEMINI_API_KEY` | No | Optional API key injected at build time via `vite.config.ts` for GEMINI integrations |
 | `API_KEY` | No | Alias of `GEMINI_API_KEY` (also exposed as `process.env.API_KEY` in the Vite build) |
 | `VITE_WHATSAPP_NUMBER` | Yes for contact CTAs | Digits-only WhatsApp business number (country code, no `+`). Read by `lib/contactConfig.ts` for forms, footer, and Organization JSON-LD |
+| `SITEMAP_LASTMOD` | No | Optional override for sitemap `<lastmod>` date (YYYY-MM-DD). Read at build time by `scripts/generate-sitemap.mjs` and `scripts/prerender.mjs` (defaults to `SITE_LASTMOD` in `lib/seo/routeManifest.ts`) |
+
 
 ### Testing
 
