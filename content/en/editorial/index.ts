@@ -1,4 +1,9 @@
-import type { EditorialContent } from '../shared/editorialTypes';
+import type { EditorialContent } from '../../shared/editorialTypes';
+import { kashxCaseStudy } from './kashx';
+import { sajdaCaseStudy } from './sajda';
+
+export { kashxCaseStudy } from './kashx';
+export { sajdaCaseStudy } from './sajda';
 
 /**
  * Editorial / trust-page copy (case studies, industries, insights, FAQ, author).
@@ -28,99 +33,7 @@ export const editorial: EditorialContent = {
     title: 'Case Studies',
     intro:
       'Two products from the Elsakr portfolio, described with the facts we publish today: what each one is, how it is put together, and what we focus on when building similar systems.',
-    items: [
-      {
-        id: 'kashx',
-        name: 'Kashx Company',
-        category: 'FinTech platform',
-        summary:
-          'A money-transfer and digital-wallet ecosystem: one core system plus three integrated apps, all reachable from the same link.',
-        image: '/assets/projects/kashx-company.png',
-        externalUrl: 'https://kashx.company/',
-        tags: ['FinTech', 'System', 'Mobile'],
-        industryIds: ['fintech'],
-        serviceIds: ['web', 'mobile', 'security', 'cloud'],
-        sections: [
-          {
-            heading: 'What Kashx is',
-            paragraphs: [
-              'Kashx is the full Kashx ecosystem in one place. At its centre is the core money-transfer and digital-wallet system. Around it sit three integrated apps that cover the rest of the workflow.',
-            ],
-            bullets: [
-              'Core money-transfer and digital-wallet system',
-              'WebView access app',
-              'SMS receiver app',
-              'Transfer execution app',
-            ],
-          },
-          {
-            heading: 'How the pieces fit together',
-            paragraphs: [
-              'The core system and the three apps are designed to work as one ecosystem rather than four disconnected tools. Everything is reachable from the same link, so people do not have to track separate entry points.',
-              'A multi-component platform like this needs clear boundaries between the core system and the apps at its edges, so each part can change without breaking the others.',
-            ],
-          },
-          {
-            heading: 'What we focus on in FinTech builds',
-            paragraphs: [
-              'We do not publish transaction volumes or customer numbers for Kashx on this website. What we can describe is the engineering discipline we bring to money-moving software:',
-            ],
-            bullets: [
-              'Correctness first: balances and transfers must be consistent and traceable.',
-              'Safe retries: a repeated request must never move money twice.',
-              'Security by default: least-privilege access, protected secrets, and audited actions.',
-              'Mobile and web surfaces that stay in step with the same core rules.',
-            ],
-          },
-        ],
-      },
-      {
-        id: 'sajda',
-        name: 'Sajda POS',
-        category: 'Cloud POS and retail software',
-        summary:
-          'Cloud POS and retail software for Egyptian shops, with Windows builds that keep selling when the internet drops.',
-        image: '/assets/projects/sajda-pos.jpg',
-        externalUrl: 'https://sajdapos.com/',
-        tags: ['POS', 'Retail', 'Desktop', 'Cloud'],
-        industryIds: ['retail-pos'],
-        serviceIds: ['web', 'cloud', 'design'],
-        sections: [
-          {
-            heading: 'What Sajda POS is',
-            paragraphs: [
-              'Sajda POS is cloud POS and retail software built for shops in Egypt. It covers the daily work of a retail counter and the back office behind it.',
-            ],
-            bullets: [
-              'Barcode sales',
-              'Shift cash counts',
-              'Returns',
-              'Installments',
-              'Purchases and expenses',
-              'Customer and supplier balances',
-            ],
-          },
-          {
-            heading: 'Selling through an outage',
-            paragraphs: [
-              'The Windows builds keep selling when the internet drops. For a shop, a dead connection must not mean a closed till, so the checkout flow is designed to continue and catch up once the connection returns.',
-            ],
-          },
-          {
-            heading: 'What we focus on in retail systems',
-            paragraphs: [
-              'We do not publish store counts or sales figures for Sajda POS on this website. The engineering priorities behind it are the ones we apply to any retail system:',
-            ],
-            bullets: [
-              'A checkout that stays fast and available at the counter.',
-              'Cash that reconciles at the end of every shift.',
-              'Returns, installments, and balances that stay accurate over time.',
-              'Cloud features that complement, rather than gate, the till.',
-            ],
-          },
-        ],
-      },
-    ],
+    items: [kashxCaseStudy, sajdaCaseStudy],
   },
   industries: {
     title: 'Industries',
