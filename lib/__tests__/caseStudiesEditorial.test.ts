@@ -5,8 +5,12 @@ import { kashxCaseStudy as kashxEn } from '../../content/en/editorial/kashx';
 import { sajdaCaseStudy as sajdaEn } from '../../content/en/editorial/sajda';
 import { kashxCaseStudy as kashxAr } from '../../content/ar/editorial/kashx';
 import { sajdaCaseStudy as sajdaAr } from '../../content/ar/editorial/sajda';
+import { industries as industriesEn } from '../../content/en/editorial/industries';
+import { industries as industriesAr } from '../../content/ar/editorial/industries';
+import { insights as insightsEn } from '../../content/en/editorial/insights';
+import { insights as insightsAr } from '../../content/ar/editorial/insights';
 
-describe('editorial case studies modularity', () => {
+describe('editorial modularity (case studies, industries, insights)', () => {
   it('exports distinct per-id case study modules for English and Arabic', () => {
     expect(kashxEn.id).toBe('kashx');
     expect(kashxEn.name).toBe('Kashx Company');
@@ -35,6 +39,28 @@ describe('editorial case studies modularity', () => {
     expect(arEditorial.caseStudies.items).toHaveLength(2);
     expect(arEditorial.caseStudies.items[0]).toEqual(kashxAr);
     expect(arEditorial.caseStudies.items[1]).toEqual(sajdaAr);
+  });
+
+  it('exports modular industries for English and Arabic', () => {
+    expect(industriesEn.items.map((i) => i.id)).toEqual(['retail-pos', 'fintech', 'enterprise']);
+    expect(industriesAr.items.map((i) => i.id)).toEqual(['retail-pos', 'fintech', 'enterprise']);
+    expect(enEditorial.industries).toEqual(industriesEn);
+    expect(arEditorial.industries).toEqual(industriesAr);
+  });
+
+  it('exports modular insights for English and Arabic', () => {
+    expect(insightsEn.items.map((i) => i.id)).toEqual([
+      'choosing-software-company-egypt',
+      'cloud-pos-offline-continuity',
+      'fintech-platform-architecture',
+    ]);
+    expect(insightsAr.items.map((i) => i.id)).toEqual([
+      'choosing-software-company-egypt',
+      'cloud-pos-offline-continuity',
+      'fintech-platform-architecture',
+    ]);
+    expect(enEditorial.insights).toEqual(insightsEn);
+    expect(arEditorial.insights).toEqual(insightsAr);
   });
 
   it('ensures each case study has required structural sections and bullets', () => {
