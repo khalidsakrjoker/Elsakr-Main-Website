@@ -88,6 +88,26 @@ describe('technical SEO audit (hydrated page head)', () => {
       expect(document.head.querySelector('link[hreflang="x-default"]')).toBeTruthy();
       expect(document.head.querySelectorAll('script[type="application/ld+json"]').length).toBeGreaterThan(0);
       expect(container.querySelector('h1')).toBeTruthy();
+      expect(container.textContent?.trim().length).toBeGreaterThan(50);
     });
   }
+
+  it('renders service detail body text for English and Arabic service routes', async () => {
+    const en = renderPath('/services/web');
+    await waitFor(() => {
+      expect(document.title).toContain('Web Architecture');
+    });
+    expect(en.container.querySelector('h1')?.textContent).toContain('World-Class Web Apps');
+    expect(en.container.textContent).toContain('Web Architecture');
+
+    cleanup();
+    document.head.innerHTML = '';
+
+    const ar = renderPath('/ar/services/web');
+    await waitFor(() => {
+      expect(document.title).toContain('Web Architecture');
+    });
+    expect(ar.container.querySelector('h1')?.textContent).toContain('Web Apps بمواصفات عالمية');
+    expect(ar.container.textContent).toContain('Web Architecture');
+  });
 });
