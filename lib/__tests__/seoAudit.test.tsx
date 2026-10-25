@@ -69,7 +69,16 @@ describe('technical SEO audit (hydrated page head)', () => {
     });
   });
 
-  const paths = ['/', '/about', '/ar', '/ar/about', '/services/web', '/ar/services/web'];
+  const paths = [
+    '/',
+    '/about',
+    '/ar',
+    '/ar/about',
+    '/services/web',
+    '/ar/services/web',
+    '/legal/privacy',
+    '/ar/legal/privacy',
+  ];
 
   for (const path of paths) {
     it(`emits title, description, canonical, hreflang, schema, and H1 for ${path}`, async () => {
