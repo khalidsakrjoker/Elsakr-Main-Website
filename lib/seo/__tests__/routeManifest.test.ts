@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { content as en } from '../../../content/en/index';
+import { content as ar } from '../../../content/ar/index';
 import {
   ROUTE_MANIFEST,
   SITE_ORIGIN,
@@ -55,6 +56,13 @@ describe('routeManifest', () => {
         .sort()
     ).toEqual(toolIds);
   });
+
+  it('verifies every English tool id has a matching Arabic tool id and vice versa', () => {
+    const enToolIds = [...en.freeToolsDesktop, ...en.freeToolsWeb].map((tool) => tool.id).sort();
+    const arToolIds = [...ar.freeToolsDesktop, ...ar.freeToolsWeb].map((tool) => tool.id).sort();
+    expect(enToolIds).toEqual(arToolIds);
+  });
+
 
   it('includes placeholders for editorial and trust pages', () => {
     const paths = ROUTE_MANIFEST.map((route) => route.path);

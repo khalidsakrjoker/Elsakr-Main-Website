@@ -34,3 +34,55 @@ export const toolsSchema = z
 export const toolsCatalogSchema = z.array(toolsSchema);
 
 export type ToolsSchemaEntry = z.infer<typeof toolsSchema>;
+export type ToolLinks = z.infer<typeof toolLinksSchema>;
+
+export interface InvariantToolProps {
+  id: string;
+  category?: string;
+  version?: string;
+  releaseDate?: string;
+  image?: string;
+  logo?: string;
+  links: ToolLinks;
+  tags?: string[];
+}
+
+export interface LocalizedToolProps {
+  title: string;
+  description: string;
+  longDescription?: string;
+  features?: string[];
+  useCases?: string[];
+  howToUse?: string[];
+  benefits?: string[];
+  keywords?: string[];
+}
+
+/**
+ * Factory that merges locale-invariant metadata (id, category, version, links, tags, logo)
+ * with language-specific copy, preventing key drift and duplication between EN/AR catalogs.
+ */
+export function buildToolEntry(
+  invariant: InvariantToolProps,
+  localized: LocalizedToolProps
+): ToolsSchemaEntry {
+  return {
+    id: invariant.id,
+    title: localized.title,
+    description: localized.description,
+    longDescription: localized.longDescription,
+    features: localized.features,
+    useCases: localized.useCases,
+    howToUse: localized.howToUse,
+    benefits: localized.benefits,
+    keywords: localized.keywords,
+    category: invariant.category,
+    version: invariant.version,
+    releaseDate: invariant.releaseDate,
+    image: invariant.image,
+    logo: invariant.logo ?? `/assets/tools/logos/${invariant.id}.svg`,
+    links: invariant.links,
+    tags: invariant.tags,
+  };
+}
+
