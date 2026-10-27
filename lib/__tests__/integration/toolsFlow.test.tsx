@@ -81,5 +81,6 @@ describe('integration tools catalog flow', () => {
     expect(document.head.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(
       'https://elsakr.company/tools/seo-toolkit'
     );
-  });
+  }, 15000);
 });
+

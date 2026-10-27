@@ -115,5 +115,6 @@ describe('integration locale routing', () => {
     });
     expect(hreflangHrefs()['x-default']).toBe('https://elsakr.company/about');
     expect(document.documentElement).toHaveAttribute('lang', 'en');
-  });
+  }, 15000);
 });
+

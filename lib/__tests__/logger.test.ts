@@ -33,4 +33,43 @@ describe('logger', () => {
       })
     );
   });
+
+  it('forwards error payloads to a registered error sink', () => {
+    const sink = vi.fn();
+    logger.setErrorSink(sink);
+
+    logger.error('network failure', { status: 500 });
+    expect(sink).toHaveBeenCalledTimes(1);
+    expect(sink).toHaveBeenCalledWith(
+      expect.objectContaining({
+        level: 'error',
+        message: 'network failure',
+        details: { status: 500 },
+      })
+    );
+
+    logger.setErrorSink(null);
+  });
+
+  it('supports reportError as an alias for logger.error', () => {
+    const sink = vi.fn();
+    logger.setErrorSink(sink);
+
+    logger.reportError('unhandled rejection', { reason: 'timeout' });
+    expect(console.error).toHaveBeenCalledWith(
+      expect.objectContaining({
+        level: 'error',
+        message: 'unhandled rejection',
+      })
+    );
+    expect(sink).toHaveBeenCalledWith(
+      expect.objectContaining({
+        message: 'unhandled rejection',
+        details: { reason: 'timeout' },
+      })
+    );
+
+    logger.setErrorSink(null);
+  });
 });
+

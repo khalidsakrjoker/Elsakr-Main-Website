@@ -78,6 +78,7 @@ cp .env.example .env
 | `API_KEY` | No | Alias of `GEMINI_API_KEY` (also exposed as `process.env.API_KEY` in the Vite build) |
 | `VITE_WHATSAPP_NUMBER` | Yes for contact CTAs | Digits-only WhatsApp business number (country code, no `+`). Read by `lib/contactConfig.ts` for forms, footer, and Organization JSON-LD |
 | `SITEMAP_LASTMOD` | No | Optional override for sitemap `<lastmod>` date (YYYY-MM-DD). Read at build time by `scripts/generate-sitemap.mjs` and `scripts/prerender.mjs` (defaults to `SITE_LASTMOD` in `lib/seo/routeManifest.ts`) |
+| `VITE_ERROR_TRACKING_DSN` | No | Optional external error-tracking ingestion URL (e.g. Sentry DSN or telemetry collector). Forwarded by `lib/logger.ts` for error-level payloads |
 
 
 ### Testing
@@ -150,7 +151,7 @@ npm ci && npm run lint && npm run typecheck && npm run test:coverage && npm run 
 
 `verify` is the gate before push and before shipping the Docker image. Compose itself does not re-run lint/tests — it only builds and serves the production assets.
 
-### Observability
+### Observability & Health
 
 Client-side logging goes through `lib/logger.ts`. Every call emits a structured object (not a raw string):
 
@@ -158,7 +159,11 @@ Client-side logging goes through `lib/logger.ts`. Every call emits a structured 
 { level: 'info' | 'warn' | 'error', message: string, timestamp: string, details?: unknown }
 ```
 
-Use it from React error boundaries and recoverable UI failures (for example MultiStepForm WhatsApp popup blocks). `ErrorBoundary` around `App` logs render errors via `logger.error`. Prefer `logger` over bare `console.*` so payloads stay consistent for future sinks.
+Use it from React error boundaries and recoverable UI failures (for example MultiStepForm WhatsApp popup blocks). `ErrorBoundary` around `App` logs render errors via `logger.error`.
+
+- **Error Tracking Sink:** In production, `logger.error` forwards payloads to `VITE_ERROR_TRACKING_DSN` (e.g. Sentry or custom telemetry webhook) when configured, or to an in-process hook registered via `logger.setErrorSink(sink)`.
+- **Health Check Endpoint:** The container serves a dedicated health check at `/health` returning JSON `{"status":"healthy","version":"1.4.0","service":"elsakr-frontend"}` mapped to Docker's container healthcheck. For SPA preview/static serving, `public/health.json` is also bundled.
+
 
 ## 📂 Project Structure
 
