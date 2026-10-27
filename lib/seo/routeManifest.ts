@@ -66,6 +66,10 @@ const toolRoutes: SeoRoute[] = [...enContent.freeToolsWeb, ...enContent.freeTool
 );
 
 /** Slugs for the editorial/trust pages; the page components live under /pages. */
+export const TOOL_IDS: readonly string[] = [
+  ...enContent.freeToolsWeb,
+  ...enContent.freeToolsDesktop,
+].map((tool) => tool.id);
 export const CASE_STUDY_IDS = ['kashx', 'sajda'] as const;
 export const INDUSTRY_IDS = ['retail-pos', 'fintech', 'enterprise'] as const;
 export const INSIGHT_IDS = [

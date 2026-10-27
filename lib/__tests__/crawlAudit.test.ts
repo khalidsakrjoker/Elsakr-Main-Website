@@ -1,7 +1,13 @@
 import { describe, it, expect } from 'vitest';
-import { ROUTE_MANIFEST, getAlternatePaths, listAllPrerenderPaths } from '../seo/routeManifest';
+import {
+  ROUTE_MANIFEST,
+  TOOL_IDS,
+  getAlternatePaths,
+  listAllPrerenderPaths,
+} from '../seo/routeManifest';
 import { generateSitemapXml } from '../seo/sitemap';
 import { buildRelatedContentGraph } from '../seo/relatedContent';
+import { content as enContent } from '../../content/en/index';
 
 describe('crawl audit foundations', () => {
   it('keeps sitemap parity with the prerender path list', () => {
@@ -12,6 +18,27 @@ describe('crawl audit foundations', () => {
       const abs =
         path === '/' ? 'https://elsakr.company/' : `https://elsakr.company${path}`;
       expect(xml).toContain(`<loc>${abs}</loc>`);
+    }
+  });
+
+  it('includes every tool id from catalog under kind=tool in ROUTE_MANIFEST', () => {
+    const catalogToolIds = [
+      ...enContent.freeToolsWeb,
+      ...enContent.freeToolsDesktop,
+    ].map((tool) => tool.id);
+
+    const toolRoutes = ROUTE_MANIFEST.filter((route) => route.kind === 'tool');
+    const manifestToolIds = toolRoutes.map((route) => route.id);
+
+    expect(TOOL_IDS).toEqual(catalogToolIds);
+    expect(manifestToolIds).toEqual(catalogToolIds);
+    expect(toolRoutes.length).toBe(catalogToolIds.length);
+
+    for (const tool of [...enContent.freeToolsWeb, ...enContent.freeToolsDesktop]) {
+      const match = toolRoutes.find((route) => route.id === tool.id);
+      expect(match).toBeDefined();
+      expect(match?.path).toBe(`/tools/${tool.id}`);
+      expect(match?.priority).toBeGreaterThanOrEqual(0.7);
     }
   });
 
